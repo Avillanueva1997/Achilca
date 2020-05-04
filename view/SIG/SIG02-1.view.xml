@@ -1,0 +1,63 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.SIG.SIG02-1"
+	xmlns:layout="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:unified="sap.ui.unified"
+    xmlns:t="sap.ui.table"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls">
+    <Page
+    title= "Auditoría"
+    showNavButton="true"
+    navButtonPress="onNavBack">
+    <headerContent>
+        <Button press="onGenerateChartN2" icon="sap-icon://full-stacked-column-chart"/>
+        <Button press="onGenerateChartN1" icon="sap-icon://radar-chart"/>
+        <Button icon="sap-icon://save" tooltip="Guardar" press="onSave" />
+    </headerContent>
+    <content>
+          <Table 
+            id="TableSIG"
+            growing="true"
+            growingThreshold="30"
+            inset="false"
+            items="{path: '/'}"
+            alternateRowColors="true"
+            mode="None"> 
+            <columns>
+            <Column width="21em">
+                <Text text="Término"/>
+            </Column>
+            <Column 
+                minScreenWidth="Tablet"
+				demandPopin="true">
+                <Text text="NcMa"/>
+            </Column>
+            <Column 
+                minScreenWidth="Tablet"
+				demandPopin="true">
+                <Text text="NcMe"/>
+            </Column>
+            <Column hAlign="End">
+                <Text text="Obs"/>
+            </Column>
+            </columns>
+            <items>
+            <ColumnListItem>
+                <cells>
+                <ComboBox showSecondaryValues="true" items="{path: 'cbxTermino>/', templateShareable:false}" selectedKey="{termino}" width="100%" editable="false">
+                  <core:ListItem key="{cbxTermino>code}" text="{cbxTermino>description}" additionalText="{cbxTermino>code}"/>
+                </ComboBox>
+                <Input value="{no_cfd_mayor}" type="Number" />
+                <Input value="{no_cfd_menor}" type="Number" />
+                <Input value="{obs}" type="Number" />
+                </cells>
+            </ColumnListItem>
+            </items>
+        </Table>
+    </content>
+    </Page>
+</mvc:View>

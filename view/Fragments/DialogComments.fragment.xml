@@ -1,0 +1,46 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+<Dialog id="commentsDialog" title="Comentarios" 					
+		contentWidth= "1000px"
+		contentHeight= "300px"
+		resizable= "true"
+		draggable= "true">
+    <!--<List 
+    class="sapUiResponsiveMargin"
+    width="auto"
+    items="{comments>/}" >
+    <items>
+        <ObjectListItem
+			title="{comments>fecha}">
+			<ObjectAttribute text="{comments>comment}" />
+		</ObjectListItem>
+    </items>
+    </List>-->
+    	<List
+		growing="true"
+		growingThreshold="30"
+		busyIndicatorDelay="200"
+		enableBusyIndicator="true"
+		noDataText="Sin Comentarios"
+		items="{comments>/}" 
+		class="styleBorder">
+		<!--<headerToolbar>
+			<OverflowToolbar>
+				<Title text="Products" level="H2" />
+				<ToolbarSpacer />
+				<Button
+					icon="sap-icon://refresh"
+					press="refreshDataFromBackend" />
+			</OverflowToolbar>
+		</headerToolbar>-->
+		<StandardListItem
+			title="{comments>fecha}"
+			description="{comments>comment}"
+			icon="{comments>icon}"
+			iconDensityAware="false"
+			iconInset="false"/>
+        </List>
+    <beginButton>
+        <Button text="Cerrar" press="onCloseComments"/>
+    </beginButton>
+</Dialog>
+</core:FragmentDefinition>

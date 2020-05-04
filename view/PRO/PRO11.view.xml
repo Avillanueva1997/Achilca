@@ -1,0 +1,74 @@
+<mvc:View
+    controllerName="sap.ui.app01.controller.PRO.PRO11"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:unified="sap.ui.unified"
+    xmlns:t="sap.ui.table"
+    xmlns="sap.m"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:vm="sap.ui.comp.variants"
+    xmlns:viz="sap.viz.ui5.controls">
+    <Page
+      title="Database"
+      id="PRO11"
+      showNavButton="true"
+      navButtonPress="onNavBack"
+	  enableScrolling="true">
+    <content>
+    <l:FixFlex id='chartFixFlex' minFlexSize="250">
+        <!--Below is the setting panel -->
+        <l:fixContent>
+            <Panel id='settingsPanel' class="panelStyle" expandable="true" expanded="false" width="auto">
+                <content>
+                    <HBox class='settingsHBox'>
+                    <VBox class='settingsBox'>
+                        <Label text="Año" design="Bold" class='settingsLabel'></Label>
+                        <ComboBox items="{path: 'cbxYear>/', templateShareable:false}" width="50%" id="btnFilterYear" change="getData">
+							<core:ListItem key="{cbxYear>description}" text="{cbxYear>description}"/>
+						</ComboBox>
+                    </VBox>
+                    <VBox class='settingsBox'>
+                        <Label text='Actividad' design="Bold" class='settingsLabel'></Label>
+						<ComboBox items="{path: 'cbxActividad>/', templateShareable:false}" width="80%" id="btnFilterActividad" change="getData">
+							<core:ListItem key="{cbxActividad>description}" text="{cbxActividad>description}"/>
+						</ComboBox>
+                    </VBox>
+                    </HBox>
+                </content>
+            </Panel>
+        </l:fixContent>
+        <l:flexContent>
+			<IconTabBar id="idIconTabBarNoIcons" items="{/}" select="getData">
+				<items>
+					<IconTabFilter text="{code}" key="{code}">
+						<Table growing="true" growingThreshold="30" items="{path: '/dataLinea', templateShareable:false}" inset="false" id="tableLineaProduccion">
+							<columns>
+								<Column width="10rem">
+									<Text text="Mes" />
+								</Column>
+								<Column hAlign="End">
+									<Text text="Valor" />
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem >
+									<cells>
+                                    <ComboBox showSecondaryValues="true" items="{path: 'cbxMonth>/', templateShareable:false}" selectedKey="{Month}" width="100%" enabled="false">
+                                        <core:ListItem key="{cbxMonth>code}" text="{cbxMonth>description}" additionalText="{cbxMonth>code}"/>
+                                    </ComboBox>
+                                    <Input value="{Value}" type="Number" editable="false"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+        </l:flexContent>
+    </l:FixFlex>
+    </content>
+    </Page>
+</mvc:View>

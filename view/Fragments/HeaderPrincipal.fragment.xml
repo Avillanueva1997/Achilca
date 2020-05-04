@@ -1,0 +1,59 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+    xmlns:tnt="sap.tnt"
+	xmlns:core="sap.ui.core">
+    <tnt:ToolHeader>
+        <Image src="assets/images/favicon_n2.png" width="2.5rem">
+            <layoutData>
+                <OverflowToolbarLayoutData priority="NeverOverflow" />
+            </layoutData>
+        </Image>
+        <!--<ToolbarSpacer />-->
+        <IconTabHeader id="iconTabHeaderPrincipal"
+			selectedKey="homeConfig"
+			select="setTiles"
+            showOverflowSelectList="true"
+			backgroundDesign="Transparent"
+			mode="Inline">
+			<layoutData>
+				<OverflowToolbarLayoutData
+					priority="NeverOverflow"
+					shrinkable="true" />
+			</layoutData>
+			<items>
+                <IconTabFilter text="Configuración" key="homeConfig">
+				</IconTabFilter>
+				<IconTabFilter text="Gestión de Operaciones" key="homeGO">
+				</IconTabFilter>
+                <IconTabFilter text="OKRs" key="homeOKRS">
+				</IconTabFilter>
+                 <IconTabFilter text="Supply Chain" key="homeSP">
+				</IconTabFilter>
+			</items>
+		</IconTabHeader>
+        <ToolbarSpacer>
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow" minWidth="16px" />
+			</layoutData>
+		</ToolbarSpacer>
+        <Button icon="sap-icon://group" type="Transparent" tooltip="Equipo" press="onTeam">
+            <layoutData>
+                <OverflowToolbarLayoutData priority="NeverOverflow" />
+            </layoutData>
+        </Button>
+        <Button icon="sap-icon://business-objects-experience" type="Transparent" tooltip="Indicadores" press="onKpi">
+            <layoutData>
+                <OverflowToolbarLayoutData priority="NeverOverflow" />
+            </layoutData>
+        </Button>
+        <Button icon="sap-icon://log" type="Transparent" tooltip="Salir" press="onLogout">
+            <layoutData>
+                <OverflowToolbarLayoutData priority="NeverOverflow" />
+            </layoutData>
+        </Button>
+	</tnt:ToolHeader>
+    
+</core:FragmentDefinition>

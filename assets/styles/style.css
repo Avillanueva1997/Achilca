@@ -1,0 +1,289 @@
+.sapMInputBaseInner, .sapMSFI[type='search'] {
+	text-transform: uppercase;
+}
+
+div[class*="hboxContentButtonMiddle"]{
+	position: absolute;
+	bottom: 2%;
+	right: 2%;
+}
+
+div[class*="fixFlexTabMain "] > div > div[class="sapUiFixFlexFlexibleContainer sapUiFixFlexFlexibleContainerGrowing"]{
+	height: 100%;
+}
+
+div[id*="idChart"], div[id*="idProduccion"]{
+	box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+	border-radius: 6px;
+	background-color: white;
+}
+
+.styleBorder {
+	box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+    border-radius: 6px;
+}
+
+div[id*="viewPRO03--dynamicPageId-content"]{
+	padding: 0px !important;
+}
+
+div[id*="viewPRO03--idIconTabBarNoIcons-content"]{
+	padding: 0px;
+}
+
+span[id*="viewPRO03--btnNextPage-inner"]{
+	background-color: #d1e0ee;
+	border: none;	
+}
+
+span[id*="viewPRO03--btnNextPage-inner"]:hover{
+	background-color: none;
+	border: none;	
+}
+
+
+button[id*="viewHome--iconTabHeaderPrincipal-overflow"]{
+	top: 0px !important;
+}
+
+section[id*="viewLogin--pageLogin-cont"]{
+	/* Location of the image */
+	/*background-image: url('../images/backgroundNav.jpg');*/
+	/*background-image: url('../images/backgroundHome.jpg');*/
+	background-image: url('../images/backgroundLoad.jpg');
+	
+	/* Background image is centered vertically and horizontally at all times */
+	background-position: center center;
+
+	/* Background image doesn't tile */
+	background-repeat: no-repeat;
+
+	/* Background image is fixed in the viewport so that it doesn't move when 
+	the content's height is greater than the image's height */
+	background-attachment: fixed;
+
+	/* This is what makes the background image rescale based
+	on the container's size */
+	background-size: cover;
+
+	/* Set a background color that will be displayed
+   while the background image is loading 
+	background-color: #464646;*/
+}
+
+img[class*="centerImage"]{
+	width: 50rem;
+}
+
+button[class*="colorAchilca"] > span {
+	background-color: #003da7 !important;
+	border-color: #003da7 !important;
+	font-weight: bold;
+}
+
+
+.title {
+	color: #2f3c48 !important;
+    font-weight: bold !important;
+}
+
+section[id*="pageHome-cont"]{
+	background-image: url('../images/BackgroundN7.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.sizeGauge{
+	width:400px !important; 
+	height:320px !important;
+	box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+	border-radius: 6px;
+	background-color: white;
+}
+
+.styleTile{
+	box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+	border-radius: 30px/90px;
+	width: 80%;
+	background-color: white;
+}
+
+.table {
+	border-collapse: collapse;
+	margin: 10px;
+	width: 98%;
+}
+
+.styleTablePDF{
+	border: 1.5px solid black;
+	padding: 8px;
+}
+
+.imagePDF{
+	width: 70%;
+}
+
+.imagePDFSecond{
+	width: 30%;
+}
+
+
+.widthFirstColumn{
+	width: 40%;
+}
+
+.headerPDF{
+	font-weight: 900;
+	font-size: 26px;
+	font-family: "Times New Roman", Times, serif;
+	color:#003da7;
+	text-align: center;
+}
+
+.subheaderPDF{
+	font-weight: 900;
+	font-size: 22px;
+	font-family: "Times New Roman", Times, serif;
+	text-align: center;
+}
+
+.textNormalPDF{
+	font-weight: 900;
+	font-size: 18px;
+	font-family: "Times New Roman", Times, serif;
+	text-align: center;
+}
+
+.secondTextNormalPDF{
+	/*font-weight: 900;
+	font-size: 18px;
+	font-family: "Times New Roman", Times, serif;
+	text-align: center;*/
+	color: #003da7;
+}
+
+
+/* section[id*="viewPdf--Pdf-cont"]{
+	background-color: white;
+} */
+
+div[id*="idChartOEE"]{
+	height: 300px !important;
+}
+
+div[id*="idProduccionSecond"], div[id*="idProduccionThird"]{
+	height: 320px !important;
+}
+
+div[id*="viewHome--iconTabHeaderPrincipal-head"]{
+	transform: none !important;
+}
+
+div[id*="viewHome--iconTabHeaderPrincipal-head"] div{
+	visibility: visible !important;
+}
+
+.colorWhite > span > bdi {
+	color: white;
+}
+
+div[id*="viewHomeSIG-G--idChart1"], div[id*="viewHomeSIG-G--idChart2"]{
+	background-color: white;
+}
+
+span[id*="viewHomeSIG-G--settingsPanel-CollapsedImg"]{
+	color: white;
+}
+
+.buttonWhite > span > span {
+	color: white;
+}
+
+.sapMSLIDescription{
+	white-space: initial !important;
+}
+
+.styleCenter{
+	text-align: center;
+}
+
+.styleMarginVizFrame{
+	margin: 0.5rem 0.5rem 0.5rem auto;
+}
+
+.sapUiFixFlex, .sapMSLI.sapMSLIWithDescription {
+	height: auto !important;
+}
+
+.heightDonut{
+	height: 320px !important;
+}
+
+.sapMSLIDiv{
+	padding: 0.5rem ;
+}
+
+.sapMLnk{
+	font-weight: bold !important;
+	color:  white !important;
+}
+
+h5[id*="viewOKR3-6R--titleHideN"]{
+	height: 0px !important;
+}
+
+span[id*="viewHomeSIG-G--settingsPanel-CollapsedImg-img"]{
+	color: white !important;
+}
+
+@media only screen and (max-width: 375px) and (min-width: 320px) {
+	img[class*="centerImage"]{
+		width: 20rem;
+	}
+}
+
+@media only screen and (max-width: 600px) and (min-width: 375px){
+	img[class*="centerImage"]{
+		width: 22rem;
+	}
+}
+
+@media only screen and (max-width: 800px) and (min-width: 600px){
+	img[class*="centerImage"]{
+		width: 35rem;
+	}
+}
+
+
+@media screen and (max-width: 640px) {
+	.table {
+	  display: block;
+	  overflow-x: auto;
+	  width: 95%;
+	  padding: 0;
+	  border: none;
+	}
+
+	.imagePDF {
+		width: 7em !important;
+		height: 3.5em;
+	}
+	
+	.headerPDF {
+		font-size: 0.8em !important;
+	}
+
+	.subheaderPDF {
+		font-size: 0.8em !important;
+	}
+
+	.textNormalPDF {
+		font-size: 0.8em !important;
+	}
+
+	div[id*="viewPdf--areaPdf"]{
+		margin: 0px !important;
+	}
+}

@@ -1,0 +1,97 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog id="DialogPASIMA">
+    <customHeader>
+        <Bar>
+            <contentMiddle>
+                 <Label text="Plan de Acción"/>
+            </contentMiddle>
+        </Bar>
+    </customHeader>
+	<Table 
+        id="TablePASIMA"
+        growing="true"
+        growingThreshold="30"
+        inset="false"
+        items="{path: 'planAccion>/', templateShareable:false}"
+        alternateRowColors="true"
+		mode="None">
+		<headerToolbar>
+			<OverflowToolbar>
+				<content>
+				<ToolbarSpacer />
+				<SearchField width="25%" liveChange="onSearchPASIMA" id="searchFieldSIMA"/>					
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+            <columns>
+                <Column width="4em">
+                    <Text text="Ítem"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                    <Text text="Tipo"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                    <Text text="Actividad"/>
+                </Column>
+				<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                    <Text text="Fecha Inicio"/>
+                </Column>
+				<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                    <Text text="Fecha Fin"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                    <Text text="Área"/>
+                </Column>
+				<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                    <Text text="Responsable"/>
+                </Column>
+                <Column hAlign="End" width="4em">
+                    <Text text="Status"/>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+					<Text text="{planAccion>correlativo}"/>
+                    <Text text="{planAccion>type}"/>
+                    <Text text="{planAccion>activity}"/>
+                    <Text text="{
+                        path: 'planAccion>fecha_inicio',
+                        type: 'sap.ui.model.type.Date',
+                        formatOptions: {
+                            style: 'long',
+                            source: {
+                                pattern: 'yyyy-MM-dd'
+                            }
+                        }
+                    }" />
+                    <Text text="{
+                        path: 'planAccion>fecha_fin',
+                        type: 'sap.ui.model.type.Date',
+                        formatOptions: {
+                            style: 'long',
+                            source: {
+                                pattern: 'yyyy-MM-dd'
+                            }
+                        }
+                    }" />
+                    <Text text="{planAccion>area}"/>
+                    <Text text="{planAccion>responsable}"/>
+					<core:Icon
+						src="sap-icon://circle-task-2"
+						color="{planAccion>status}">
+						<core:layoutData>
+							<FlexItemData growFactor="1" />
+						</core:layoutData>
+					</core:Icon>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+		    <buttons>
+				<Button text= "Cerrar" press= "onExitSIMA" type= "Reject"/>
+			</buttons>
+</Dialog>
+</core:FragmentDefinition>

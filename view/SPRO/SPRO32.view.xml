@@ -1,0 +1,84 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.SPRO.SPRO32"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core"
+  xmlns:tnt="sap.tnt"
+  xmlns:u="sap.ui.unified"
+  xmlns:t="sap.ui.table"
+  xmlns="sap.m">
+    <Page
+      title="Usuarios"
+      id="SPRO32"
+      showNavButton="true"
+      navButtonPress="onNavBack"
+      enableScrolling="true">
+    <headerContent>
+      <Button press="onAdd" tooltip="Añadir" icon="sap-icon://add"/>
+      <Button press="onDelete" tooltip="Eliminar" icon="sap-icon://delete"/>
+      <Button icon="sap-icon://save" tooltip="Guardar" press="onSave" />
+    </headerContent>
+    <content>
+      <Table 
+        id="TableSPRO32"
+        growing="true"
+        growingThreshold="30"
+        inset="false"
+        items="{path: '/'}"
+        alternateRowColors="true"
+        mode="MultiSelect"> 
+        <columns>
+          <Column width="5em">
+              <Text text="Código"/>
+          </Column>
+          <Column
+            minScreenWidth="Tablet"
+            demandPopin="true">
+            <Text text="Correo Electrónico" />
+          </Column>
+          <Column
+            minScreenWidth="Tablet"
+            demandPopin="true">
+            <Text text="Contraseña" />
+          </Column>
+          <Column
+            minScreenWidth="Tablet"
+            demandPopin="true">
+            <Text text="Nombre" />
+          </Column>
+          <Column
+            minScreenWidth="Tablet"
+            demandPopin="true">
+            <Text text="Apellido" />
+          </Column>
+          <Column
+            minScreenWidth="Tablet"
+            demandPopin="true">
+            <Text text="Área" />
+          </Column>
+          <Column hAlign="End">
+            <Text text="Rol" />
+          </Column>
+        </columns>
+        <items>
+          <ColumnListItem>
+            <cells>
+                <Input value="{code}" enabled="false" />
+                <Input value="{email}"/>
+                <Input value="{password}"/>
+                <Input value="{name}"/>
+                <Input value="{lastname}"/>
+                <ComboBox items="{path: 'cbxArea>/', templateShareable:false}" selectedKey="{area}" width="100%">
+                  <core:ListItem key="{cbxArea>code}" text="{cbxArea>area}"/>
+                </ComboBox>
+                <ComboBox items="{path: 'cbxRol>/', templateShareable:false}" selectedKey="{role}" width="100%">
+                  <core:ListItem key="{cbxRol>code}" text="{cbxRol>description}"/>
+                </ComboBox>
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+    </content>
+    </Page>
+</mvc:View>

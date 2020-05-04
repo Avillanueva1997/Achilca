@@ -1,0 +1,182 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.Team"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core"
+  xmlns:tnt="sap.tnt"
+  xmlns:u="sap.ui.unified"
+  xmlns:t="sap.ui.table"
+  xmlns="sap.m">
+    <Page
+      title="Personal de Planta"
+      id="Team"
+      showNavButton="true"
+      navButtonPress="onNavBack"
+      enableScrolling="true">
+    <content>
+      <IconTabBar
+      id="idIconTabBarNoIcons"
+      class="sapUiResponsiveContentPadding">
+        <items>
+          <IconTabFilter text="Administrativo">
+            <Table 
+              id="TableAdministrativo"
+              growing="true"
+              growingThreshold="30"
+              inset="false"
+              items="{path: '/'}"
+              alternateRowColors="true"> 
+              <columns>
+                <Column>
+                  <Text text="Descripción del Puesto"/>
+                </Column>
+                <Column hAlign="End">
+                  <Text text="Apellidos y Nombres"/>
+                </Column>
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <Text text="{position}" />
+                    <Text text="{name}" />
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </IconTabFilter>
+          <IconTabFilter text="Grupo A">
+            <Table 
+              id="TableGrupoA"
+              growing="true"
+              growingThreshold="30"
+              inset="false"
+              items="{path: '/'}"
+              alternateRowColors="true"> 
+              <columns>
+                <Column>
+                  <Text text="Descripción del Puesto"/>
+                </Column>
+                <Column hAlign="End">
+                  <Text text="Apellidos y Nombres"/>
+                </Column>
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <Text text="{position}" />
+                    <Text text="{name}" />
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </IconTabFilter>
+          <IconTabFilter text="Grupo B">
+            <Table 
+              id="TableGrupoB"
+              growing="true"
+              growingThreshold="30"
+              inset="false"
+              items="{path: '/'}"
+              alternateRowColors="true"> 
+              <columns>
+                <Column>
+                  <Text text="Descripción del Puesto"/>
+                </Column>
+                <Column hAlign="End">
+                  <Text text="Apellidos y Nombres"/>
+                </Column>
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <Text text="{position}" />
+                    <Text text="{name}" />
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </IconTabFilter>
+          <IconTabFilter text="Grupo C">
+            <Table 
+              id="TableGrupoC"
+              growing="true"
+              growingThreshold="30"
+              inset="false"
+              items="{path: '/'}"
+              alternateRowColors="true"> 
+              <columns>
+                <Column>
+                  <Text text="Descripción del Puesto"/>
+                </Column>
+                <Column hAlign="End">
+                  <Text text="Apellidos y Nombres"/>
+                </Column>
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <Text text="{position}" />
+                    <Text text="{name}" />
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </IconTabFilter>
+          <IconTabFilter text="Grupo R">
+            <Table 
+              id="TableGrupoR"
+              growing="true"
+              growingThreshold="30"
+              inset="false"
+              items="{path: '/'}"
+              alternateRowColors="true"> 
+              <columns>
+                <Column>
+                  <Text text="Descripción del Puesto"/>
+                </Column>
+                <Column hAlign="End">
+                  <Text text="Apellidos y Nombres"/>
+                </Column>
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <Text text="{position}" />
+                    <Text text="{name}" />
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </IconTabFilter>
+          <IconTabFilter text="Mantenimiento">
+            <Table 
+              id="TableMantenimiento"
+              growing="true"
+              growingThreshold="30"
+              inset="false"
+              items="{path: '/'}"
+              alternateRowColors="true"> 
+              <columns>
+                <Column>
+                  <Text text="Descripción del Puesto"/>
+                </Column>
+                <Column hAlign="End">
+                  <Text text="Apellidos y Nombres"/>
+                </Column>
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <Text text="{position}" />
+                    <Text text="{name}" />
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </IconTabFilter>
+        </items>
+      </IconTabBar>
+    </content>
+    </Page>
+</mvc:View>

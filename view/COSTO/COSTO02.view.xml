@@ -1,0 +1,87 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.COSTO.COSTO02"
+    xmlns:layout="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:unified="sap.ui.unified"
+    xmlns:t="sap.ui.table"
+    xmlns="sap.m"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:vm="sap.ui.comp.variants"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+    <Page
+      title="KPI 2"
+      id="COSTO02"
+      showNavButton="true"
+      navButtonPress="onNavBack">
+              <headerContent>
+              <Button press="onFilter" tooltip="Database" icon="sap-icon://database" visible="false" id="btnFilter"/>
+            <Button press="openFragmentPA" tooltip="Plan de Acción" icon="sap-icon://activity-2"/>
+        </headerContent>
+      <!--<headerContent>
+        <Button icon="sap-icon://save" tooltip="Guardar" press="onSave" />
+    </headerContent>-->
+    <content>
+        <core:HTML id="idMeta"/>
+        <layout:VerticalLayout width="100%">
+            <layout:Grid id="gridHeader" defaultSpan="XL12 L12 M12 S12" class="sapUiTinyMarginTop">
+                <layout:content>
+                    <viz:VizFrame id="idChart1" width="100%"></viz:VizFrame>
+                </layout:content>
+            </layout:Grid>
+        </layout:VerticalLayout>
+        <!--<Table 
+        id="TableCOSTO02"
+        growing="true"
+        growingThreshold="30"
+        inset="false"
+        items="{path: '/'}"
+        alternateRowColors="true">
+        <headerToolbar>
+			<OverflowToolbar>
+				<content>
+        <ComboBox items="{path: 'cbxYear>/', templateShareable:false}" width="20%" change="cargarCostoTRF" id="cbxYear">
+            <core:ListItem key="{cbxYear>description}" text="{cbxYear>description}"/>
+        </ComboBox>
+        <ToolbarSeparator/>
+        <Button icon="sap-icon://business-objects-mobile" tooltip="Indicador" press="onGenerateIndicador" />
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+            <columns>
+                <Column>
+                    <Text text="Mes"/>
+                </Column>
+                <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+                    <Text text="Real"/>
+                </Column>
+                <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+                    <Text text="Objetivo" />
+                </Column>
+                <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+                    <Text text="US$" />
+                </Column>
+                <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+                    <Text text="Prod" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                    <ComboBox showSecondaryValues="true" items="{path: 'cbxMonth>/', templateShareable:false}" selectedKey="{month}" width="100%" enabled="false">
+                      <core:ListItem key="{cbxMonth>code}" text="{cbxMonth>description}" additionalText="{cbxMonth>code}"/>
+                    </ComboBox>
+                    <Input value="{real}" type="Number"/>
+                    <Input value="{objetivo}" type="Number"/>
+                    <Input value="{dolar}" type="Number"/>
+                    <Input value="{prod}" type="Number"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>    -->
+    </content>
+    </Page>
+</mvc:View>

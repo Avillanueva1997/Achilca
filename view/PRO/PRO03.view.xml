@@ -1,0 +1,304 @@
+<mvc:View
+    controllerName="sap.ui.app01.controller.PRO.PRO03"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:unified="sap.ui.unified"
+    xmlns:t="sap.ui.table"
+    xmlns="sap.m"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:vm="sap.ui.comp.variants">
+    <Page
+      title="Control de Producción"
+      id="PRO03"
+      showNavButton="true"
+      navButtonPress="onNavBack"
+	  enableScrolling="true">
+	<headerContent>
+		<!--<Button icon="sap-icon://synchronize" type="Transparent" tooltip="Actualizar" press="onFreshDataScada"/>-->
+		<Button icon="sap-icon://save" tooltip="Guardar" press="confirmSave" />
+    </headerContent>
+    <content>
+	<l:FixFlex id='chartFixFlex' minFlexSize="250">
+        <!--Below is the setting panel -->
+        <l:fixContent>
+            <Panel id='settingsPanel' class="panelStyle" expandable="true" expanded="false" width="auto">
+                <content>
+                    <HBox class='settingsHBox'>
+                    <VBox class='settingsBox'>
+                        <Label text="Año" design="Bold" class='settingsLabel'></Label>
+                        <ComboBox items="{path: 'cbxYear>/', templateShareable:false}" width="50%" id="btnFilterYear">
+							<core:ListItem key="{cbxYear>description}" text="{cbxYear>description}"/>
+						</ComboBox>
+                    </VBox>
+                    <VBox class='settingsBox'>
+                        <Label text='Mes' design="Bold" class='settingsLabel'></Label>
+						<ComboBox items="{path: 'cbxMonth>/', templateShareable:false}" width="50%" id="btnFilterMonth">
+							<core:ListItem key="{cbxMonth>description}" text="{cbxMonth>description}"/>
+						</ComboBox>
+                    </VBox>
+                    </HBox>
+                </content>
+            </Panel>
+        </l:fixContent>
+        <l:flexContent>
+			<IconTabBar id="idIconTabBarNoIcons" items="{/}" select="getScada">
+				<items>
+					<IconTabFilter text="{code}" key="{code}">
+						<Table growing="true" growingThreshold="30" items="{path: '/dataLinea', templateShareable:false}" inset="false" id="tableLineaProduccion">
+							<headerToolbar>
+								<OverflowToolbar>
+									<Title text="Turno: Día (08:00 - 20:00)" level="H2" />
+									<!--<Button icon="sap-icon://business-objects-experience" tooltip="OKRs" type="Transparent"/>-->
+									<!--<DateRangeSelection change="onFilterByDate" width="20%" visible="false"/>-->
+									<ToolbarSeparator/>
+									<Button icon="sap-icon://synchronize" type="Transparent" tooltip="Actualizar" press="onFreshDataScada"/>
+									<Button icon="sap-icon://appointment-2" type="Transparent" tooltip="Cierre" press="onShowSecondTable"/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column width="6rem">
+									<Text text="Fecha" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="Ø" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="Coord" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="B. Charg" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="B. Proces" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="B. Reject" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="Hrs Disp" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="Hrs PP" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="Sobre Peso" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="BPM" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="Carga Fría" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="Producción Neta" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="B. Observada" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="B. Rechazada" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="Scrap" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="Cascarilla" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="Eficiencia" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="Barra Chatarra" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="Uptime" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="Rendimiento" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="Calidad" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="OEE" />
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+									<Text text="Cuota" />
+								</Column>
+								<Column hAlign="End">
+									<Text text="% Cump" />
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem highlight="{State}">
+									<cells>
+									<Text text="{
+										path: 'fecha',
+										type: 'sap.ui.model.type.Date',
+										formatOptions: {
+											style: 'medium',
+											source: {
+												pattern: 'yyyy-MM-dd'
+											}
+										}
+									}" />
+									<Text text="{
+										path: 'diametro',
+										type: 'sap.ui.model.type.String'
+									}" />
+									<Text text="{
+										path: 'coord',
+										type: 'sap.ui.model.type.String'
+									}" />
+									<Text text="{
+										path: 'bar_charg',
+										type: 'sap.ui.model.type.Integer',
+										formatOptions: {
+											maxIntegerDigits: 5
+									}}" />
+									<Text text="{
+										path: 'bar_proces',
+										type: 'sap.ui.model.type.Integer',
+										formatOptions: {
+											maxIntegerDigits: 5
+									}}" />
+									<Text text="{
+										path: 'bar_reject',
+										type: 'sap.ui.model.type.Integer',
+										formatOptions: {
+											maxIntegerDigits: 5
+									}}" />
+									<Text text="{
+										path: 'hrs_disp',
+										type: 'sap.ui.model.type.Integer',
+										formatOptions: {
+											maxIntegerDigits: 2
+									}}" />
+									<Text text="{
+										path: 'hrs_pp',
+										type: 'sap.ui.model.type.Integer',
+										formatOptions: {
+											maxIntegerDigits: 2
+									}}" />
+									<ObjectNumber
+										number="{
+										path:'sobre_peso',
+										type: 'sap.ui.model.type.Integer',
+										formatOptions: {maxIntegerDigits: 2}
+									}"
+										unit="%" />
+									<Input value="{bpm}" type="Number" liveChange="onChangeBPM"/>
+									<!--<ObjectNumber
+										number="{
+										path:'bpm',
+										type: 'sap.ui.model.type.Integer',
+										formatOptions: {maxIntegerDigits: 2}
+									}"/>-->
+									<!--<Text text="{
+										path: 'carga_fria',
+										type: 'sap.ui.model.type.Decimal'
+									}" />-->
+									<ObjectNumber
+										number="{
+										path:'carga_fria',
+										type: 'sap.ui.model.type.Decimal',
+										formatOptions: {showMeasure: false}
+									}"
+										unit="TM" />
+									<ObjectNumber
+										number="{
+										path:'produccion_neta',
+										type: 'sap.ui.model.type.Decimal',
+										formatOptions: {showMeasure: false}
+									}"
+										unit="TM" />
+									<Input value="{bola_observada}" type="Number" liveChange="onChangeBolaObservadaA"/>
+									<ObjectNumber
+										number="{
+										path:'barra_rechazada',
+										type: 'sap.ui.model.type.Decimal',
+										formatOptions: {showMeasure: false}
+									}"
+										unit="TM" />
+									<Input value="{scrap}" type="Number" liveChange="onChangeScrapA"/>
+									<ObjectNumber
+										number="{
+										path:'cascarilla',
+										type: 'sap.ui.model.type.Decimal',
+										formatOptions: {showMeasure: false}
+									}"
+										unit="TM" />
+									<ObjectNumber
+										number="{
+										path:'eficiencia',
+										type: 'sap.ui.model.type.Decimal',
+										formatOptions: {showMeasure: false}
+									}"
+										unit="%" />
+									<ObjectNumber
+										number="{
+										path:'barra_chatarra',
+										type: 'sap.ui.model.type.Decimal',
+										formatOptions: {showMeasure: false}
+									}"
+										unit="%" />
+									<ObjectNumber
+										number="{
+										path:'uptime',
+										type: 'sap.ui.model.type.Decimal',
+										formatOptions: {showMeasure: false}
+									}"
+										unit="%" />
+									<ObjectNumber
+										number="{
+										path:'rendimiento',
+										type: 'sap.ui.model.type.Decimal',
+										formatOptions: {showMeasure: false}
+									}"
+										unit="%" />
+									<ObjectNumber
+										number="{
+										path:'calidad',
+										type: 'sap.ui.model.type.Decimal',
+										formatOptions: {showMeasure: false}
+									}"
+										unit="%" />
+									<ObjectNumber
+										number="{
+										path:'oee',
+										type: 'sap.ui.model.type.Decimal',
+										formatOptions: {showMeasure: false}
+									}"
+										unit="%" />
+									<ObjectNumber
+										number="{
+										path:'cuota',
+										type: 'sap.ui.model.type.Decimal',
+										formatOptions: {showMeasure: false}
+									}"
+										unit="TM" />
+									<ObjectNumber
+										number="{
+										path:'por_cumplimiento',
+										type: 'sap.ui.model.type.Decimal',
+										formatOptions: {showMeasure: false}
+									}"
+										unit="%" />
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+        </l:flexContent>
+    </l:FixFlex>
+		<HBox height="100%" alignItems="Center" class="hboxContentButtonMiddle">
+			<Button icon="sap-icon://feeder-arrow" press="onNextPage" type="Transparent" id="btnNextPage"/>
+		</HBox>
+    </content>
+    </Page>
+</mvc:View>

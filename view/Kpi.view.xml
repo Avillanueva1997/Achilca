@@ -1,0 +1,182 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.Kpi"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core"
+  xmlns:tnt="sap.tnt"
+  xmlns:u="sap.ui.unified"
+  xmlns:t="sap.ui.table"
+  xmlns="sap.m">
+    <Page
+      title="Indicadores"
+      id="Kpi"
+      showNavButton="true"
+      navButtonPress="onNavBack"
+      enableScrolling="true">
+    <content>
+      <IconTabBar
+      id="idIconTabBarNoIcons"
+      class="sapUiResponsiveContentPadding">
+        <items>
+          <IconTabFilter text="SIMA">
+            <Table 
+              id="TableSIMA"
+              growing="true"
+              growingThreshold="30"
+              inset="false"
+              items="{path: '/'}"
+              alternateRowColors="true"> 
+              <columns>
+                <Column>
+                  <Text text="#"/>
+                </Column>
+                <Column hAlign="End">
+                  <Text text="Descripción"/>
+                </Column>
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <Text text="{number}" />
+                    <Text text="{kpi}" />
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </IconTabFilter>
+          <IconTabFilter text="CALIDAD">
+            <Table 
+              id="TableCALIDAD"
+              growing="true"
+              growingThreshold="30"
+              inset="false"
+              items="{path: '/'}"
+              alternateRowColors="true"> 
+              <columns>
+                <Column>
+                  <Text text="#"/>
+                </Column>
+                <Column hAlign="End">
+                  <Text text="Descripción"/>
+                </Column>
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <Text text="{number}" />
+                    <Text text="{kpi}" />
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </IconTabFilter>
+          <IconTabFilter text="PRODUCCIÓN">
+            <Table 
+              id="TablePRODUCCION"
+              growing="true"
+              growingThreshold="30"
+              inset="false"
+              items="{path: '/'}"
+              alternateRowColors="true"> 
+              <columns>
+                <Column>
+                  <Text text="#"/>
+                </Column>
+                <Column hAlign="End">
+                  <Text text="Descripción"/>
+                </Column>
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <Text text="{number}" />
+                    <Text text="{kpi}" />
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </IconTabFilter>
+          <IconTabFilter text="MANTENIMIENTO">
+            <Table 
+              id="TableMANTENIMIENTO"
+              growing="true"
+              growingThreshold="30"
+              inset="false"
+              items="{path: '/'}"
+              alternateRowColors="true"> 
+              <columns>
+                <Column>
+                  <Text text="#"/>
+                </Column>
+                <Column hAlign="End">
+                  <Text text="Descripción"/>
+                </Column>
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <Text text="{number}" />
+                    <Text text="{kpi}" />
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </IconTabFilter>
+          <IconTabFilter text="COSTOS">
+            <Table 
+              id="TableCOSTOS"
+              growing="true"
+              growingThreshold="30"
+              inset="false"
+              items="{path: '/'}"
+              alternateRowColors="true"> 
+              <columns>
+                <Column>
+                  <Text text="#"/>
+                </Column>
+                <Column hAlign="End">
+                  <Text text="Descripción"/>
+                </Column>
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <Text text="{number}" />
+                    <Text text="{kpi}" />
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </IconTabFilter>
+          <IconTabFilter text="LOGÍSTICA">
+            <Table 
+              id="TableLOGISTICA"
+              growing="true"
+              growingThreshold="30"
+              inset="false"
+              items="{path: '/'}"
+              alternateRowColors="true"> 
+              <columns>
+                <Column>
+                  <Text text="#"/>
+                </Column>
+                <Column hAlign="End">
+                  <Text text="Descripción"/>
+                </Column>
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <Text text="{number}" />
+                    <Text text="{kpi}" />
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </IconTabFilter>
+        </items>
+      </IconTabBar>
+    </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,40 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.CALIDAD.CALIDAD03M"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:unified="sap.ui.unified"
+    xmlns:t="sap.ui.table"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls">
+    <Page
+      title="Indicador"
+      id="CALIDAD03M"
+      showNavButton="true"
+      navButtonPress="onNavBack">
+    <content>
+    <l:FixFlex id='chartFixFlex' minFlexSize="250">
+        <!--Below is the setting panel -->
+        <l:fixContent>
+            <Panel id='settingsPanel' class="panelStyle" expandable="true" expanded="false" width="auto">
+                <content>
+                    <HBox class='settingsHBox'>
+                    <VBox class='settingsBox'>
+                        <Label text="Diámetro" design="Bold" class='settingsLabel'></Label>
+                        <ComboBox items="{path: 'cbxDiametro>/', templateShareable:false}" width="50%" id="btnFilterDiametro" change="generateChart">
+                          <core:ListItem key="{cbxDiametro>diametro}" text="{cbxDiametro>diametro}"/>
+                        </ComboBox>
+                    </VBox>
+                    </HBox>
+                </content>
+            </Panel>
+        </l:fixContent>
+        <l:flexContent>
+          <viz:VizFrame id="idChart1" width="100%"></viz:VizFrame>
+        </l:flexContent>
+    </l:FixFlex>
+    </content>
+    </Page>
+</mvc:View>

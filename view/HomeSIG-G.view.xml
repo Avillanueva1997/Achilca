@@ -1,0 +1,54 @@
+<mvc:View
+    controllerName="sap.ui.app01.controller.HomeSIG-G"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls">    
+    <Page
+        showHeader="false"
+        id="pageHome">
+        <core:Fragment fragmentName='sap.ui.app01.view.Fragments.Header' type='XML'/>
+        <content>
+            <l:VerticalLayout width="100%">
+                <Panel id='settingsPanel' class="panelStyle" expandable="true" expanded="false" width="auto">
+                	<headerToolbar>
+                        <OverflowToolbar height="3rem" style="Clear">
+                            <ToolbarSpacer />
+                            <Button press="onAddObjetivo" tooltip="Agregar Objetivo" icon="sap-icon://add-activity-2" class="buttonWhite"/>
+                            <Button icon="sap-icon://settings" class="buttonWhite" press="onHomeSIG" tooltip="Configuración"/>
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <content>
+                        <HBox class='settingsHBox'>
+                        <VBox class='settingsBox'>
+                            <Label text="Auditoría" design="Bold" class='colorWhite'></Label>
+                            <ComboBox items="{path: 'cbxAuditoriaN1>/', templateShareable:false}" width="50%" id="btnAuditoriaN1" change="refreshCharts">
+                                <core:ListItem key="{cbxAuditoriaN1>auditoria}" text="{cbxAuditoriaN1>auditoria}"/>
+                            </ComboBox>
+                        </VBox>
+                        </HBox>
+                    </content>
+                </Panel>
+                </l:VerticalLayout>
+                <l:VerticalLayout width="100%">
+                <l:Grid id="gridHeader" defaultSpan="XL6 L6 M6 S12" class="sapUiTinyMarginTop">
+                    <l:content>
+                        <viz:VizFrame id="idChart1" width="100%"></viz:VizFrame>    
+                        <viz:VizFrame id="idChart2" width="100%"></viz:VizFrame>
+                    </l:content>
+                </l:Grid>
+            </l:VerticalLayout>
+        <HBox height="100%" alignItems="End" class="hboxContentButtonMiddle">
+            <Avatar
+            src="sap-icon://activity-2"
+            displaySize="S"
+            backgroundColor="Accent6"
+            press="openFragmentPASIG"/>
+		</HBox>
+        </content>
+    </Page>
+</mvc:View>

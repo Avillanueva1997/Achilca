@@ -1,0 +1,106 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog id="DialogPA">
+    <customHeader>
+        <Bar>
+			<!--<contentLeft>
+				<Button icon="sap-icon://accept" tooltip="Cerrar" press="onAcceptActivity" />
+			</contentLeft>-->
+            <contentMiddle>
+                 <Label text="Plan de Acción"/>
+            </contentMiddle>
+        </Bar>
+    </customHeader>
+	<Table 
+        id="TablePA"
+        growing="true"
+        growingThreshold="30"
+        inset="false"
+        items="{path: 'planAccion>/', templateShareable:false}"
+        alternateRowColors="true"
+		mode="None">
+		<headerToolbar>
+			<OverflowToolbar>
+				<content>
+				<ToolbarSpacer />
+				<SearchField width="25%" liveChange="onSearchPA" id="searchFieldPA"/>					
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+            <columns>
+                <Column width="4em">
+                    <Text text="Ítem"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                    <Text text="Actividad"/>
+                </Column>
+				<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                    <Text text="Fecha Inicio"/>
+                </Column>
+				<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                    <Text text="Fecha Fin"/>
+                </Column>
+				<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                    <Text text="Responsable"/>
+                </Column>
+                <Column hAlign="End" width="4em">
+                    <Text text="Status"/>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem type="Navigation" press="onListItemPress">
+                    <cells>
+					<Text text="{planAccion>correlativo}"/>
+                    <Text text="{planAccion>activity}"/>
+                    <Text text="{
+                        path: 'planAccion>fecha_inicio',
+                        type: 'sap.ui.model.type.Date',
+                        formatOptions: {
+                            style: 'long',
+                            source: {
+                                pattern: 'yyyy-MM-dd'
+                            }
+                        }
+                    }" />
+                    <Text text="{
+                        path: 'planAccion>fecha_fin',
+                        type: 'sap.ui.model.type.Date',
+                        formatOptions: {
+                            style: 'long',
+                            source: {
+                                pattern: 'yyyy-MM-dd'
+                            }
+                        }
+                    }" />
+					<!--<DatePicker
+					placeholder="Ingrese fecha..."
+					value="{planAccion>fecha_inicio}"
+					valueFormat="yyyy-MM-dd" displayFormat="long"/>
+					<DatePicker
+					placeholder="Ingrese fecha..."
+					value="{planAccion>fecha_fin}"
+					valueFormat="yyyy-MM-dd" displayFormat="long"/>-->
+					<!--<MultiComboBox
+						width="500px"
+						items="{path: 'McbxResponsable>/', templateShareable:false}"
+						selectedKeys="{planAccion>responsable}">
+						<core:Item key="{McbxResponsable>code}" text="{McbxResponsable>name}"/>
+					</MultiComboBox>-->
+                    <Text text="{planAccion>responsable}"/>
+					<core:Icon
+						src="sap-icon://circle-task-2"
+						color="{planAccion>status}">
+						<core:layoutData>
+							<FlexItemData growFactor="1" />
+						</core:layoutData>
+					</core:Icon>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+		    <buttons>
+				<Button text= "Cerrar" press= "onExit" type= "Reject"/>
+			</buttons>
+</Dialog>
+</core:FragmentDefinition>

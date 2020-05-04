@@ -1,0 +1,35 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.OKR2.OKR2-3-LP"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:u="sap.ui.unified"
+	xmlns="sap.m"
+	xmlns:microchart="sap.suite.ui.microchart"
+	xmlns:f="sap.f"
+	xmlns:card="sap.f.cards">    
+	<Page
+	showHeader="false"
+	
+	id="pageHome">
+		<core:Fragment fragmentName='sap.ui.app01.view.Fragments.Header' type='XML'/>
+		<content>
+		<l:HorizontalLayout allowWrapping="true" content="{/TileCollection}" visible="true" >
+			<GenericTile header="{title}" press="onPressDinamicDiametro" class="sapUiLargeMarginBegin sapUiLargeMarginTop" frameType="OneByOne">
+				<tileContent>
+					<TileContent footer="{info}">
+						<microchart:HarveyBallMicroChart total="100" size="Responsive" alignContent="Left"
+							totalScale="Mrd" showFractions="false" showTotal = "false">
+							<microchart:items>
+								<microchart:HarveyBallMicroChartItem fraction="100"
+									color="Neutral" fractionScale="Mrd" />
+							</microchart:items>
+						</microchart:HarveyBallMicroChart>
+					</TileContent>
+				</tileContent>
+			</GenericTile>
+		</l:HorizontalLayout>
+		</content>
+	</Page>
+</mvc:View>

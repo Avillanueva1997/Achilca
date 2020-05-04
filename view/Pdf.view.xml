@@ -1,0 +1,431 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.Pdf"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core"
+  xmlns:tnt="sap.tnt"
+  xmlns:u="sap.ui.unified"
+  xmlns:t="sap.ui.table"
+  xmlns="sap.m"
+  xmlns:html="http://www.w3.org/1999/xhtml"
+  xmlns:viz="sap.viz.ui5.controls" >
+    <Page
+      title="PDF"
+      id="Pdf"
+      showNavButton="true"
+      navButtonPress="onNavBack"
+      enableScrolling="true">
+        <headerContent>
+            <Button press="dynamicLoadSecond" tooltip="Enviar" icon="sap-icon://paper-plane"/>
+            <Button press="dynamicLoad" tooltip="Descargar" icon="sap-icon://download"/>
+        </headerContent>
+    <content>
+    	<VBox class="sapUiSmallMarginTopBottom sapUiLargeMarginBeginEnd" id="areaPdf">
+        <HBox justifyContent="SpaceBetween">
+          <VBox>
+            <Image src="assets/images/mepsa_ac_n2.png" class="imagePDFSecond"/>
+          </VBox>
+        </HBox>
+        <l:VerticalLayout width="100%">
+        	<Panel
+          width="100%"
+          class="styleCenter">
+          <Title
+            titleStyle="H2"
+            text="INDICADORES SIMA"
+            wrapping="true"
+            class="sapUiLargeMarginBegin title sapUiLargeMarginTop"/>
+          </Panel>
+          <l:Grid defaultSpan="XL4 L4 M12 S12" class="sapUiTinyMarginTop" id="indSIMA">
+            <l:content>  
+              <viz:VizFrame id="idChart1" width="100%"></viz:VizFrame>
+              <viz:VizFrame id="idChart2" width="100%"></viz:VizFrame>
+              <viz:VizFrame id="idChart3" width="100%"></viz:VizFrame>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+        <l:VerticalLayout width="100%">
+          <Panel
+          width="100%"
+          class="styleCenter">
+          <Title
+            titleStyle="H2"
+            text="CALIDAD BOLAS FORJADAS"
+            wrapping="true"
+            class="sapUiLargeMarginBegin title sapUiLargeMarginTop"/>
+            </Panel>
+          <l:Grid defaultSpan="XL6 L6 M12 S12" class="sapUiTinyMarginTop">
+            <l:content>  
+              <viz:VizFrame id="idChart4" width="100%"></viz:VizFrame>
+              <viz:VizFrame id="idChart5" width="100%"></viz:VizFrame>
+              <viz:VizFrame id="idChart6" width="100%"></viz:VizFrame>
+              <viz:VizFrame id="idChart7" width="100%" visible="false"></viz:VizFrame>
+              <viz:VizFrame id="idChart8" width="100%" visible="false"></viz:VizFrame>
+              <viz:VizFrame id="idChart9" width="100%" visible="false"></viz:VizFrame>
+              <viz:VizFrame id="idChart10" width="100%" visible="false"></viz:VizFrame>
+              <viz:VizFrame id="idChart11" width="100%" visible="false"></viz:VizFrame>
+              <viz:VizFrame id="idChart12" width="100%" visible="false"></viz:VizFrame>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+        <!-- Producción Begin -->
+        <l:VerticalLayout width="100%">
+          <Panel
+          width="100%"
+          class="styleCenter">
+          <Title
+            titleStyle="H2"
+            text="PRODUCCIÓN BOLAS FORJADAS"
+            wrapping="true"
+            class="sapUiLargeMarginBegin title sapUiLargeMarginTop"/>
+            </Panel>
+          <l:Grid defaultSpan="XL12 L12 M12 S12" class="sapUiTinyMarginTop">
+            <l:content>  
+              <viz:VizFrame id="idChartProduccion1" width="100%" visible="false"></viz:VizFrame>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+        <l:VerticalLayout width="100%">
+          <l:Grid defaultSpan="XL12 L12 M12 S12" class="sapUiTinyMarginTop">
+            <l:content>
+              <List
+                headerText="Comentarios"
+                growing="true"
+                growingThreshold="30"
+                busyIndicatorDelay="200"
+                enableBusyIndicator="true"
+                noDataText="Sin Comentarios"
+                items="{commentsL2>/}"  
+                visible="false"
+                id="commentsL2">
+                <StandardListItem
+                  title="{commentsL2>fecha}"
+                  description="{commentsL2>comment}"
+                  icon="{commentsL2>icon}"
+                  iconDensityAware="false"
+                  iconInset="false" />
+              </List>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+        <l:VerticalLayout width="100%" visible="true" id="VL_1">
+          <l:Grid defaultSpan="XL4 L4 M12 S12" class="sapUiTinyMarginTop">
+            <l:content>  
+              <VBox>
+                <viz:VizFrame id="idProduccionSecond1" width="100%"></viz:VizFrame>
+                <TileContent class="sapUiLargeMarginBegin sapUiTinyMarginTop styleTile" footer="Dif.">
+                    <NumericContent scale="TM" id="TileContentSecond1"/>
+                </TileContent>
+              </VBox>
+              <VBox>
+                <viz:VizFrame id="idProduccionThird1" width="100%"></viz:VizFrame>
+                <TileContent footer="Meta Mes" class="sapUiLargeMarginBegin sapUiTinyMarginTop styleTile">
+                    <NumericContent scale="TM" id="TileContentThird1"/>
+                </TileContent>
+              </VBox>
+              <VBox>
+                <html:div id="idProduccionFour1" class="sizeGauge"></html:div>
+                <TileContent class="sapUiLargeMarginBegin sapUiTinyMarginTop styleTile" footer="Dif.">
+                    <NumericContent scale="%" id="TileContentFour1"/>
+                </TileContent>
+              </VBox>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+        <l:VerticalLayout width="100%">
+          <l:Grid defaultSpan="XL12 L12 M12 S12" class="sapUiTinyMarginTop">
+            <l:content>  
+              <viz:VizFrame id="idChartProduccion2" width="100%" visible="false"></viz:VizFrame>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+        <l:VerticalLayout width="100%">
+          <l:Grid defaultSpan="XL12 L12 M12 S12" class="sapUiTinyMarginTop">
+            <l:content>
+              <List
+                headerText="Comentarios"
+                growing="true"
+                growingThreshold="30"
+                busyIndicatorDelay="200"
+                enableBusyIndicator="true"
+                noDataText="Sin Comentarios"
+                items="{commentsL3>/}"  
+                visible="false"
+                id="commentsL3">
+                <StandardListItem
+                  title="{commentsL3>fecha}"
+                  description="{commentsL3>comment}"
+                  icon="{commentsL3>icon}"
+                  iconDensityAware="false"
+                  iconInset="false" />
+              </List>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+        <l:VerticalLayout width="100%" visible="true" id="VL_2">
+          <l:Grid defaultSpan="XL4 L4 M12 S12" class="sapUiTinyMarginTop">
+            <l:content>  
+              <VBox>
+                <viz:VizFrame id="idProduccionSecond2" width="100%"></viz:VizFrame>
+                <TileContent class="sapUiLargeMarginBegin sapUiTinyMarginTop styleTile" footer="Dif.">
+                    <NumericContent scale="TM" id="TileContentSecond2"/>
+                </TileContent>
+              </VBox>
+              <VBox>
+                <viz:VizFrame id="idProduccionThird2" width="100%"></viz:VizFrame>
+                <TileContent footer="Meta Mes" class="sapUiLargeMarginBegin sapUiTinyMarginTop styleTile">
+                    <NumericContent scale="TM" id="TileContentThird2"/>
+                </TileContent>
+              </VBox>
+              <VBox>
+                <html:div id="idProduccionFour2" class="sizeGauge"></html:div>
+                <TileContent class="sapUiLargeMarginBegin sapUiTinyMarginTop styleTile" footer="Dif.">
+                    <NumericContent scale="%" id="TileContentFour2"/>
+                </TileContent>
+              </VBox>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+        <l:VerticalLayout width="100%">
+          <l:Grid defaultSpan="XL12 L12 M12 S12" class="sapUiTinyMarginTop">
+            <l:content>  
+              <viz:VizFrame id="idChartProduccion3" width="100%" visible="false"></viz:VizFrame>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+        <l:VerticalLayout width="100%">
+          <l:Grid defaultSpan="XL12 L12 M12 S12" class="sapUiTinyMarginTop">
+            <l:content>
+              <List
+                headerText="Comentarios"
+                growing="true"
+                growingThreshold="30"
+                busyIndicatorDelay="200"
+                enableBusyIndicator="true"
+                noDataText="Sin Comentarios"
+                items="{commentsL1>/}"  
+                visible="false"
+                id="commentsL1">
+                <StandardListItem
+                  title="{commentsL1>fecha}"
+                  description="{commentsL3>comment}"
+                  icon="{commentsL1>icon}"
+                  iconDensityAware="false"
+                  iconInset="false" />
+              </List>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+        <l:VerticalLayout width="100%" visible="false" id="VL_3">
+          <l:Grid defaultSpan="XL4 L4 M12 S12" class="sapUiTinyMarginTop">
+            <l:content>  
+              <VBox>
+                <viz:VizFrame id="idProduccionSecond3" width="100%"></viz:VizFrame>
+                <TileContent class="sapUiLargeMarginBegin sapUiTinyMarginTop styleTile" footer="Dif.">
+                    <NumericContent scale="TM" id="TileContentSecond3"/>
+                </TileContent>
+              </VBox>
+              <VBox>
+                <viz:VizFrame id="idProduccionThird3" width="100%"></viz:VizFrame>
+                <TileContent footer="Meta Mes" class="sapUiLargeMarginBegin sapUiTinyMarginTop styleTile">
+                    <NumericContent scale="TM" id="TileContentThird3"/>
+                </TileContent>
+              </VBox>
+              <VBox>
+                <html:div id="idProduccionFour3" class="sizeGauge"></html:div>
+                <TileContent class="sapUiLargeMarginBegin sapUiTinyMarginTop styleTile" footer="Dif.">
+                    <NumericContent scale="%" id="TileContentFour3"/>
+                </TileContent>
+              </VBox>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+        <!-- Producción End -->
+        <!-- Eficiencia Begin -->
+         <l:VerticalLayout width="100%">
+          <Panel
+          width="100%"
+          class="styleCenter">
+            <Title
+            titleStyle="H2"
+            text="EFICIENCIA BOLAS FORJADAS"
+            wrapping="true"
+            class="sapUiLargeMarginBegin title sapUiLargeMarginTop"/>
+            </Panel>
+          <l:Grid defaultSpan="XL12 L12 M12 S12" class="sapUiTinyMarginTop">
+            <l:content>  
+              <viz:VizFrame id="idChartEficiencia1" width="100%" visible="false"></viz:VizFrame>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+        <l:VerticalLayout width="100%">
+          <l:Grid defaultSpan="XL12 L12 M12 S12" class="sapUiTinyMarginTop">
+            <l:content>
+              <List
+                headerText="Comentarios"
+                growing="true"
+                growingThreshold="30"
+                busyIndicatorDelay="200"
+                enableBusyIndicator="true"
+                noDataText="Sin Comentarios"
+                items="{commentsEficienciaL2>/}"  
+                visible="false"
+                id="commentsEficienciaL2">
+                <StandardListItem
+                  title="{commentsEficienciaL2>fecha}"
+                  description="{commentsEficienciaL2>comment}"
+                  icon="{commentsEficienciaL1>icon}"
+                  iconDensityAware="false"
+                  iconInset="false" />
+              </List>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+                 <l:VerticalLayout width="100%">
+          <l:Grid defaultSpan="XL12 L12 M12 S12" class="sapUiTinyMarginTop">
+            <l:content>  
+              <viz:VizFrame id="idChartEficiencia2" width="100%" visible="false"></viz:VizFrame>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+        <l:VerticalLayout width="100%">
+          <l:Grid defaultSpan="XL12 L12 M12 S12" class="sapUiTinyMarginTop">
+            <l:content>
+              <List
+                headerText="Comentarios"
+                growing="true"
+                growingThreshold="30"
+                busyIndicatorDelay="200"
+                enableBusyIndicator="true"
+                noDataText="Sin Comentarios"
+                items="{commentsEficienciaL3>/}"  
+                visible="false"
+                id="commentsEficienciaL3">
+                <StandardListItem
+                  title="{commentsEficienciaL3>fecha}"
+                  description="{commentsEficienciaL3>comment}"
+                  icon="{commentsEficienciaL3>icon}"
+                  iconDensityAware="false"
+                  iconInset="false" />
+              </List>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+                 <l:VerticalLayout width="100%">
+          <l:Grid defaultSpan="XL12 L12 M12 S12" class="sapUiTinyMarginTop">
+            <l:content>  
+              <viz:VizFrame id="idChartEficiencia3" width="100%" visible="false"></viz:VizFrame>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+        <l:VerticalLayout width="100%">
+          <l:Grid defaultSpan="XL12 L12 M12 S12" class="sapUiTinyMarginTop">
+            <l:content>
+              <List
+                headerText="Comentarios"
+                growing="true"
+                growingThreshold="30"
+                busyIndicatorDelay="200"
+                enableBusyIndicator="true"
+                noDataText="Sin Comentarios"
+                items="{commentsEficienciaL1>/}"  
+                visible="false"
+                id="commentsEficienciaL1">
+                <StandardListItem
+                  title="{commentsEficienciaL1>fecha}"
+                  description="{commentsEficienciaL1>comment}"
+                  icon="{commentsEficienciaL1>icon}"
+                  iconDensityAware="false"
+                  iconInset="false" />
+              </List>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+        <!-- Eficiencia End-->
+        
+        <l:VerticalLayout width="100%">
+                  <Panel
+          width="100%"
+          class="styleCenter">
+         <Title
+            titleStyle="H2"
+            text="COSTOS DE TRANSFORMACIÓN BOLAS FORJADAS"
+            wrapping="true"
+            class="sapUiLargeMarginBegin title sapUiLargeMarginTop"/>
+            </Panel>
+          <l:Grid defaultSpan="XL4 L4 M12 S12" class="sapUiTinyMarginTop">
+            <l:content>  
+              <viz:VizFrame id="idChartCostoTrf1" width="100%" visible="false"></viz:VizFrame>
+              <viz:VizFrame id="idChartCostoTrf2" width="100%" visible="false"></viz:VizFrame>
+              <viz:VizFrame id="idChartCostoTrf3" width="100%" visible="false"></viz:VizFrame>
+              <viz:VizFrame id="idChartCostoTrf4" width="100%" visible="false"></viz:VizFrame>
+              <viz:VizFrame id="idChartCostoTrf5" width="100%" visible="false"></viz:VizFrame>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+        <l:VerticalLayout width="100%">
+                  <Panel
+          width="100%"
+          class="styleCenter">
+         <Title
+            titleStyle="H2"
+            text="COSTOS DE MANTENIMIENTO BOLAS FORJADAS"
+            wrapping="true"
+            class="sapUiLargeMarginBegin title sapUiLargeMarginTop"/>
+            </Panel>
+          <l:Grid defaultSpan="XL4 L4 M12 S12" class="sapUiTinyMarginTop">
+            <l:content>  
+              <viz:VizFrame id="idChartCostoMtto1" width="100%"></viz:VizFrame>
+              <viz:VizFrame id="idChartCostoMtto2" width="100%"></viz:VizFrame>
+              <viz:VizFrame id="idChartCostoMtto3" width="100%"></viz:VizFrame>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+        <l:VerticalLayout width="100%">
+                  <Panel
+          width="100%"
+          class="styleCenter">
+          <Title
+            titleStyle="H2"
+            text="OVERALL EQUIPMENT EFFECTIVENESS (OEE) BOLAS FORJADAS"
+            wrapping="true"
+            class="sapUiLargeMarginBegin title sapUiLargeMarginTop"/>
+            </Panel>
+          <l:Grid defaultSpan="XL3 L3 M6 S12" class="sapUiTinyMarginTop">
+            <l:content>  
+              <viz:VizFrame id="idChartOEE1" width='100%'></viz:VizFrame>
+              <viz:VizFrame id="idChartOEE2" width='100%'></viz:VizFrame>
+              <viz:VizFrame id="idChartOEE3" width='100%'></viz:VizFrame>
+              <viz:VizFrame id="idChartOEE4" width='100%'></viz:VizFrame>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+        <l:VerticalLayout width="100%">
+          <l:Grid defaultSpan="XL12 L12 M12 S12" class="sapUiTinyMarginTop">
+            <l:content>  
+              <viz:VizFrame id="idChartOEE5" width="100%"></viz:VizFrame>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+        <l:VerticalLayout width="100%">
+          <l:Grid defaultSpan="XL3 L3 M6 S12" class="sapUiTinyMarginTop">
+            <l:content>  
+              <viz:VizFrame id="idChartOEE6" width='100%'></viz:VizFrame>
+              <viz:VizFrame id="idChartOEE7" width='100%'></viz:VizFrame>
+              <viz:VizFrame id="idChartOEE8" width='100%'></viz:VizFrame>
+              <viz:VizFrame id="idChartOEE9" width='100%'></viz:VizFrame>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+        <l:VerticalLayout width="100%">
+          <l:Grid defaultSpan="XL12 L12 M12 S12" class="sapUiTinyMarginTop">
+            <l:content>  
+              <viz:VizFrame id="idChartOEE10" width="100%"></viz:VizFrame>
+            </l:content>
+          </l:Grid>
+        </l:VerticalLayout>
+      </VBox>
+    </content>
+    </Page>
+</mvc:View>

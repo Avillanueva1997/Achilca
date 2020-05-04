@@ -1,0 +1,42 @@
+<mvc:View
+    controllerName="sap.ui.app01.controller.HomeSIG"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m">    
+    <Page
+        showHeader="false"
+        
+        id="pageHome">
+        <core:Fragment fragmentName='sap.ui.app01.view.Fragments.Header' type='XML'/>
+        <content>
+        <l:VerticalLayout>
+		<l:HorizontalLayout allowWrapping="true" content="{/TileCollection}" visible="true" >
+			<GenericTile header="{title}" subheader="{info}" press="onPressSIG" class="sapUiLargeMarginBegin sapUiLargeMarginTop" frameType="OneByOne" state="{=${state} || 'Disabled'}">
+                <TileContent>
+                    <ImageContent src="sap-icon://inspection" />
+                </TileContent>
+			</GenericTile>
+		</l:HorizontalLayout>
+        <Title
+            titleStyle="H2"
+            text="Información Adicional"
+            wrapping="true"
+            class="sapUiLargeMarginBegin title sapUiLargeMarginTop"/>
+        <l:HorizontalLayout allowWrapping="true" content="{/TileCollectionManage}" visible="true" >
+            <GenericTile header="{title}" subheader="{info}" press="onPress" class="sapUiLargeMarginBegin sapUiLargeMarginTop" frameType="OneByOne" state="{=${state} || 'Disabled'}">
+                <TileContent>
+                    <NumericContent value="{value}" valueColor="{valueColor}" withMargin="false"  scale="%"  indicator="{indicator}"/>
+                </TileContent>
+			</GenericTile>
+        </l:HorizontalLayout>
+         </l:VerticalLayout>
+        <!--<HBox height="100%" alignItems="End" class="hboxContentButtonMiddle" visible="true">
+			<Button icon="sap-icon://add" press="onAddModule" ariaDescribedBy="defaultButtonDescription genericButtonDescription"/>
+		</HBox>-->
+        </content>
+    </Page>
+</mvc:View>

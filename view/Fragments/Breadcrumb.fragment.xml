@@ -1,0 +1,41 @@
+<core:FragmentDefinition
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<ColumnListItem
+		type="{
+			path: 'code',
+			formatter: 'sap.ui.app01.controller.OKR1.Formatter.listItemType'
+		}">
+		<cells>
+            <Text text="{code}"/>
+            <Text text="{tipo_evento}"/>
+            <Text text="{evento}"/>
+            <Text text="{	
+                path: 'fecha_evento',
+				type: 'sap.ui.model.type.Date',
+				formatOptions: {
+					style: 'medium',
+					source: {
+						pattern: 'yyyy-MM-dd'
+					}
+				}
+            }"/>
+            <Text text="{actividad}"/>
+            <Text text="{	
+                path: 'fecha_eje',
+				type: 'sap.ui.model.type.Date',
+				formatOptions: {
+					style: 'medium',
+					source: {
+						pattern: 'yyyy-MM-dd'
+					}
+				}
+            }"/>
+            <Text text="{area}"/>
+            <Text text="{responsable}"/>
+            <core:Icon
+                src="sap-icon://circle-task-2"
+                color="{status}" tooltip="{code_rea}"/>
+		</cells>
+	</ColumnListItem>
+</core:FragmentDefinition>

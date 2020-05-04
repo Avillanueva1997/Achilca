@@ -1,0 +1,67 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.OKR5.OKR5-3"
+	xmlns:layout="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core"
+  xmlns:tnt="sap.tnt"
+  xmlns:unified="sap.ui.unified"
+  xmlns:t="sap.ui.table"
+  xmlns="sap.m"
+  xmlns:viz="sap.viz.ui5.controls"
+  xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+  xmlns:viz.data="sap.viz.ui5.data">
+    <Page
+      title="Costo TRF"
+      id="COSTO01"
+      showNavButton="true"
+      navButtonPress="onNavBack">
+    <headerContent>
+        <Button icon="sap-icon://save" tooltip="Guardar" press="onSave" />
+    </headerContent>
+    <content>
+        <Table 
+        id="TableCOSTO01"
+        growing="true"
+        growingThreshold="30"
+        inset="false"
+        items="{path: '/'}"
+        alternateRowColors="true">
+        <headerToolbar>
+			<OverflowToolbar>
+				<content>
+                    <ComboBox items="{path: 'cbxDiametro>/', templateShareable:false}" width="20%" change="cargarCostoTRF" id="cbxDiametro">
+                        <core:ListItem key="{cbxDiametro>length}" text="{cbxDiametro>length}"/>
+                    </ComboBox>
+                    <ComboBox items="{path: 'cbxYear>/', templateShareable:false}" width="20%" change="cargarCostoTRF" id="cbxYear">
+                        <core:ListItem key="{cbxYear>description}" text="{cbxYear>description}"/>
+                    </ComboBox>
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+            <columns>
+                <Column>
+                    <Text text="Mes"/>
+                </Column>
+                <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+                    <Text text="Real"/>
+                </Column>
+                <Column minScreenWidth="Desktop" demandPopin="true" hAlign="End">
+                    <Text text="Objetivo"/>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                    <ComboBox showSecondaryValues="true" items="{path: 'cbxMonth>/', templateShareable:false}" selectedKey="{month}" width="100%" enabled="false">
+                        <core:ListItem key="{cbxMonth>code}" text="{cbxMonth>description}" additionalText="{cbxMonth>code}"/>
+                    </ComboBox>
+                    <Input value="{real}" type="Number"/>
+                    <Input value="{objetivo}" type="Number"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>    
+    </content>
+    </Page>
+</mvc:View>

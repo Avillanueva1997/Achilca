@@ -1,0 +1,48 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.COSTO.COSTO01M"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core"
+  xmlns:tnt="sap.tnt"
+  xmlns:unified="sap.ui.unified"
+  xmlns:t="sap.ui.table"
+  xmlns="sap.m"
+  xmlns:viz="sap.viz.ui5.controls"
+  xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+  xmlns:viz.data="sap.viz.ui5.data">
+    <Page
+      title="Indicador"
+      id="COSTO01M"
+      showNavButton="true"
+      navButtonPress="onNavBack">
+    <content>
+    <l:FixFlex id='chartFixFlex' minFlexSize="250">
+        <!--Below is the setting panel -->
+        <l:fixContent>
+            <Panel id='settingsPanel' class="panelStyle" expandable="true" expanded="false" width="auto">
+                <content>
+                    <HBox class='settingsHBox'>
+                    <VBox class='settingsBox'>
+                        <Label text="Año" design="Bold" class='settingsLabel'></Label>
+                        <ComboBox items="{path: 'cbxYear>/', templateShareable:false}" width="50%" id="cbxYear" change="generateChart">
+                          <core:ListItem key="{cbxYear>description}" text="{cbxYear>description}"/>
+                        </ComboBox>
+                    </VBox>
+                    <VBox class='settingsBox'>
+                        <Label text='Diámetro' design="Bold" class='settingsLabel'></Label>
+                       <ComboBox items="{path: 'cbxDiametro>/', templateShareable:false}" width="70%" id="cbxDiametro" change="generateChart">
+                          <core:ListItem key="{cbxDiametro>length}" text="{cbxDiametro>length}"/>
+                        </ComboBox>
+                    </VBox>
+                    </HBox>
+                </content>
+            </Panel>
+        </l:fixContent>
+        <l:flexContent>
+          <viz:VizFrame id="idChart1" width="100%"></viz:VizFrame>
+        </l:flexContent>
+    </l:FixFlex>
+    </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,57 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.SIG.SIG01"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:unified="sap.ui.unified"
+    xmlns:t="sap.ui.table"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls">
+    <Page
+        title="SG Calidad"
+        showNavButton="true"
+        navButtonPress="onNavBack">
+        <headerContent>
+            <Button press="onAdd" tooltip="Añadir" icon="sap-icon://add"/>
+            <Button press="onDelete" tooltip="Eliminar" icon="sap-icon://delete"/>
+            <Button icon="sap-icon://save" tooltip="Guardar" press="onSave" />
+        </headerContent>
+    <content>
+        <Table 
+            id="TableData"
+            growing="true"
+            growingThreshold="30"
+            inset="false"
+            items="{path: '/'}"
+            alternateRowColors="true"
+            mode="MultiSelect"> 
+        <columns>
+          <Column width="5em">
+            <Text text="Código"/>
+          </Column>
+          <Column>
+            <Text text="NcMa"/>
+          </Column>
+          <Column>
+            <Text text="NcMe"/>
+          </Column>
+          <Column hAlign="End">
+            <Text text="Obs."/>
+          </Column>
+        </columns>
+        <items>
+          <ColumnListItem>
+            <cells>
+              <Text text="{code}" />
+              <Input value="{no_cfd_mayor}" type="Number" />
+              <Input value="{no_cfd_menor}" type="Number" />
+              <Input value="{obs}" type="Number" />
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+    </content>
+    </Page>
+</mvc:View>

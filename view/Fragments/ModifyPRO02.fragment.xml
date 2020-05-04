@@ -1,0 +1,92 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:l="sap.ui.layout"
+		xmlns:f="sap.ui.layout.form"
+		xmlns:core="sap.ui.core">
+	<Dialog title="Title">
+		<beginButton>
+			<Button text="Guardar" type="Emphasized" press="handleDialogOkButton"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancelar" press="handleDialogCancelButton"/>
+		</endButton>
+		<l:VerticalLayout
+				class="sapUiContentPadding"
+				width="100%">
+			<l:content>
+				<f:SimpleForm
+						id="appointmentCreateForm"
+						editable="true"
+						layout="ResponsiveGridLayout"
+						singleContainerFullSize="false">
+					<f:content>
+						<Label text="Fecha" labelFor="datepickerFecha"/>
+						<DatePicker
+						id="datepickerFecha"
+						placeholder="Ingrese fecha..."
+						change="updateButtonEnabledState"
+						class="sapUiSmallMarginBottom"/>
+						<Label text="Turno" labelFor="selectTurno"/>
+						<Select
+						id="selectTurno"
+						forceSelection="false"
+						width="100%"
+						items="{
+							path: '/turno'
+						}"
+						change="updateButtonEnabledState">
+							<core:Item key="{code}" text="{description}"/>
+						</Select>
+						<Label text="Grupo"/>
+						<MultiComboBox
+							selectionChange="handleSelectionChange"
+							selectionFinish="handleSelectionFinish"
+							width="500px"
+							items="{
+								path: '/grupo'
+							}">
+							<core:Item key="{code}" text="{description}"/>
+						</MultiComboBox>
+						<!--<Label text="Title" labelFor="appTitle"/>
+						<Input id="appTitle" maxLength="255"/>
+						<Label text="Additional information" labelFor="inputInfo"/>
+						<Input id="moreInfo" maxLength="255"/>
+						<Label text="From" labelFor="startDate"/>
+						<DateTimePicker
+								id="DTPStartDate"
+								required="true"
+								visible="{= !${allDay>/allDay}}"
+								change="handleDateTimePickerChange"/>
+						<DatePicker
+								id="DPStartDate"
+								required="true"
+								visible="{= ${allDay>/allDay}}"
+								change="handleDatePickerChange"/>
+						<Label text="To" labelFor="endDate"/>
+						<DateTimePicker
+								id="DTPEndDate"
+								required="true"
+								visible="{= !${allDay>/allDay}}"
+								change="handleDateTimePickerChange"/>
+						<DatePicker
+								id="DPEndDate"
+								required="true"
+								visible="{= ${allDay>/allDay}}"
+								change="handleDatePickerChange"/>
+						<CheckBox
+								id="allDay"
+								text="All-day"
+								selected="{allDay>/allDay}"
+								select="handleCheckBoxSelect"/>
+						<Label text="Type" labelFor="appType"/>
+						<Select
+								id="appType"
+								items="{/supportedAppointmentItems}">
+							<core:Item key="{type}" text="{text}" />
+						</Select>-->
+					</f:content>
+				</f:SimpleForm>
+			</l:content>
+		</l:VerticalLayout>
+	</Dialog>
+</core:FragmentDefinition>

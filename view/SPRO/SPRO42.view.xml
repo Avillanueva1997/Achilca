@@ -1,0 +1,68 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.SPRO.SPRO42"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core"
+  xmlns:tnt="sap.tnt"
+  xmlns:u="sap.ui.unified"
+  xmlns:t="sap.ui.table"
+  xmlns="sap.m">
+    <Page
+      title="Database - Eficiencia"
+      id="SPRO42"
+      showNavButton="true"
+      navButtonPress="onNavBack"
+      enableScrolling="true">
+    <headerContent>
+      <Button icon="sap-icon://save" tooltip="Guardar" press="onSave" />
+    </headerContent>
+    <content>
+      <Table 
+        id="TableSPRO42"
+        growing="true"
+        growingThreshold="30"
+        inset="false"
+        items="{path: '/'}"
+        alternateRowColors="true"
+        mode="None">
+        <headerToolbar>
+			<OverflowToolbar>
+				<content>
+					<ComboBox items="{path: 'cbxYear>/', templateShareable:false}" width="20%" change="cargarData" id="cbxYear">
+                        <core:ListItem key="{cbxYear>description}" text="{cbxYear>description}"/>
+                    </ComboBox>
+                    <ComboBox items="{path: 'cbxLineaProduccion>/', templateShareable:false}" width="20%" change="cargarData" id="cbxLinea">
+                        <core:ListItem key="{cbxLineaProduccion>code}" text="{cbxLineaProduccion>code}"/>
+                    </ComboBox>
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+        <columns>
+            <Column width="12em">
+                <Text text="Mes"/>
+            </Column>
+            <Column
+            minScreenWidth="Tablet"
+            demandPopin="true">
+                <Text text="Meta" />
+            </Column>
+            <Column hAlign="End">
+                <Text text="Real" />
+            </Column>
+        </columns>
+        <items>
+          <ColumnListItem>
+            <cells>
+                <ComboBox showSecondaryValues="true" items="{path: 'cbxMonth>/', templateShareable:false}" selectedKey="{month}" width="100%" enabled="false">
+                  <core:ListItem key="{cbxMonth>code}" text="{cbxMonth>description}" additionalText="{cbxMonth>code}"/>
+                </ComboBox>
+                <Input value="{meta}"/>
+                <Input value="{data_real}"/>
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+    </content>
+    </Page>
+</mvc:View>

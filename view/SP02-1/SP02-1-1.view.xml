@@ -1,0 +1,81 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.SP02-1.SP02-1-1"
+	xmlns:layout="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:t="sap.ui.table"
+    xmlns="sap.m"
+	xmlns:viz="sap.viz.ui5.controls">
+    <Page
+      title="Cumplimiento de entregas APT"
+      showNavButton="true"
+      navButtonPress="onNavBack"
+      enableScrolling="true">
+		<headerContent>
+			<Button press="onCustomize" tooltip="Configuración" icon="sap-icon://settings"/>
+		</headerContent>
+    <content>
+        <layout:VerticalLayout width="100%">
+            <Panel id='settingsPanel' class="panelStyle" expandable="true" expanded="false" width="auto">
+                <content>
+                    <HBox class='settingsHBox'>
+                    <VBox class='settingsBox'>
+                        <Label text="Año" design="Bold" class='settingsLabel'></Label>
+                        <ComboBox items="{path: 'cbxYear>/', templateShareable:false}" width="50%" id="cbxYear" change="changeFilter">
+                          <core:ListItem key="{cbxYear>description}" text="{cbxYear>description}"/>
+                        </ComboBox>
+                    </VBox>
+                    <VBox class='settingsBox'>
+                        <Label text='Mes' design="Bold" class='settingsLabel'></Label>
+                       <ComboBox items="{path: 'cbxMonth>/', templateShareable:false}" width="70%" id="cbxMonth" change="changeFilter">
+                          <core:ListItem key="{cbxMonth>description}" text="{cbxMonth>description}"/>
+                        </ComboBox>
+                    </VBox>
+                    </HBox>
+                </content>
+            </Panel>
+        </layout:VerticalLayout>
+		<layout:VerticalLayout width="100%">
+			<layout:Grid id="gridHeader" defaultSpan="XL12 L12 M12 S12" class="sapUiTinyMarginTop">
+				<layout:content>
+					<viz:VizFrame id="idChart1" width="100%"></viz:VizFrame>
+				</layout:content>
+			</layout:Grid>
+        </layout:VerticalLayout>
+        <layout:VerticalLayout width="100%">
+            <Table growing="true" growingThreshold="30" items="{path: '/', templateShareable:false}" id="TableComments" growingScrollToLoad="true">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title text="Comentarios" level="H2"/>
+                        <ToolbarSpacer/>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column width="6rem">
+                        <Text text="Fecha" />
+                    </Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+                        <Text text="Comentario" />
+                    </Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+                        <Text text="Área" />
+                    </Column>
+                    <Column hAlign="End">
+                        <Text text="% Cumplimiento" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem highlight="{State}">
+                        <cells>
+                        <Text text="{date_event}"/>
+                        <Text text="{comments}"/>
+                        <Text text="{area}"/>
+                        <Text text="{porcentaje_cumplimiento}%"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </layout:VerticalLayout>
+    </content>
+    </Page>
+</mvc:View>

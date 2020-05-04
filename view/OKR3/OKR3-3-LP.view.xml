@@ -1,0 +1,69 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.OKR3.OKR3-3-LP"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:unified="sap.ui.unified"
+    xmlns:t="sap.ui.table"
+    xmlns="sap.m"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:vm="sap.ui.comp.variants"
+    xmlns:viz="sap.viz.ui5.controls">
+    <Page
+      title="OEE"
+      id="OKR3-3"
+      showNavButton="true"
+      navButtonPress="onNavBack">
+    <headerContent>
+        <Button icon="sap-icon://add-activity-2" tooltip="Agregar Objetivo" press="onPlanAccion" id="btnPlanAccion"/>
+    </headerContent>
+    <content>
+    <l:VerticalLayout width="100%">
+      <Panel id='settingsPanel' class="panelStyle" expandable="true" expanded="false" width="auto">
+          <content>
+              <HBox class='settingsHBox'>
+                <VBox class='settingsBox'>
+                    <Label text="Año" design="Bold" class='settingsLabel'></Label>
+                    <ComboBox items="{path: 'cbxYear>/', templateShareable:false}" width="50%" id="cbxYear" change="onChangeData">
+                        <core:ListItem key="{cbxYear>description}" text="{cbxYear>description}"/>
+                    </ComboBox>
+                </VBox>
+                <VBox class='settingsBox'>
+                        <Label text="Mes" design="Bold" class='settingsLabel'></Label>
+                        <ComboBox items="{path: 'cbxMonth>/', templateShareable:false}" width="70%" id="cbxMonth" change="onChangeData">
+                            <core:ListItem key="{cbxMonth>description}" text="{cbxMonth>description}"/>
+                        </ComboBox>
+                </VBox>
+              </HBox>
+          </content>
+      </Panel>
+    </l:VerticalLayout>
+    <l:VerticalLayout width="100%">
+      <l:Grid id="gridHeader" defaultSpan="XL3 L3 M6 S12" class="sapUiTinyMarginTop">
+        <l:content>
+            <viz:VizFrame id="idChart1" width="100%" class="heightDonut"></viz:VizFrame>
+            <viz:VizFrame id="idChart2" width="100%" class="heightDonut"></viz:VizFrame>    
+            <viz:VizFrame id="idChart3" width="100%" class="heightDonut"></viz:VizFrame>
+            <viz:VizFrame id="idChart4" width="100%" class="heightDonut"></viz:VizFrame>
+        </l:content>
+      </l:Grid>
+    </l:VerticalLayout>
+    <l:VerticalLayout  width="100%">
+        <l:FixFlex id='chartFixFlex'>
+            <l:fixContent>
+                <viz:VizFrame id="idChart5" width="97%" class="styleMarginVizFrame"></viz:VizFrame>
+            </l:fixContent>
+        </l:FixFlex>
+    </l:VerticalLayout>
+    <HBox height="100%" alignItems="End" class="hboxContentButtonMiddle" id="HB_Avatar">
+      <Avatar
+      src="sap-icon://activity-2"
+      displaySize="S"
+      backgroundColor="Accent6"
+      press="openFragmentPA"/>
+		</HBox>
+    </content>
+    </Page>
+</mvc:View>

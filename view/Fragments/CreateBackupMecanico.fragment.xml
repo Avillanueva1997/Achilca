@@ -1,0 +1,39 @@
+<core:FragmentDefinition
+		xmlns:l="sap.ui.layout"
+		xmlns:core="sap.ui.core"
+		xmlns="sap.m">
+	<Dialog>
+		<beginButton>
+			<Button text="Guardar" type="Emphasized" press="handleDialogSaveButtonFour"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancelar" press="handleDialogCancelButtonFour"/>
+		</endButton>
+		<l:VerticalLayout
+			class="sapUiContentPadding"
+			width="100%">
+			<l:content>
+				<Label text="Fecha: " labelFor="datepickerFechaFour"/>
+				<DateRangeSelection
+				id="datepickerFechaFour"
+				change="updateButtonEnabledStateFour"/>
+				<!--<DatePicker
+				id="datepickerFechaThird"
+				placeholder="Ingrese fecha..."
+				change="updateButtonEnabledStateFour"
+				class="sapUiSmallMarginBottom"/>-->
+				<Label text="Mecánico: " labelFor="selectMecanicoFour"/>
+				<Select
+					id="selectMecanicoFour"
+					forceSelection="false"
+					width="100%"
+					change="updateButtonEnabledStateFour"
+					items="{
+						path: '/mecanico'
+					}">
+					<core:Item key="{code}" text="{name}"/>
+				</Select>
+			</l:content>
+		</l:VerticalLayout>
+	</Dialog>
+</core:FragmentDefinition>

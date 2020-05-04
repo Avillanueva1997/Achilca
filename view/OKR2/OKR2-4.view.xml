@@ -1,0 +1,75 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.OKR2.OKR2-4"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:unified="sap.ui.unified"
+    xmlns:t="sap.ui.table"
+    xmlns="sap.m">
+    <Page
+      title="Distribución Bola Obs MTD"
+      id="CALIDAD03"
+      showNavButton="true"
+      navButtonPress="onNavBack">
+      <headerContent>
+        <Button press="onAdd" tooltip="Añadir" icon="sap-icon://add"/>
+        <Button press="onDelete" tooltip="Eliminar" icon="sap-icon://delete"/>
+        <Button icon="sap-icon://save" tooltip="Guardar" press="onSave" />
+    </headerContent>
+    <content>
+        <Table 
+        id="TableCALIDAD03"
+        growing="true"
+        growingThreshold="30"
+        inset="false"
+        items="{path: '/'}"
+        alternateRowColors="true"
+        mode="MultiSelect">
+        <headerToolbar>
+          <OverflowToolbar>
+            <content>
+              <ComboBox items="{path: 'cbxYear>/', templateShareable:false}" width="10%" id="btnFilterYear" change="cargarDistBolaObs">
+                <core:ListItem key="{cbxYear>description}" text="{cbxYear>description}"/>
+              </ComboBox>
+              <ComboBox items="{path: 'cbxMonth>/', templateShareable:false}" width="10%" id="btnFilterMonth" change="cargarDistBolaObs">
+                <core:ListItem key="{cbxMonth>description}" text="{cbxMonth>description}"/>
+              </ComboBox>
+              <ComboBox items="{path: 'cbxLinea>/', templateShareable:false}" width="10%" id="btnFilterLinea" change="cargarDistBolaObs">
+                <core:ListItem key="{cbxLinea>code}" text="{cbxLinea>code}"/>
+              </ComboBox>
+              <ComboBox items="{path: 'cbxDiametro>/', templateShareable:false}" width="10%" id="btnFilterDiametro" change="cargarDistBolaObs">
+                <core:ListItem key="{cbxDiametro>length}" text="{cbxDiametro>length}"/>
+              </ComboBox>
+            </content>
+          </OverflowToolbar>
+        </headerToolbar>
+        <columns>
+            <Column>
+              <Text text="Defecto"/>
+            </Column>
+            <!--<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+              <Text text="Defecto" />
+            </Column>-->
+            <Column hAlign="End">
+                <Text text="Cantidad" />
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem>
+                <cells>
+                <!--<ComboBox items="{path: 'cbxDiametro>/', templateShareable:false}" selectedKey="{diametro}" width="100%">
+                    <core:ListItem key="{cbxDiametro>length}" text="{cbxDiametro>length}"/>
+                </ComboBox>-->
+                <ComboBox items="{path: 'cbxDefecto>/', templateShareable:false}" selectedKey="{defecto}" width="100%">
+                    <core:ListItem key="{cbxDefecto>code}" text="{cbxDefecto>description}"/>
+                </ComboBox>
+                <Input value="{quantity}" type="Number"/>
+                </cells>
+            </ColumnListItem>
+        </items>
+      </Table>    
+    </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,46 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.OKR2.OKR2-3-LP-D"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:unified="sap.ui.unified"
+    xmlns:t="sap.ui.table"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls">
+    <Page
+      title="Distribución Bola Obs MTD"
+      id="CALIDAD03M"
+      showNavButton="true"
+      navButtonPress="onNavBack">
+    <content>
+    <l:VerticalLayout width="100%">
+      <l:Grid id="gridHeader" defaultSpan="XL12 L12 M12 S12" class="sapUiTinyMarginTop">
+        <l:content>   
+            <viz:VizFrame id="idChart1" width="100%"></viz:VizFrame>
+        </l:content>
+      </l:Grid>
+    </l:VerticalLayout>
+    <!--<l:FixFlex id='chartFixFlex' minFlexSize="250">
+        <l:fixContent>
+            <Panel id='settingsPanel' class="panelStyle" expandable="true" expanded="false" width="auto">
+                <content>
+                    <HBox class='settingsHBox'>
+                    <VBox class='settingsBox'>
+                        <Label text="Diámetro" design="Bold" class='settingsLabel'></Label>
+                        <ComboBox items="{path: 'cbxDiametro>/', templateShareable:false}" width="50%" id="btnFilterDiametro" change="generateChart">
+                          <core:ListItem key="{cbxDiametro>diametro}" text="{cbxDiametro>diametro}"/>
+                        </ComboBox>
+                    </VBox>
+                    </HBox>
+                </content>
+            </Panel>
+        </l:fixContent>
+        <l:flexContent>
+          <viz:VizFrame id="idChart1" width="100%"></viz:VizFrame>
+        </l:flexContent>
+    </l:FixFlex>-->
+    </content>
+    </Page>
+</mvc:View>

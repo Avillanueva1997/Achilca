@@ -1,0 +1,121 @@
+<core:FragmentDefinition
+		xmlns:l="sap.ui.layout"
+		xmlns:core="sap.ui.core"
+		xmlns="sap.m">
+	<Dialog>
+		<beginButton>
+			<Button text="Guardar" type="Emphasized" press="handleDialogSaveButton"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancelar" press="handleDialogCancelButton"/>
+		</endButton>
+		<l:VerticalLayout
+			class="sapUiContentPadding"
+			width="100%">
+			<l:content>
+				<Label text="Línea de Producción: " labelFor="selectLineaProduccion"/>
+				<Select
+						id="selectLineaProduccion"
+						forceSelection="false"
+						width="100%"
+						items="{
+							path: '/people'
+						}"
+						change="updateButtonEnabledState">
+					<core:Item key="{name}" text="{name}"/>
+				</Select>
+				<Label text="Φ / MA / PP: " labelFor="selectOption"/>
+				<Select
+					id="selectOption"
+					forceSelection="false"
+					width="100%"
+					items="{
+						path: '/option'
+					}"
+					change="onChangeOption">
+				<core:Item key="{code}" text="{description}"/>
+				</Select>
+				<Label text="Tipo: " labelFor="selectTipo" id="lblSelectTipo" visible="false"/>
+				<Select id="selectTipo" 
+					forceSelection="false" 
+					width="100%" 
+					items="{
+						path: '/tipo'
+					}"
+					visible="false"
+					change="onChangeTipo">
+						<core:Item key="{code}" text="{description}"/>
+				</Select>
+				<Label text="Turno: " labelFor="selectTurno" id="lblSelectTurno" visible="false"/>
+				<Select
+						id="selectTurno"
+						forceSelection="false"
+						width="100%"
+						items="{
+							path: '/turno'
+						}"
+						change="updateButtonEnabledState"
+						visible="false">
+					<core:Item key="{code}" text="{description}"/>
+				</Select>
+				<Label text="Turno"  labelFor="multiboxTurno" id="lblMultiboxTurno" visible="false"/>
+				<MultiComboBox
+					selectionFinish="updateButtonEnabledState"
+					items="{
+						path: '/turno'
+					}"
+					id="multiboxTurno"
+					visible="false">
+					<core:Item key="{code}" text="{description}"/>
+				</MultiComboBox>
+				<Label text="Fecha Inicio: " labelFor="startDate" visible="false" id="lblStartDate"/>
+				<DateTimePicker
+					id="startDate"
+					displayFormat="short"
+					change="handleCreateChange"
+					visible="false"/>
+				<Label text="Fecha Fin: " labelFor="endDate" visible="false" id="lblEndDate"/>
+				<DateTimePicker
+					id="endDate"
+					displayFormat="short"
+					change="handleCreateChange" visible="false"/>
+				<Label text="Fecha: " labelFor="datepickerFecha" id="lblFecha" visible="false"/>
+				<DatePicker
+				id="datepickerFecha"
+				placeholder="Ingrese fecha..."
+				change="updateButtonEnabledState"
+				class="sapUiSmallMarginBottom" visible="false"/>
+				<Label text="Diámetro: " labelFor="selectBall" id="lblBall" visible="false"/>
+				<Select
+					id="selectBall"
+					forceSelection="false"
+					width="100%"
+					items="{
+						path: '/ball'
+					}"
+					visible="false"
+					change="updateButtonEnabledState">
+					<core:Item key="{length}" text="{length}"/>
+				</Select>
+				<Label text="TM" labelFor="inputTM"	visible="false" id="lblTM"/>
+				<Input value="0" type="Number" id="inputTM" enabled="false" visible="false" liveChange="updateButtonEnabledState"/>
+				<!--<Label text="Title: " labelFor="inputTitle"/>
+				<Input id="inputTitle"/>
+				<Label text="Start date: " labelFor="startDate"/>
+				<DateTimePicker
+						id="startDate"
+						displayFormat="short"
+						required="true"
+						change="handleCreateChange"/>
+				<Label text="End date: " labelFor="endDate"/>
+				<DateTimePicker
+						id="endDate"
+						displayFormat="short"
+						required="true"
+						change="handleCreateChange"/>
+				<Label text="More information: " labelFor="inputInfo"/>
+				<Input id="moreInfo"/>-->
+			</l:content>
+		</l:VerticalLayout>
+	</Dialog>
+</core:FragmentDefinition>

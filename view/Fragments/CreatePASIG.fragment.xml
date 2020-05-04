@@ -1,0 +1,62 @@
+<core:FragmentDefinition
+		xmlns:l="sap.ui.layout"
+		xmlns:core="sap.ui.core"
+		xmlns="sap.m">
+	<Dialog>
+		<beginButton>
+			<Button text="Guardar" type="Emphasized" press="handleDialogSaveButton"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancelar" press="handleDialogCancelButton"/>
+		</endButton>
+		<l:VerticalLayout
+			class="sapUiContentPadding"
+			width="100%">
+			<l:content>
+				<Label text="Tipo:" labelFor="cbxDataType"/>
+                <ComboBox items="{path: '/dataType', templateShareable:false}" id="cbxDataType" width="100%" change="updateButtonEnabledState">
+                    <core:ListItem key="{code}" text="{description}"/>
+                </ComboBox>
+                <!--EVENTO-->
+                <Label text="Evento:" labelFor="iptEvento" visible="false" id="lblEvento"/>
+                <Input type="Text" id="iptEvento" visible="false" liveChange="updateButtonEnabledState"/>
+                <Label text="Tipo Evento:" labelFor="cbxTypeEvento" visible="false" id="labelTypeEvento"/>
+                <ComboBox items="{path: '/dataTypeEvento', templateShareable:false}" id="cbxTypeEvento" width="100%" change="updateButtonEnabledState" visible="false">
+                    <core:ListItem key="{description}" text="{description}"/>
+                </ComboBox>
+                <Label text="Descripción Tipo Evento:" labelFor="descripTipoEvento" visible="false" id="lbldescripTipoEvento"/>
+                <Input type="Text" id="descripTipoEvento" visible="false" liveChange="updateButtonEnabledState"/>
+                <Label text="Fecha Evento:" labelFor="datepickerFechaEvento" visible="false" id="lblFechaEvento" />
+                <DatePicker
+				id="datepickerFechaEvento"
+				placeholder="Ingrese fecha..."
+				change="updateButtonEnabledState"
+				class="sapUiSmallMarginBottom" visible="false"/>
+				<Label text="Evento:" labelFor="cbxEvento" visible="false" id="lblSecondEvento"/>
+                <ComboBox items="{path: '/dataEvento', templateShareable:false}" id="cbxEvento" width="100%" visible="false" change="updateButtonEnabledState" showSecondaryValues= "true" filterSecondaryValues= "true">
+                    <core:ListItem key="{code}" text="{evento}" additionalText="{code}"/>
+                </ComboBox>
+                <Label text="Actividad:" labelFor="iptActividad" visible="false" id="lblActividad"/>
+                <Input type="Text" id="iptActividad" visible="false" liveChange="updateButtonEnabledState"/>
+                <Label text="Fecha Eje.:" labelFor="datepickerFechaEje" visible="false" id="lblFechaEje"/>
+                <DatePicker
+				id="datepickerFechaEje"
+				placeholder="Ingrese fecha..."
+				change="updateButtonEnabledState"
+				class="sapUiSmallMarginBottom" visible="false"/>
+                <Label text="Área Responsable:" labelFor="cbxArea" visible="false" id="lblArea"/>
+                <ComboBox items="{path: '/dataArea', templateShareable:false}" id="cbxArea" width="100%" visible="false" change="updateButtonEnabledState">
+                    <core:ListItem key="{code}" text="{area}"/>
+                </ComboBox>
+				<Label text="Actividad:" labelFor="cbxActividad" visible="false" id="lblActividadSecond"/>
+                <ComboBox items="{path: '/dataActividades', templateShareable:false}" id="cbxActividad" width="100%" visible="false" change="updateButtonEnabledState" showSecondaryValues= "true" filterSecondaryValues= "true">
+                    <core:ListItem key="{code}" text="{actividad}" additionalText="{code}"/>
+                </ComboBox>
+                <Label text="Persona Responsable:" labelFor="cbxResponsable" visible="false" id="lblResponsable"/>
+                <ComboBox items="{path: '/dataResponsable', templateShareable:false}" id="cbxResponsable" width="100%" visible="false" change="updateButtonEnabledState">
+                    <core:ListItem key="{code}" text="{nameComplete}"/>
+                </ComboBox>
+			</l:content>
+		</l:VerticalLayout>
+	</Dialog>
+</core:FragmentDefinition>

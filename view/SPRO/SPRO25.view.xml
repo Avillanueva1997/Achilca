@@ -1,0 +1,67 @@
+<mvc:View
+  controllerName="sap.ui.app01.controller.SPRO.SPRO25"
+  xmlns:l="sap.ui.layout"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core"
+  xmlns:tnt="sap.tnt"
+  xmlns:u="sap.ui.unified"
+  xmlns:t="sap.ui.table"
+  xmlns="sap.m">
+    <Page
+      title="Meta - Uptime"
+      id="SPRO25"
+      showNavButton="true"
+      navButtonPress="onNavBack"
+      enableScrolling="true">
+    <headerContent>
+      <Button icon="sap-icon://save" tooltip="Guardar" press="onSave" />
+    </headerContent>
+    <content>
+    	<Panel expandable="true" width="auto">
+            <content>
+                <ComboBox items="{path: 'cbxYear>/', templateShareable:false}" width="10%" id="cbxYear" change="cargarMetaUptime">
+                    <core:ListItem key="{cbxYear>description}" text="{cbxYear>description}"/>
+                </ComboBox>
+                <ToolbarSpacer />
+                <ComboBox items="{path: 'cbxLinea>/', templateShareable:false}" selectedKey="{linea_produccion}" width="10%" id="cbxLinea" change="cargarMetaUptime">
+                    <core:ListItem key="{cbxLinea>code}" text="{cbxLinea>code}"/>
+                </ComboBox>
+            </content>
+        </Panel>
+        <Table 
+            id="TableSPRO25"
+            growing="true"
+            growingThreshold="30"
+            inset="false"
+            items="{path: '/'}"
+            alternateRowColors="true"
+            mode="None"> 
+            <columns>
+            <Column width="5em">
+                <Text text="Código"/>
+            </Column>
+            <Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="Trimestre" />
+			</Column>
+            <Column hAlign="End">
+                <Text text="Meta" />
+            </Column>
+            </columns>
+            <items>
+            <ColumnListItem>
+                <cells>
+                <Text text="{code}" class="sapUiSmallMarginTop"/>
+                <ComboBox items="{path: 'cbxTrimestre>/', templateShareable:false}" selectedKey="{trimestre}" width="100%" enabled="false">
+                    <core:ListItem key="{cbxTrimestre>code}" text="{cbxTrimestre>code}"/>
+                </ComboBox>
+                <Input type="Number" value="{meta}"/>
+                </cells>
+            </ColumnListItem>
+            </items>
+        </Table>
+    </content>
+    </Page>
+</mvc:View>

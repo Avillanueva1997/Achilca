@@ -1,0 +1,59 @@
+<mvc:View
+    controllerName="sap.ui.app01.controller.PRO.PRO06"
+    xmlns:layout="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:unified="sap.ui.unified"
+    xmlns:t="sap.ui.table"
+    xmlns="sap.m"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:vm="sap.ui.comp.variants"
+    xmlns:viz="sap.viz.ui5.controls">
+    <Page
+      title="Eficiencia Bolas Forjadas"
+      id="PRO06"
+      showNavButton="true"
+      navButtonPress="onNavBack"
+	  enableScrolling="true">
+      <headerContent>
+        <Button icon="sap-icon://activities" tooltip="Comentarios" press="onShowComments" />
+        <Button icon="sap-icon://add-activity" tooltip="Agregar Comentario" press="onAddComments" />
+    </headerContent>
+    <content>
+    <layout:FixFlex id='chartFixFlex' minFlexSize="250">
+        <!--Below is the setting panel -->
+        <layout:fixContent>
+            <Panel id='settingsPanel' class="panelStyle" expandable="true" expanded="false" width="auto">
+                <content>
+                    <HBox class='settingsHBox'>
+                    <VBox class='settingsBox'>
+                        <Label text="Año" design="Bold" class='settingsLabel'></Label>
+                        <ComboBox items="{path: 'cbxYear>/', templateShareable:false}" width="50%" id="btnFilterYear" change="onChangeFilter">
+                          <core:ListItem key="{cbxYear>description}" text="{cbxYear>description}"/>
+                        </ComboBox>
+                    </VBox>
+                    <VBox class='settingsBox'>
+                        <Label text='Mes' design="Bold" class='settingsLabel'></Label>
+                       <ComboBox items="{path: 'cbxMonth>/', templateShareable:false}" width="70%" id="btnFilterMonth" change="onChangeFilter">
+                          <core:ListItem key="{cbxMonth>description}" text="{cbxMonth>description}"/>
+                        </ComboBox>
+                    </VBox>
+                     <VBox class='settingsBox'>
+                        <Label text='Linea de Producción' design="Bold" class='settingsLabel'></Label>
+                       <ComboBox items="{path: 'cbxLinea>/', templateShareable:false}" width="70%" id="btnFilterLinea" change="onChangeFilter">
+                          <core:ListItem key="{cbxLinea>code}" text="{cbxLinea>code}"/>
+                        </ComboBox>
+                    </VBox>
+                    </HBox>
+                </content>
+            </Panel>
+        </layout:fixContent>
+        <layout:flexContent>
+            <viz:VizFrame id="idChart1" width="100%"></viz:VizFrame>
+        </layout:flexContent>
+    </layout:FixFlex>
+    </content>
+    </Page>
+</mvc:View>

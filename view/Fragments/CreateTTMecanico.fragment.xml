@@ -1,0 +1,46 @@
+<core:FragmentDefinition
+		xmlns:l="sap.ui.layout"
+		xmlns:core="sap.ui.core"
+		xmlns="sap.m">
+	<Dialog>
+		<beginButton>
+			<Button text="Guardar" type="Emphasized" press="handleDialogSaveButtonThird"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancelar" press="handleDialogCancelButtonThird"/>
+		</endButton>
+		<l:VerticalLayout
+			class="sapUiContentPadding"
+			width="100%">
+			<l:content>
+				<Label text="Fecha: " labelFor="datepickerFechaThird"/>
+				<DatePicker
+				id="datepickerFechaThird"
+				placeholder="Ingrese fecha..."
+				change="updateButtonEnabledStateThird"
+				class="sapUiSmallMarginBottom"/>
+				<Label text="Turno: " labelFor="selectTurnoThird"/>
+				<Select
+						id="selectTurnoThird"
+						forceSelection="false"
+						width="100%"
+						items="{
+							path: '/turno'
+						}"
+						change="updateButtonEnabledStateThird">
+					<core:Item key="{code}" text="{description}"/>
+				</Select>
+				<Label text="Mecánico: " labelFor="multiboxGrupoThird"/>
+				<MultiComboBox
+					selectionFinish="updateButtonEnabledStateThird"
+					width="500px"
+					items="{
+						path: '/mecanico'
+					}"
+					id="multiboxGrupoThird">
+					<core:Item key="{code}" text="{name}"/>
+				</MultiComboBox>
+			</l:content>
+		</l:VerticalLayout>
+	</Dialog>
+</core:FragmentDefinition>

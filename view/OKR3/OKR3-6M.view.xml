@@ -1,0 +1,243 @@
+<mvc:View
+    controllerName="sap.ui.app01.controller.OKR3.OKR3-6M"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:unified="sap.ui.unified"
+    xmlns:t="sap.ui.table"
+    xmlns="sap.m">
+    <Page
+      title="Acumulado Mensual"
+      id="OKR3-6M"
+      showNavButton="true"
+      navButtonPress="onNavBack">
+    <content>
+	<l:ResponsiveSplitter height="100%">
+		<l:PaneContainer>
+			<l:SplitPane requiredParentWidth="500">
+			<Table
+				items="{path: '/AcumuladoReal', templateShareable:false}"
+				id="tableLineaProduccion" 
+				contextualWidth="Auto"
+				popinLayout="GridSmall"
+				headerText="Real">
+				<columns>
+					<Column>
+						<Text text="Fecha" />
+					</Column>
+					<Column minScreenWidth="tablet" demandPopin="true" hAlign="Center">
+						<Text text="Carga Fría" />
+					</Column>
+					<Column minScreenWidth="tablet" demandPopin="true" hAlign="Center">
+						<Text text="Prod. Neta" />
+					</Column>
+					<Column minScreenWidth="tablet" demandPopin="true" hAlign="Center">
+						<Text text="Eficiencia" />
+					</Column>
+					<Column minScreenWidth="tablet" demandPopin="true" hAlign="Center">
+						<Text text="Bola Obs." />
+					</Column>
+					<Column hAlign="End">
+						<Text text="Bola Obs." />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{
+								path: 'fecha_second',
+								type: 'sap.ui.model.type.Date',
+								formatOptions: {
+									style: 'medium',
+									source: {
+										pattern: 'yyyy-MM-dd'
+									}
+								}
+							}" />
+							<ObjectNumber
+								number="{
+								path:'carga_fria_second',
+								type: 'sap.ui.model.type.Decimal',
+								formatOptions: {showMeasure: false}
+							}" unit="TM" />
+							<ObjectNumber
+								number="{
+								path:'produccion_neta_second',
+								type: 'sap.ui.model.type.Decimal',
+								formatOptions: {showMeasure: false}
+							}" unit="TM" />
+							<ObjectNumber
+								number="{
+								path:'eficiencia_second',
+								type: 'sap.ui.model.type.Decimal',
+								formatOptions: {showMeasure: false} }" unit="%" />
+							<ObjectNumber
+								number="{
+								path:'bola_observada_second_second',
+								type: 'sap.ui.model.type.Decimal',
+								formatOptions: {showMeasure: false} } " unit="%"/>
+							<ObjectNumber
+								number="{
+								path:'bola_observada_second',
+								type: 'sap.ui.model.type.Decimal',
+								formatOptions: {showMeasure: false} }" unit="TM"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			</l:SplitPane>
+			<l:SplitPane requiredParentWidth="400">
+			<Table
+				items="{path: '/AcumuladoFinal', templateShareable:false}"
+				id="tableLineaProduccionFinal" 
+				contextualWidth="Auto"
+				popinLayout="GridSmall">
+				<headerToolbar>
+					<OverflowToolbar>
+						<Title text="Final" level="H2" />
+						<ToolbarSpacer/>
+						<Button icon="sap-icon://save" tooltip="Guardar" press="onSave" />
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Fecha" />
+					</Column>
+					<Column minScreenWidth="tablet" demandPopin="true" hAlign="Center">
+						<Text text="Carga Fría" />
+					</Column>
+					<Column minScreenWidth="tablet" demandPopin="true" hAlign="Center">
+						<Text text="Prod. Neta" />
+					</Column>
+					<Column minScreenWidth="tablet" demandPopin="true" hAlign="Center">
+						<Text text="Eficiencia" />
+					</Column>
+					<Column minScreenWidth="tablet" demandPopin="true" hAlign="Center">
+						<Text text="Bola Obs." />
+					</Column>
+					<Column hAlign="End">
+						<Text text="Bola Obs." />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{
+								path: 'fecha',
+								type: 'sap.ui.model.type.Date',
+								formatOptions: {
+									style: 'medium',
+									source: {
+										pattern: 'yyyy-MM-dd'
+									}
+								}
+							}" />
+							<Input value="{carga_fria}" type="Number"/>
+							<Input value="{produccion_neta}" type="Number"/>
+							<Input value="{eficiencia}" type="Number"/>
+							<Input value="{bola_observada_second}" type="Number"/>
+							<Input value="{bola_observada}" type="Number"/>
+							<!--<ObjectNumber
+								number="{
+								path:'carga_fria',
+								type: 'sap.ui.model.type.Decimal',
+								formatOptions: {showMeasure: false}
+							}" unit="TM" />
+							<ObjectNumber
+								number="{
+								path:'produccion_neta',
+								type: 'sap.ui.model.type.Decimal',
+								formatOptions: {showMeasure: false}
+							}" unit="TM" />
+							<ObjectNumber
+								number="{
+								path:'eficiencia',
+								type: 'sap.ui.model.type.Decimal',
+								formatOptions: {showMeasure: false} }" unit="%" />
+							<ObjectNumber
+								number="{
+								path:'bola_observada_second',
+								type: 'sap.ui.model.type.Decimal',
+								formatOptions: {showMeasure: false} } " unit="%"/>
+							<ObjectNumber
+								number="{
+								path:'bola_observada',
+								type: 'sap.ui.model.type.Decimal',
+								formatOptions: {showMeasure: false} }" unit="TM"/>-->
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			</l:SplitPane>
+		</l:PaneContainer>
+	</l:ResponsiveSplitter>
+		<!--<Table growing="true" growingThreshold="10" items="{path: '/', templateShareable:false}" inset="false" id="tableLineaProduccion">
+			<columns>
+				<Column>
+					<Text text="Fecha" />
+				</Column>
+				<Column>
+					<Text text="Carga Fría" />
+				</Column>
+				<Column minScreenWidth="tablet" demandPopin="true" hAlign="Center">
+					<Text text="Prod. Neta" />
+				</Column>
+				<Column minScreenWidth="tablet" demandPopin="true" hAlign="Center">
+					<Text text="Eficiencia" />
+				</Column>
+				<Column minScreenWidth="tablet" demandPopin="true" hAlign="Center">
+					<Text text="Bola Obs." />
+				</Column>
+				<Column hAlign="End">
+					<Text text="Bola Obs." />
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text text="{
+							path: 'fecha',
+							type: 'sap.ui.model.type.Date',
+							formatOptions: {
+								style: 'medium',
+								source: {
+									pattern: 'yyyy-MM-dd'
+								}
+							}
+						}" />
+						<ObjectNumber
+							number="{
+							path:'carga_fria',
+							type: 'sap.ui.model.type.Decimal',
+							formatOptions: {showMeasure: false}
+						}" unit="TM" />
+						<ObjectNumber
+							number="{
+							path:'produccion_neta',
+							type: 'sap.ui.model.type.Decimal',
+							formatOptions: {showMeasure: false}
+						}" unit="TM" />
+						<ObjectNumber
+							number="{
+							path:'eficiencia',
+							type: 'sap.ui.model.type.Decimal',
+							formatOptions: {showMeasure: false} }" unit="%" />
+                        <ObjectNumber
+							number="{
+							path:'bola_observada_second',
+							type: 'sap.ui.model.type.Decimal',
+							formatOptions: {showMeasure: false} } " unit="%"/>
+						<ObjectNumber
+							number="{
+							path:'bola_observada',
+							type: 'sap.ui.model.type.Decimal',
+							formatOptions: {showMeasure: false} }" unit="TM"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>-->
+    </content>
+    </Page>
+</mvc:View>

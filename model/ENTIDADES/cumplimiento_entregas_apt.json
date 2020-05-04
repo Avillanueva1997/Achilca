@@ -1,0 +1,12 @@
+{
+    "code":"",
+    "month": 0,
+    "year": 0,
+	"date_event":"",
+    "entrega_proy": 0,
+    "entrega_real": 0,
+    "comments": "",
+    "area": "",
+    "porcentaje_cumplimiento": 0,
+    "State": "None"
+}

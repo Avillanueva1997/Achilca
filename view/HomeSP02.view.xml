@@ -1,0 +1,33 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.HomeSP02"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m">    
+	<Page
+	showHeader="false"
+	
+	id="pageHome">
+		<core:Fragment fragmentName='sap.ui.app01.view.Fragments.Header' type='XML'/>
+		<content>
+        <TileContainer
+            id="container"
+            tileDelete="handleTileDelete"
+            tiles="{/TileCollection}">
+                <StandardTile
+                    icon="{icon}"
+                    type="{type}"
+                    number="{number}"
+                    numberUnit="{numberUnit}"
+                    title="{title}"
+                    info="{info}"
+                    infoState="{infoState}"
+                    blocked="{state}"
+                    press="onPress" />
+            </TileContainer>
+		</content>
+	</Page>
+</mvc:View>

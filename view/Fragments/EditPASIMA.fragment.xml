@@ -1,0 +1,35 @@
+<core:FragmentDefinition
+		xmlns:l="sap.ui.layout"
+		xmlns:core="sap.ui.core"
+		xmlns="sap.m">
+	<Dialog>
+		<beginButton>
+			<Button text="Guardar" type="Emphasized" press="UpdateActividad"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancelar" press="CloseDialogEdit"/>
+		</endButton>
+		<l:VerticalLayout
+			class="sapUiContentPadding"
+			width="100%">
+			<l:content>
+                <Label text="Actividad:" labelFor="iptActividad" id="lblActividad"/>
+                <Input type="Text" id="iptActividad" liveChange="updateButtonEnabledStateSecond"/>
+                <Label text="Fecha Eje.:" labelFor="datepickerFechaEje" id="lblFechaEje"/>
+                <DatePicker
+				id="datepickerFechaEje"
+				placeholder="Ingrese fecha..."
+				change="updateButtonEnabledStateSecond"
+				class="sapUiSmallMarginBottom"/>
+                <Label text="Área Responsable:" labelFor="cbxArea" id="lblArea"/>
+                <ComboBox items="{path: '/dataArea', templateShareable:false}" id="cbxArea" width="100%" change="updateButtonEnabledStateSecond">
+                    <core:ListItem key="{code}" text="{area}"/>
+                </ComboBox>
+                <Label text="Persona Responsable:" labelFor="cbxResponsable" id="lblResponsable"/>
+                <ComboBox items="{path: '/dataResponsable', templateShareable:false}" id="cbxResponsable" width="100%" change="updateButtonEnabledStateSecond">
+                    <core:ListItem key="{code}" text="{nameComplete}"/>
+                </ComboBox>
+			</l:content>
+		</l:VerticalLayout>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,65 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.SPRO.SPRO08"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core"
+  xmlns:tnt="sap.tnt"
+  xmlns:u="sap.ui.unified"
+  xmlns:t="sap.ui.table"
+  xmlns="sap.m">
+    <Page
+      title="Round Bar"
+      id="SPRO08"
+      showNavButton="true"
+      navButtonPress="onNavBack"
+      enableScrolling="true">
+    <headerContent>
+      <Button press="onAdd" tooltip="Añadir" icon="sap-icon://add"/>
+      <Button press="onDelete" tooltip="Eliminar" icon="sap-icon://delete"/>
+      <Button icon="sap-icon://save" tooltip="Guardar" press="onSave" />
+    </headerContent>
+    <content>
+      <Table 
+        id="TableSPRO08"
+        growing="true"
+        growingThreshold="30"
+        inset="false"
+        items="{path: '/'}"
+        alternateRowColors="true"
+        mode="MultiSelect"> 
+        <columns>
+          <Column width="2.5em">
+            <Text text="#"/>
+          </Column>
+          <Column>
+            <Text text="SAP"/>
+          </Column>
+          <Column>
+            <Text text="Producto"/>
+          </Column>
+          <Column>
+            <Text text="Longitud"/>
+          </Column>
+          <Column hAlign="End">
+            <Text text="Peso(KG)" />
+          </Column>
+        </columns>
+        <items>
+          <ColumnListItem>
+            <cells>
+              <Text text="{code}" />
+              <Input value="{code_sap}" maxLength="8" liveChange="validateNumber" />
+              <ComboBox showSecondaryValues="true" items="{path: 'cbxProduct>/', templateShareable:false}" selectedKey="{product}" width="100%">
+                  <core:ListItem key="{cbxProduct>code}" text="{cbxProduct>description}" additionalText="{cbxProduct>code}"/>
+              </ComboBox>
+              <!--<Input value="{product}" />-->
+              <Input value="{length}" />
+              <Input type="Number" value="{weight}" />
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+    </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,87 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.SIMA.SIMA01"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:unified="sap.ui.unified"
+    xmlns:t="sap.ui.table"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+    <Page
+      title="KPI 1"
+      id="SIMA01"
+      showNavButton="true"
+      navButtonPress="onNavBack">
+    <headerContent>
+        <Button press="openFragmentPASIMA" tooltip="Plan de Acción" icon="sap-icon://activity-2"/>
+    </headerContent>
+    <content>
+    <html:div>
+        <html:table class="styleTablePDF table" align="center">
+          <html:tr>
+            <html:td class="styleTablePDF widthFirstColumn" rowspan="2">
+              <html:img src="assets/images/mepsa_ac_n2.png" class="imagePDF"></html:img>
+            </html:td>
+            <html:td class="styleTablePDF headerPDF">Indicador de Desempeño</html:td>
+            <html:td class="styleTablePDF textNormalPDF" rowspan="2">Unidad <html:span></html:span></html:td>
+            <core:HTML id="idHTMLContentMeta"/>
+            <html:td class="styleTablePDF textNormalPDF" rowspan="2">Meta <html:br></html:br><html:span class="secondTextNormalPDF">0</html:span></html:td>
+            <html:td class="styleTablePDF textNormalPDF" rowspan="2">Categoría <html:br></html:br><html:span class="secondTextNormalPDF">S</html:span></html:td>
+          </html:tr>
+          <html:tr>
+            <html:td class="styleTablePDF subheaderPDF">Cantidad de Accidentes</html:td>
+          </html:tr>
+        </html:table>
+    </html:div>
+    <l:VerticalLayout width="100%">
+      <l:Grid id="gridHeader" defaultSpan="XL12 L12 M12 S12" class="sapUiTinyMarginTop">
+        <l:content>
+            <viz:VizFrame id="idChart1" width="100%"></viz:VizFrame>
+        </l:content>
+      </l:Grid>
+    </l:VerticalLayout>
+        <!--<Table 
+        id="TableSIMA01"
+        growing="true"
+        growingThreshold="30"
+        inset="false"
+        items="{path: '/'}"
+        alternateRowColors="true"
+        mode="MultiSelect">
+            <columns>
+                <Column>
+                    <Text text="Año"/>
+                </Column>
+                <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+                    <Text text="# Accidentes" />
+                </Column>
+                <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+                    <Text text="# Incidentes" />
+                </Column>
+                <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+                    <Text text="Índice de Frencuencia" />
+                </Column>
+                <Column minScreenWidth="Desktop" demandPopin="true" hAlign="End">
+                    <Text text="Índice de Severidad" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                    <ComboBox showSecondaryValues="true" items="{path: 'cbxYear>/', templateShareable:false}" selectedKey="{year}" width="100%">
+                        <core:ListItem key="{cbxYear>code}" text="{cbxYear>description}" additionalText="{cbxYear>code}"/>
+                    </ComboBox>
+                    <Input value="{num_accidentes}" type="Number"/>
+                    <Input value="{num_incidentes}" type="Number"/>
+                    <Input value="{indice_frecuencia}" type="Number"/>
+                    <Input value="{indice_severidad}" type="Number"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>    -->
+    </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,74 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.SIG.SIG02"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:unified="sap.ui.unified"
+    xmlns:t="sap.ui.table"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls">
+    <Page
+    title= "SIG"
+    showNavButton="true"
+    navButtonPress="onNavBack">
+    <headerContent>
+        <Button icon="sap-icon://save" tooltip="Guardar" press="onSave" />
+    </headerContent>
+    <content>
+        <Table 
+            id="TableData"
+            growing="true"
+            growingThreshold="30"
+            inset="false"
+            items="{path: '/'}"
+            alternateRowColors="true"
+            mode="None"> 
+        <columns>
+          <Column width="5em">
+            <Text text="Código"/>
+          </Column>
+          <Column				
+            minScreenWidth="Tablet"
+            demandPopin="true">
+            <Text text="NcMa"/>
+          </Column>
+          <Column
+            minScreenWidth="Tablet"
+            demandPopin="true">
+            <Text text="NcMe"/>
+          </Column>
+          <Column
+            minScreenWidth="Tablet"
+            demandPopin="true">
+            <Text text="Obs."/>
+          </Column>
+          <Column
+            minScreenWidth="Tablet"
+            demandPopin="true">
+            <Text text="Fecha"/>
+          </Column>
+          <Column hAlign="End" width="10em">
+            <Text text="Calificación"/>
+          </Column>
+        </columns>
+        <items>
+          <ColumnListItem type="Navigation" press="onListItemPress">
+            <cells>
+              <Text text="{code}"/>
+              <Text text="{no_cfd_mayor}"/>
+              <Text text="{no_cfd_menor}"/>
+              <Text text="{obs}"/>
+              <DatePicker
+              placeholder="Ingrese fecha..."
+              value="{fecha}"
+              valueFormat="yyyy-MM-dd" displayFormat="long"/>
+              <Input type="Number" value="{nota}"/>
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+    </content>
+    </Page>
+</mvc:View>

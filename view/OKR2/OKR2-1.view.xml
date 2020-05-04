@@ -1,0 +1,75 @@
+<mvc:View
+    controllerName="sap.ui.app01.controller.OKR2.OKR2-1"
+    xmlns:layout="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:unified="sap.ui.unified"
+    xmlns:t="sap.ui.table"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data">
+    <Page
+      title="Producción Total vs Observado"
+      id="CALIDAD01"
+      showNavButton="true"
+      navButtonPress="onNavBack">
+    <content>
+    <layout:FixFlex id='chartFixFlex' minFlexSize="250">
+        <!--Below is the setting panel -->
+        <layout:fixContent>
+            <Panel id='settingsPanel' class="panelStyle" expandable="true" expanded="false" width="auto">
+                <content>
+                    <HBox class='settingsHBox'>
+                    <VBox class='settingsBox'>
+                        <Label text="Año" design="Bold" class='settingsLabel'></Label>
+                        <ComboBox items="{path: 'cbxYear>/', templateShareable:false}" width="50%" id="btnFilterYear" change="setChartN1">
+                          <core:ListItem key="{cbxYear>description}" text="{cbxYear>description}"/>
+                        </ComboBox>
+                    </VBox>
+                    <VBox class='settingsBox'>
+                        <Label text='Mes' design="Bold" class='settingsLabel'></Label>
+                       <ComboBox items="{path: 'cbxMonth>/', templateShareable:false}" width="70%" id="btnFilterMonth" change="setChartN1">
+                          <core:ListItem key="{cbxMonth>description}" text="{cbxMonth>description}"/>
+                        </ComboBox>
+                    </VBox>
+                    </HBox>
+                </content>
+            </Panel>
+        </layout:fixContent>
+        <layout:flexContent>
+            <viz:VizFrame id="idChart1" width="97%" class="styleMarginVizFrame"></viz:VizFrame>
+           <!--<viz:Popover id="idPopOver"></viz:Popover>
+            <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+                height='100%' width="100%" vizType='column'>
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{/}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="Linea Producción"
+                                value="{linea_produccion}" />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="Producción Total"
+                                value="{produccion_neta}" />
+                            <viz.data:MeasureDefinition name="Observado"
+                                value="{bola_observada}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                <viz:feeds>
+                    <viz.feeds:FeedItem id='valueAxisFeed' uid="valueAxis" type="Measure"
+                        values="Producción Total" />
+                        <viz.feeds:FeedItem id='valueAxisFeedSecond' uid="valueAxis" type="Measure"
+                        values="Observado" />
+                    <viz.feeds:FeedItem id='categoryAxisFeed' uid="categoryAxis" type="Dimension"
+                        values="Linea Producción" />
+                </viz:feeds>
+            </viz:VizFrame>-->
+        </layout:flexContent>
+    </layout:FixFlex>
+    </content>
+    </Page>
+</mvc:View>

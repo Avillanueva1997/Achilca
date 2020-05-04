@@ -1,0 +1,1747 @@
+{
+  "_version": "1.1.0",
+  "sap.app": {
+	"_version": "1.1.0",
+	"id": "sap.ui.app01",
+	"type": "application",
+	"i18n": "i18n/i18n.properties",
+	"title": "Aceros Chilca",
+	"description": "{{appDescription}}",
+	"applicationVersion": {
+	  "version": "1.0.0"
+	}
+  },
+  "sap.ui": {
+	"_version": "1.1.0",
+	"technology": "UI5",
+	"deviceTypes": {
+	  "desktop": true,
+	  "tablet": true,
+	  "phone": true
+	},
+	"supportedThemes": [
+	  "sap_belize"
+	]
+  },
+  "sap.ui5": {
+	"_version": "1.1.0",
+	"rootView": "sap.ui.app01.view.App",
+	"dependencies": {
+	  "minUI5Version": "1.30",
+	  "libs": {
+		"sap.m": {}
+	  }
+	},
+	"models": {
+	  "i18n": {
+		"type": "sap.ui.model.resource.ResourceModel",
+		"settings": {
+		  "bundleName": "sap.ui.app01.i18n.i18n"
+		}
+	  }
+	},
+	"routing": {
+		"config": {
+			"routerClass": "sap.m.routing.Router",
+			"viewType": "XML",
+			"viewPath": "sap.ui.app01.view",
+			"controlId": "app",
+			"controlAggregation": "pages",
+			"transition": "slide"
+		},
+		"routes": [
+            {
+			"pattern": "",
+			"name": "login",
+			"target": "login"
+            },
+            {
+			"pattern": "home",
+			"name": "home",
+			"target": "home"
+            },
+            {
+			"pattern": "team",
+			"name": "team",
+			"target": "team"
+            },
+            {
+			"pattern": "kpi",
+			"name": "kpi",
+			"target": "kpi"
+            },
+            {
+            "pattern": "pdf",
+            "name": "pdf",
+            "target": "pdf"
+            },
+            {
+			"pattern": "homeSPRO",
+			"name": "homeSPRO",
+			"target": "homeSPRO"
+            },
+            {
+			"pattern": "homePRO",
+			"name": "homePRO",
+			"target": "homePRO"
+            },
+            {
+			"pattern": "homeSIMA",
+			"name": "homeSIMA",
+			"target": "homeSIMA"
+            },
+            {
+			"pattern": "homeCALIDAD",
+			"name": "homeCALIDAD",
+			"target": "homeCALIDAD"
+            },
+            {
+			"pattern": "homeCOSTO",
+			"name": "homeCOSTO",
+			"target": "homeCOSTO"
+            },
+            {
+			"pattern": "homeKPISPRO",
+			"name": "homeKPISPRO",
+			"target": "homeKPISPRO"
+            },
+            {
+			"pattern": "homeKPISMAN",
+			"name": "homeKPISMAN",
+			"target": "homeKPISMAN"
+            },
+            {
+			"pattern": "homeKPISSIM",
+			"name": "homeKPISSIM",
+			"target": "homeKPISSIM"
+            },
+            {
+			"pattern": "homeKPISCOS",
+			"name": "homeKPISCOS",
+			"target": "homeKPISCOS"
+            },
+            {
+			"pattern": "homeKPISCAL",
+			"name": "homeKPISCAL",
+			"target": "homeKPISCAL"
+            },
+            {
+			"pattern": "homeKPISLOG",
+			"name": "homeKPISLOG",
+			"target": "homeKPISLOG"
+            },
+            {
+			"pattern": "homeOKR1",
+			"name": "homeOKR1",
+			"target": "homeOKR1"
+            },
+            {
+			"pattern": "homeOKR2",
+			"name": "homeOKR2",
+			"target": "homeOKR2"
+            },
+            {
+			"pattern": "homeOKR3",
+			"name": "homeOKR3",
+			"target": "homeOKR3"
+            },
+            {
+			"pattern": "homeOKR4",
+			"name": "homeOKR4",
+			"target": "homeOKR4"
+            },
+            {
+			"pattern": "homeOKR5",
+			"name": "homeOKR5",
+			"target": "homeOKR5"
+            },
+            {
+			"pattern": "homeOKR6",
+			"name": "homeOKR6",
+			"target": "homeOKR6"
+            },
+            {
+			"pattern": "homeOKR7",
+			"name": "homeOKR7",
+			"target": "homeOKR7"
+            },
+            {
+			"pattern": "homeSP01",
+			"name": "homeSP01",
+			"target": "homeSP01"
+            },
+            {
+            "pattern": "homeSP01-1",
+            "name": "homeSP01-1",
+            "target": "homeSP01-1"
+            },
+            {
+			"pattern": "homeSP02",
+			"name": "homeSP02",
+			"target": "homeSP02"
+            },
+            {
+            "pattern": "homeSP02-1",
+            "name": "homeSP02-1",
+            "target": "homeSP02-1"
+            },
+            {
+			"pattern": "homeSP03",
+			"name": "homeSP03",
+			"target": "homeSP03"
+            },
+            {
+			"pattern": "homeMANAGE",
+			"name": "homeMANAGE",
+			"target": "homeMANAGE"
+            },
+            {
+			"pattern": "homeMANAGESIMA",
+			"name": "homeMANAGESIMA",
+			"target": "homeMANAGESIMA"
+            },
+            {
+            "pattern": "homeMANAGECALIDAD",
+            "name": "homeMANAGECALIDAD",
+            "target": "homeMANAGECALIDAD"
+            },
+            {
+            "pattern": "homeMANAGECOSTOS",
+            "name": "homeMANAGECOSTOS",
+            "target": "homeMANAGECOSTOS"
+            },
+            {
+            "pattern": "homeSIG",
+            "name": "homeSIG",
+            "target": "homeSIG"
+            },
+            {
+            "pattern": "homeSIG-G",
+            "name": "homeSIG-G",
+            "target": "homeSIG-G"
+            },
+            {
+			"pattern": "spro01",
+			"name": "spro01",
+			"target": "spro01"
+            },
+            {
+			"pattern": "spro02",
+			"name": "spro02",
+			"target": "spro02"
+            },
+            {
+			"pattern": "spro03",
+			"name": "spro03",
+			"target": "spro03"
+            },
+            {
+			"pattern": "spro04",
+			"name": "spro04",
+			"target": "spro04"
+            },
+            {
+			"pattern": "spro05",
+			"name": "spro05",
+			"target": "spro05"
+            },
+            {
+			"pattern": "spro06",
+			"name": "spro06",
+			"target": "spro06"
+            },
+            {
+			"pattern": "spro07",
+			"name": "spro07",
+			"target": "spro07"
+            },
+            {
+			"pattern": "spro08",
+			"name": "spro08",
+			"target": "spro08"
+            },
+            {
+			"pattern": "spro09",
+			"name": "spro09",
+			"target": "spro09"
+            },
+            {
+			"pattern": "spro10",
+			"name": "spro10",
+			"target": "spro10"
+            },
+            {
+			"pattern": "spro11",
+			"name": "spro11",
+			"target": "spro11"
+            },
+            {
+            "pattern": "spro12",
+            "name": "spro12",
+            "target": "spro12"
+            },
+            {
+            "pattern": "spro13",
+            "name": "spro13",
+            "target": "spro13"
+            },
+            {
+            "pattern": "spro14",
+            "name": "spro14",
+            "target": "spro14"
+            },
+            {
+            "pattern": "spro15",
+            "name": "spro15",
+            "target": "spro15"
+            },
+            {
+            "pattern": "spro16",
+            "name": "spro16",
+            "target": "spro16"
+            },
+            {
+            "pattern": "spro17",
+            "name": "spro17",
+            "target": "spro17"
+            },
+            {
+            "pattern": "spro18",
+            "name": "spro18",
+            "target": "spro18"
+            },
+            {
+            "pattern": "spro19",
+            "name": "spro19",
+            "target": "spro19"
+            },
+            {
+            "pattern": "spro20",
+            "name": "spro20",
+            "target": "spro20"
+            },
+            {
+            "pattern": "spro21",
+            "name": "spro21",
+            "target": "spro21"
+            },
+            {
+            "pattern": "spro22",
+            "name": "spro22",
+            "target": "spro22"
+            },
+            {
+            "pattern": "spro23",
+            "name": "spro23",
+            "target": "spro23"
+            },
+            {
+            "pattern": "spro24",
+            "name": "spro24",
+            "target": "spro24"
+            },
+            {
+            "pattern": "spro25",
+            "name": "spro25",
+            "target": "spro25"
+            },
+            {
+            "pattern": "spro26",
+            "name": "spro26",
+            "target": "spro26"
+            },
+            {
+            "pattern": "spro27",
+            "name": "spro27",
+            "target": "spro27"
+            },
+            {
+            "pattern": "spro28",
+            "name": "spro28",
+            "target": "spro28"
+            },
+            {
+            "pattern": "spro29",
+            "name": "spro29",
+            "target": "spro29"
+            },
+            {
+            "pattern": "spro30",
+            "name": "spro30",
+            "target": "spro30"
+            },
+            {
+            "pattern": "spro31",
+            "name": "spro31",
+            "target": "spro31"
+            },
+            {
+            "pattern": "spro32",
+            "name": "spro32",
+            "target": "spro32"
+            },
+            {
+            "pattern": "spro33",
+            "name": "spro33",
+            "target": "spro33"
+            },
+            {
+            "pattern": "spro34",
+            "name": "spro34",
+            "target": "spro34"
+            },
+            {
+            "pattern": "spro35",
+            "name": "spro35",
+            "target": "spro35"
+            },
+            {
+            "pattern": "spro36",
+            "name": "spro36",
+            "target": "spro36"
+            },
+            {
+            "pattern": "spro37",
+            "name": "spro37",
+            "target": "spro37"
+            },
+            {
+            "pattern": "spro38",
+            "name": "spro38",
+            "target": "spro38"
+            },
+            {
+                "pattern": "spro39",
+                "name": "spro39",
+                "target": "spro39"
+                },
+                {
+                    "pattern": "spro40",
+                    "name": "spro40",
+                    "target": "spro40"
+                    },
+                    {
+                        "pattern": "spro41",
+                        "name": "spro41",
+                        "target": "spro41"
+                        },
+                        {
+                            "pattern": "spro42",
+                            "name": "spro42",
+                            "target": "spro42"
+                            },{
+                                "pattern": "spro43",
+                                "name": "spro43",
+                                "target": "spro43"
+                                },{
+                                    "pattern": "spro44",
+                                    "name": "spro44",
+                                    "target": "spro44"
+                                    },
+            {
+			"pattern": "pro01",
+			"name": "pro01",
+			"target": "pro01"
+            },
+            {
+            "pattern": "pro02",
+            "name": "pro02",
+            "target": "pro02"
+            },
+            {
+            "pattern": "pro03",
+            "name": "pro03",
+            "target": "pro03"
+            },
+            {
+            "pattern": "pro04",
+            "name": "pro04",
+            "target": "pro04"
+            },
+            {
+            "pattern": "pro05",
+            "name": "pro05",
+            "target": "pro05"
+            },
+            {
+            "pattern": "pro06",
+            "name": "pro06",
+            "target": "pro06"
+            },
+            {
+            "pattern": "pro07",
+            "name": "pro07",
+            "target": "pro07"
+            },
+            {
+            "pattern": "pro08",
+            "name": "pro08",
+            "target": "pro08"
+            },
+            {
+            "pattern": "pro09",
+            "name": "pro09",
+            "target": "pro09"
+            },
+            {
+            "pattern": "pro10",
+            "name": "pro10",
+            "target": "pro10"
+            },
+            {
+            "pattern": "pro11",
+            "name": "pro11",
+            "target": "pro11"
+            },
+            {
+            "pattern": "pro06",
+            "name": "pro06",
+            "target": "pro06"
+            },
+            {
+            "pattern": "okr3-6n/{linea_produccion}/{moye}",
+            "name": "okr3-6n",
+            "target": "okr3-6n"
+            },
+            {
+            "pattern": "okr3-6m/{linea_produccion}/{moye}",
+            "name": "okr3-6m",
+            "target": "okr3-6m"
+            },
+            {
+            "pattern": "okr3-6r/{linea_produccion}/{moye}/{turno}",
+            "name": "okr3-6r",
+            "target": "okr3-6r"
+            },
+            {
+            "pattern": "okrs/{linea_produccion}",
+            "name": "okrs",
+            "target": "okrs"
+            },
+            {
+            "pattern": "sima01",
+            "name": "sima01",
+            "target": "sima01"
+            },
+            {
+            "pattern": "sima02",
+            "name": "sima02",
+            "target": "sima02"
+            },
+            {
+            "pattern": "sima03",
+            "name": "sima03",
+            "target": "sima03"
+            },
+            {
+            "pattern": "sima04",
+            "name": "sima04",
+            "target": "sima04"
+            },
+            {
+            "pattern": "sima05",
+            "name": "sima05",
+            "target": "sima05"
+            },
+            {
+            "pattern": "sima06",
+            "name": "sima06",
+            "target": "sima06"
+            },
+            {
+            "pattern": "sima07",
+            "name": "sima07",
+            "target": "sima07"
+            },
+            {
+            "pattern": "sima08",
+            "name": "sima08",
+            "target": "sima08"
+            },
+            {
+            "pattern": "sima09",
+            "name": "sima09",
+            "target": "sima09"
+            },
+            {
+            "pattern": "calidad01",
+            "name": "calidad01",
+            "target": "calidad01"
+            },
+            {
+            "pattern": "calidad02",
+            "name": "calidad02",
+            "target": "calidad02"
+            },
+            {
+            "pattern": "calidad03",
+            "name": "calidad03",
+            "target": "calidad03"
+            },
+            {
+            "pattern": "calidad03m/{linea_produccion}/{moye}",
+            "name": "calidad03m",
+            "target": "calidad03m"
+            },
+            {
+            "pattern": "calidad04",
+            "name": "calidad04",
+            "target": "calidad04"
+            },
+            {
+            "pattern": "costo01",
+            "name": "costo01",
+            "target": "costo01"
+            },
+            {
+            "pattern": "costo01m",
+            "name": "costo01m",
+            "target": "costo01m"
+            },
+            {
+            "pattern": "costo02",
+            "name": "costo02",
+            "target": "costo02"
+            },
+            {
+            "pattern": "costo02m",
+            "name": "costo02m",
+            "target": "costo02m"
+            },
+            {
+            "pattern": "okr3-1",
+            "name": "okr3-1",
+            "target": "okr3-1"
+            },
+            {
+            "pattern": "okr3-1-LP/{linea_produccion}/:moye:",
+            "name": "okr3-1-LP",
+            "target": "okr3-1-LP"
+            },
+            {
+            "pattern": "okr3-2",
+            "name": "okr3-2",
+            "target": "okr3-2"
+            },
+            {
+            "pattern": "okr3-2-LP/{linea_produccion}/:moye:",
+            "name": "okr3-2-LP",
+            "target": "okr3-2-LP"
+            },
+            {
+            "pattern": "okr3-3",
+            "name": "okr3-3",
+            "target": "okr3-3"
+            },
+            {
+            "pattern": "okr3-3-LP/{linea_produccion}/:moye:",
+            "name": "okr3-3-LP",
+            "target": "okr3-3-LP"
+            },
+            {
+            "pattern": "okr3-4",
+            "name": "okr3-4",
+            "target": "okr3-4"
+            },
+            {
+            "pattern": "okr3-5",
+            "name": "okr3-5",
+            "target": "okr3-5"
+            },
+            {
+            "pattern": "okr3-6",
+            "name": "okr3-6",
+            "target": "okr3-6"
+            },
+            {
+            "pattern": "okr3-7",
+            "name": "okr3-7",
+            "target": "okr3-7"
+            },
+            {
+            "pattern": "okr1-1",
+            "name": "okr1-1",
+            "target": "okr1-1"
+            },
+            {
+            "pattern": "okr1-2",
+            "name": "okr1-2",
+            "target": "okr1-2"
+            },
+            {
+            "pattern": "okr1-3",
+            "name": "okr1-3",
+            "target": "okr1-3"
+            },
+            {
+            "pattern": "okr1-4",
+            "name": "okr1-4",
+            "target": "okr1-4"
+            },
+            {
+            "pattern": "okr1-5",
+            "name": "okr1-5",
+            "target": "okr1-5"
+            },
+            {
+            "pattern": "okr1-6",
+            "name": "okr1-6",
+            "target": "okr1-6"
+            },
+            {
+            "pattern": "okr1-7",
+            "name": "okr1-7",
+            "target": "okr1-7"
+            },
+            {
+            "pattern": "okr1-8",
+            "name": "okr1-8",
+            "target": "okr1-8"
+            },
+            {
+            "pattern": "okr2-1",
+            "name": "okr2-1",
+            "target": "okr2-1"
+            },
+            {
+            "pattern": "okr2-2",
+            "name": "okr2-2",
+            "target": "okr2-2"
+            },
+            {
+            "pattern": "okr2-2-LP/{linea_produccion}",
+            "name": "okr2-2-LP",
+            "target": "okr2-2-LP"
+            },
+            {
+            "pattern": "okr2-3",
+            "name": "okr2-3",
+            "target": "okr2-3"
+            },
+            {
+            "pattern": "okr2-3-LP/{linea_produccion}",
+            "name": "okr2-3-LP",
+            "target": "okr2-3-LP"
+            },
+            {
+            "pattern": "okr2-3-LP-D/{linea_produccion}/{diametro}",
+            "name": "okr2-3-LP-D",
+            "target": "okr2-3-LP-D"
+            },
+            {
+            "pattern": "okr2-4",
+            "name": "okr2-4",
+            "target": "okr2-4"
+            },
+            {
+            "pattern": "okr5-1",
+            "name": "okr5-1",
+            "target": "okr5-1"
+            },
+            {
+            "pattern": "okr5-1-D/{diametro}/:year:/:month:",
+            "name": "okr5-1-D",
+            "target": "okr5-1-D"
+            },
+            {
+            "pattern": "okr5-2/:year:",
+            "name": "okr5-2",
+            "target": "okr5-2"
+            },
+            {
+            "pattern": "okr5-3",
+            "name": "okr5-3",
+            "target": "okr5-3"
+            },
+            {
+            "pattern": "okr5-4",
+            "name": "okr5-4",
+            "target": "okr5-4"
+            },
+            {
+            "pattern": "sp01-1-1",
+            "name": "sp01-1-1",
+            "target": "sp01-1-1"
+            },
+            {
+            "pattern": "sp02-1-1",
+            "name": "sp02-1-1",
+            "target": "sp02-1-1"
+            },
+            {
+            "pattern": "sp02-1-1-c",
+            "name": "sp02-1-1-c",
+            "target": "sp02-1-1-c"
+            },
+            {
+            "pattern": "sig01/{info}",
+            "name": "sig01",
+            "target": "sig01"
+            },
+            {
+            "pattern": "sig01-sima",
+            "name": "sig01-sima",
+            "target": "sig01-sima"
+            },
+            {
+            "pattern": "sig01-ae",
+            "name": "sig01-ae",
+            "target": "sig01-ae"
+            },
+            {
+            "pattern": "sig01-ae-01/{auditoria}",
+            "name": "sig01-ae-01",
+            "target": "sig01-ae-01"
+            },
+            {
+            "pattern": "sig02",
+            "name": "sig02",
+            "target": "sig02"
+            },
+            {
+            "pattern": "sig02-1/{auditoria}",
+            "name": "sig02-1",
+            "target": "sig02-1"
+            },
+            {
+            "pattern": "sig02-1-1/{auditoria}",
+            "name": "sig02-1-1",
+            "target": "sig02-1-1"
+            },            
+            {
+            "pattern": "sig02-2/{auditoria}",
+            "name": "sig02-2",
+            "target": "sig02-2"
+            }
+        ],
+		"targets": {
+			"login": {
+					"path": "sap.ui.app01.view",
+					"viewName": "Login",
+					"viewId" : "viewLogin",
+					"viewLevel" : 1
+			},
+			"home": {
+					"path": "sap.ui.app01.view",
+					"viewName": "Home",
+					"viewId" : "viewHome",
+					"viewLevel" : 2
+			},
+			"homeSPRO": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeSPRO",
+					"viewId" : "viewHomeSPRO",
+					"viewLevel" : 2
+			},
+			"homePRO": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomePRO",
+					"viewId" : "viewHomePRO",
+					"viewLevel" : 2
+			},
+			"homeSIMA": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeSIMA",
+					"viewId" : "viewHomeSIMA",
+					"viewLevel" : 2
+			},
+			"homeCALIDAD": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeCALIDAD",
+					"viewId" : "viewHomeCALIDAD",
+					"viewLevel" : 2
+			},
+			"homeCOSTO": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeCOSTO",
+					"viewId" : "viewHomeCOSTO",
+					"viewLevel" : 2
+			},
+			"homeKPISPRO": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeKPISPRO",
+					"viewId" : "viewHomeKPISPRO",
+					"viewLevel" : 2
+			},
+			"homeKPISSIM": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeKPISSIM",
+					"viewId" : "viewHomeKPISSIM",
+					"viewLevel" : 2
+			},
+			"homeKPISMAN": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeKPISMAN",
+					"viewId" : "viewHomeKPISMAN",
+					"viewLevel" : 2
+			},
+			"homeKPISCOS": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeKPISCOS",
+					"viewId" : "viewHomeKPISCOS",
+					"viewLevel" : 2
+			},
+			"homeKPISCAL": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeKPISCAL",
+					"viewId" : "viewHomeKPISCAL",
+					"viewLevel" : 2
+			},
+			"homeKPISLOG": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeKPISLOG",
+					"viewId" : "viewHomeKPISLOG",
+					"viewLevel" : 2
+			},
+			"homeOKR1": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeOKR1",
+					"viewId" : "viewHomeOKR1",
+					"viewLevel" : 2
+			},
+			"homeOKR2": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeOKR2",
+					"viewId" : "viewHomeOKR2",
+					"viewLevel" : 2
+			},
+			"homeOKR3": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeOKR3",
+					"viewId" : "viewHomeOKR3",
+					"viewLevel" : 2
+			},
+			"homeOKR4": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeOKR4",
+					"viewId" : "viewHomeOKR4",
+					"viewLevel" : 2
+			},
+			"homeOKR5": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeOKR5",
+					"viewId" : "viewHomeOKR5",
+					"viewLevel" : 2
+			},
+			"homeOKR6": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeOKR6",
+					"viewId" : "viewHomeOKR6",
+					"viewLevel" : 2
+			},
+			"homeOKR7": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeOKR7",
+					"viewId" : "viewHomeOKR7",
+					"viewLevel" : 2
+			},
+			"homeSP01": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeSP01",
+					"viewId" : "viewHomeSP01",
+					"viewLevel" : 2
+            },
+            "homeSP01-1": {
+                "path": "sap.ui.app01.view",
+                "viewName": "HomeSP01-1",
+                "viewId" : "viewHomeSP01-1",
+                "viewLevel" : 2
+            },
+			"homeSP02": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeSP02",
+					"viewId" : "viewHomeSP02",
+					"viewLevel" : 2
+            },
+            "homeSP02-1": {
+                "path": "sap.ui.app01.view",
+                "viewName": "HomeSP02-1",
+                "viewId" : "viewHomeSP02-1",
+                "viewLevel" : 2
+            },
+			"homeSP03": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeSP03",
+					"viewId" : "viewHomeSP03",
+					"viewLevel" : 2
+			},
+			"homeMANAGE": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeMANAGE",
+					"viewId" : "viewHomeMANAGE",
+					"viewLevel" : 2
+			},
+			"homeMANAGESIMA": {
+					"path": "sap.ui.app01.view",
+					"viewName": "HomeMANAGESIMA",
+					"viewId" : "viewHomeMANAGESIMA",
+					"viewLevel" : 2
+            },
+            "homeMANAGECALIDAD": {
+                "path": "sap.ui.app01.view",
+                "viewName": "HomeMANAGECALIDAD",
+                "viewId" : "viewHomeMANAGECALIDAD",
+                "viewLevel" : 2
+            },
+            "homeMANAGECOSTOS": {
+                "path": "sap.ui.app01.view",
+                "viewName": "HomeMANAGECOSTOS",
+                "viewId" : "viewHomeMANAGECOSTOS",
+                "viewLevel" : 2
+            },
+            "homeSIG": {
+                "path": "sap.ui.app01.view",
+                "viewName": "HomeSIG",
+                "viewId" : "viewHomeSIG",
+                "viewLevel" : 2
+            },
+            "homeSIG-G": {
+                "path": "sap.ui.app01.view",
+                "viewName": "HomeSIG-G",
+                "viewId" : "viewHomeSIG-G",
+                "viewLevel" : 2
+            },
+            "team": {
+                "path": "sap.ui.app01.view",
+                "viewName": "Team",
+                "viewId" : "viewTeam",
+                "viewLevel" : 2	
+            },
+            "kpi": {
+                "path": "sap.ui.app01.view",
+                "viewName": "Kpi",
+                "viewId" : "viewKpi",
+                "viewLevel" : 2	
+            },
+            "pdf": {
+                "path": "sap.ui.app01.view",
+                "viewName": "Pdf",
+                "viewId" : "viewPdf",
+                "viewLevel" : 2	
+            },
+            "spro01": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO01",
+                "viewId" : "viewSPRO01",
+                "viewLevel" : 3	
+            },
+            "spro02": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO02",
+                "viewId" : "viewSPRO02",
+                "viewLevel" : 3	
+            },
+            "spro03": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO03",
+                "viewId" : "viewSPRO03",
+                "viewLevel" : 3	
+            },
+            "spro04": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO04",
+                "viewId" : "viewSPRO04",
+                "viewLevel" : 3	
+            },
+            "spro05": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO05",
+                "viewId" : "viewSPRO05",
+                "viewLevel" : 3	
+            },
+            "spro06": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO06",
+                "viewId" : "viewSPRO06",
+                "viewLevel" : 3	
+            },
+            "spro07": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO07",
+                "viewId" : "viewSPRO07",
+                "viewLevel" : 3	
+            },
+            "spro08": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO08",
+                "viewId" : "viewSPRO08",
+                "viewLevel" : 3	
+            },
+            "spro09": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO09",
+                "viewId" : "viewSPRO09",
+                "viewLevel" : 3	
+            },
+            "spro10": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO10",
+                "viewId" : "viewSPRO10",
+                "viewLevel" : 3	
+            },
+            "spro11": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO11",
+                "viewId" : "viewSPRO11",
+                "viewLevel" : 3	
+            },
+            "spro12": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO12",
+                "viewId" : "viewSPRO12",
+                "viewLevel" : 3 
+            },
+            "spro13": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO13",
+                "viewId" : "viewSPRO13",
+                "viewLevel" : 3 
+            },
+            "spro14": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO14",
+                "viewId" : "viewSPRO14",
+                "viewLevel" : 3 
+            },
+            "spro15": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO15",
+                "viewId" : "viewSPRO15",
+                "viewLevel" : 3 
+            },
+            "spro16": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO16",
+                "viewId" : "viewSPRO16",
+                "viewLevel" : 3 
+            },
+            "spro17": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO17",
+                "viewId" : "viewSPRO17",
+                "viewLevel" : 3 
+            },
+            "spro18": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO18",
+                "viewId" : "viewSPRO18",
+                "viewLevel" : 3 
+            },
+            "spro19": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO19",
+                "viewId" : "viewSPRO19",
+                "viewLevel" : 3 
+            },
+            "spro20": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO20",
+                "viewId" : "viewSPRO20",
+                "viewLevel" : 3 
+            },
+            "spro21": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO21",
+                "viewId" : "viewSPRO21",
+                "viewLevel" : 3 
+            },
+            "spro22": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO22",
+                "viewId" : "viewSPRO22",
+                "viewLevel" : 3 
+            },
+            "spro23": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO23",
+                "viewId" : "viewSPRO23",
+                "viewLevel" : 3 
+            },
+            "spro24": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO24",
+                "viewId" : "viewSPRO24",
+                "viewLevel" : 3 
+            },
+            "spro25": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO25",
+                "viewId" : "viewSPRO25",
+                "viewLevel" : 3 
+            },
+            "spro26": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO26",
+                "viewId" : "viewSPRO26",
+                "viewLevel" : 3 
+            },
+            "spro27": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO27",
+                "viewId" : "viewSPRO27",
+                "viewLevel" : 3 
+            },
+            "spro28": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO28",
+                "viewId" : "viewSPRO28",
+                "viewLevel" : 3 
+            },
+            "spro29": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO29",
+                "viewId" : "viewSPRO29",
+                "viewLevel" : 3 
+            },
+            "spro30": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO30",
+                "viewId" : "viewSPRO30",
+                "viewLevel" : 3 
+            },
+            "spro31": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO31",
+                "viewId" : "viewSPRO31",
+                "viewLevel" : 3 
+            },
+            "spro32": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO32",
+                "viewId" : "viewSPRO32",
+                "viewLevel" : 3 
+            },
+            "spro33": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO33",
+                "viewId" : "viewSPRO33",
+                "viewLevel" : 3 
+            },
+            "spro34": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO34",
+                "viewId" : "viewSPRO34",
+                "viewLevel" : 3 
+            },
+            "spro35": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO35",
+                "viewId" : "viewSPRO35",
+                "viewLevel" : 3 
+            },
+            "spro36": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO36",
+                "viewId" : "viewSPRO36",
+                "viewLevel" : 3 
+            },
+            "spro37": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO37",
+                "viewId" : "viewSPRO37",
+                "viewLevel" : 3 
+            },
+            "spro38": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO38",
+                "viewId" : "viewSPRO38",
+                "viewLevel" : 3 
+            },
+            "spro39": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO39",
+                "viewId" : "viewSPRO39",
+                "viewLevel" : 3 
+            },
+            "spro40": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO40",
+                "viewId" : "viewSPRO40",
+                "viewLevel" : 3 
+            },
+            "spro41": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO41",
+                "viewId" : "viewSPRO41",
+                "viewLevel" : 3 
+            },
+            "spro42": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO42",
+                "viewId" : "viewSPRO42",
+                "viewLevel" : 3 
+            },
+            "spro43": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO43",
+                "viewId" : "viewSPRO43",
+                "viewLevel" : 3 
+            },
+            "spro44": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SPRO/SPRO44",
+                "viewId" : "viewSPRO44",
+                "viewLevel" : 3 
+            },
+            "pro01": {
+                "path": "sap.ui.app01.view",
+                "viewName": "PRO/PRO01",
+                "viewId" : "viewPRO01",
+                "viewLevel" : 3	
+            },
+            "pro02": {
+                "path": "sap.ui.app01.view",
+                "viewName": "PRO/PRO02",
+                "viewId" : "viewPRO02",
+                "viewLevel" : 3 
+            },
+            "pro03": {
+                "path": "sap.ui.app01.view",
+                "viewName": "PRO/PRO03",
+                "viewId" : "viewPRO03",
+                "viewLevel" : 3 
+            },
+            "okr3-6n": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR3/OKR3-6N",
+                "viewId" : "viewOKR3-6N",
+                "viewLevel" : 3 
+            },
+            "okr3-6m": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR3/OKR3-6M",
+                "viewId" : "viewOKR3-6M",
+                "viewLevel" : 3 
+            },
+            "okr3-6r": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR3/OKR3-6R",
+                "viewId" : "viewOKR3-6R",
+                "viewLevel" : 3 
+            },
+            "pro04": {
+                "path": "sap.ui.app01.view",
+                "viewName": "PRO/PRO04",
+                "viewId" : "viewPRO04",
+                "viewLevel" : 3 
+            },
+            "pro05": {
+                "path": "sap.ui.app01.view",
+                "viewName": "PRO/PRO05",
+                "viewId" : "viewPRO05",
+                "viewLevel" : 3 
+            },
+            "pro06": {
+                "path": "sap.ui.app01.view",
+                "viewName": "PRO/PRO06",
+                "viewId" : "viewPRO06",
+                "viewLevel" : 3 
+            },
+            "pro07": {
+                "path": "sap.ui.app01.view",
+                "viewName": "PRO/PRO07",
+                "viewId" : "viewPRO07",
+                "viewLevel" : 3 
+            },
+            "pro08": {
+                "path": "sap.ui.app01.view",
+                "viewName": "PRO/PRO08",
+                "viewId" : "viewPRO08",
+                "viewLevel" : 3 
+            },
+            "pro09": {
+                "path": "sap.ui.app01.view",
+                "viewName": "PRO/PRO09",
+                "viewId" : "viewPRO09",
+                "viewLevel" : 3 
+            },
+            "pro10": {
+                "path": "sap.ui.app01.view",
+                "viewName": "PRO/PRO10",
+                "viewId" : "viewPRO10",
+                "viewLevel" : 3 
+            },
+            "pro11": {
+                "path": "sap.ui.app01.view",
+                "viewName": "PRO/PRO11",
+                "viewId" : "viewPRO11",
+                "viewLevel" : 3 
+            },
+            "okrs": {
+                "path": "sap.ui.app01.view",
+                "viewName": "PRO/OKRS",
+                "viewId" : "viewOKRS",
+                "viewLevel" : 3 
+            },
+            "sima01": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SIMA/SIMA01",
+                "viewId" : "viewSIMA01",
+                "viewLevel" : 3 
+            },
+            "sima02": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SIMA/SIMA02",
+                "viewId" : "viewSIMA02",
+                "viewLevel" : 3 
+            },
+            "sima03": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SIMA/SIMA03",
+                "viewId" : "viewSIMA03",
+                "viewLevel" : 3 
+            },
+            "sima04": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SIMA/SIMA04",
+                "viewId" : "viewSIMA04",
+                "viewLevel" : 3 
+            },
+            "sima05": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SIMA/SIMA05",
+                "viewId" : "viewSIMA05",
+                "viewLevel" : 3 
+            },
+            "sima06": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SIMA/SIMA06",
+                "viewId" : "viewSIMA06",
+                "viewLevel" : 3 
+            },
+            "sima07": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SIMA/SIMA07",
+                "viewId" : "viewSIMA07",
+                "viewLevel" : 3 
+            },
+            "sima08": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SIMA/SIMA08",
+                "viewId" : "viewSIMA08",
+                "viewLevel" : 3 
+            },
+            "sima09": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SIMA/SIMA09",
+                "viewId" : "viewSIMA09",
+                "viewLevel" : 3 
+            },
+            "calidad01": {
+                "path": "sap.ui.app01.view",
+                "viewName": "CALIDAD/CALIDAD01",
+                "viewId" : "viewCALIDAD01",
+                "viewLevel" : 3 
+            },
+            "calidad02": {
+                "path": "sap.ui.app01.view",
+                "viewName": "CALIDAD/CALIDAD02",
+                "viewId" : "viewCALIDAD02",
+                "viewLevel" : 3 
+            },
+            "calidad03": {
+                "path": "sap.ui.app01.view",
+                "viewName": "CALIDAD/CALIDAD03",
+                "viewId" : "viewCALIDAD03",
+                "viewLevel" : 3 
+            },
+            "calidad03m": {
+                "path": "sap.ui.app01.view",
+                "viewName": "CALIDAD/CALIDAD03M",
+                "viewId" : "viewCALIDAD03M",
+                "viewLevel" : 3 
+            },
+            "calidad04": {
+                "path": "sap.ui.app01.view",
+                "viewName": "CALIDAD/CALIDAD04",
+                "viewId" : "viewCALIDAD04",
+                "viewLevel" : 3 
+            },
+            "costo01": {
+                "path": "sap.ui.app01.view",
+                "viewName": "COSTO/COSTO01",
+                "viewId" : "viewCOSTO01",
+                "viewLevel" : 3 
+            },
+            "costo01m": {
+                "path": "sap.ui.app01.view",
+                "viewName": "COSTO/COSTO01M",
+                "viewId" : "viewCOSTO01M",
+                "viewLevel" : 3 
+            },
+            "costo02": {
+                "path": "sap.ui.app01.view",
+                "viewName": "COSTO/COSTO02",
+                "viewId" : "viewCOSTO02",
+                "viewLevel" : 3 
+            },
+            "costo02m": {
+                "path": "sap.ui.app01.view",
+                "viewName": "COSTO/COSTO02M",
+                "viewId" : "viewCOSTO02M",
+                "viewLevel" : 3 
+            },
+            "okr3-1": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR3/OKR3-1",
+                "viewId" : "viewOKR3-1",
+                "viewLevel" : 3 
+            },
+            "okr3-1-LP": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR3/OKR3-1-LP",
+                "viewId" : "viewOKR3-1-LP",
+                "viewLevel" : 3 
+            },
+            "okr3-2": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR3/OKR3-2",
+                "viewId" : "viewOKR3-2",
+                "viewLevel" : 3 
+            },
+            "okr3-2-LP": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR3/OKR3-2-LP",
+                "viewId" : "viewOKR3-2-LP",
+                "viewLevel" : 3 
+            },
+            "okr3-3": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR3/OKR3-3",
+                "viewId" : "viewOKR3-3",
+                "viewLevel" : 3 
+            },
+            "okr3-3-LP": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR3/OKR3-3-LP",
+                "viewId" : "viewOKR3-3-LP",
+                "viewLevel" : 3 
+            },
+            "okr3-4": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR3/OKR3-4",
+                "viewId" : "viewOKR3-4",
+                "viewLevel" : 3 
+            },
+            "okr3-5": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR3/OKR3-5",
+                "viewId" : "viewOKR3-5",
+                "viewLevel" : 3 
+            },
+            "okr3-6": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR3/OKR3-6",
+                "viewId" : "viewOKR3-6",
+                "viewLevel" : 3 
+            },
+            "okr3-7": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR3/OKR3-7",
+                "viewId" : "viewOKR3-7",
+                "viewLevel" : 3 
+            },
+            "okr1-1": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR1/OKR1-1",
+                "viewId" : "viewOKR1-1",
+                "viewLevel" : 3 
+            },
+            "okr1-2": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR1/OKR1-2",
+                "viewId" : "viewOKR1-2",
+                "viewLevel" : 3 
+            },
+            "okr1-3": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR1/OKR1-3",
+                "viewId" : "viewOKR1-3",
+                "viewLevel" : 3 
+            },
+            "okr1-4": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR1/OKR1-4",
+                "viewId" : "viewOKR1-4",
+                "viewLevel" : 3 
+            },
+            "okr1-5": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR1/OKR1-5",
+                "viewId" : "viewOKR1-5",
+                "viewLevel" : 3 
+            },
+            "okr1-6": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR1/OKR1-6",
+                "viewId" : "viewOKR1-6",
+                "viewLevel" : 3 
+            },
+            "okr1-7": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR1/OKR1-7",
+                "viewId" : "viewOKR1-7",
+                "viewLevel" : 3 
+            },
+            "okr1-8": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR1/OKR1-8",
+                "viewId" : "viewOKR1-8",
+                "viewLevel" : 3 
+            },
+            "okr2-1": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR2/OKR2-1",
+                "viewId" : "viewOKR2-1",
+                "viewLevel" : 3 
+            },
+            "okr2-2": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR2/OKR2-2",
+                "viewId" : "viewOKR2-2",
+                "viewLevel" : 3 
+            },
+            "okr2-2-LP": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR2/OKR2-2-LP",
+                "viewId" : "viewOKR2-2-LP",
+                "viewLevel" : 3 
+            },
+            "okr2-3": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR2/OKR2-3",
+                "viewId" : "viewOKR2-3",
+                "viewLevel" : 3 
+            },
+            "okr2-3-LP": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR2/OKR2-3-LP",
+                "viewId" : "viewOKR2-3-LP",
+                "viewLevel" : 3 
+            },
+            "okr2-3-LP-D": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR2/OKR2-3-LP-D",
+                "viewId" : "viewOKR2-3-LP-D",
+                "viewLevel" : 3 
+            },
+            "okr2-4": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR2/OKR2-4",
+                "viewId" : "viewOKR2-4",
+                "viewLevel" : 3 
+            },
+            "okr5-1": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR5/OKR5-1",
+                "viewId" : "viewOKR5-1",
+                "viewLevel" : 3 
+            },
+            "okr5-1-D": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR5/OKR5-1-D",
+                "viewId" : "viewOKR5-1-D",
+                "viewLevel" : 3 
+            },
+            "okr5-2": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR5/OKR5-2",
+                "viewId" : "viewOKR5-2",
+                "viewLevel" : 3 
+            },
+            "okr5-3": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR5/OKR5-3",
+                "viewId" : "viewOKR5-3",
+                "viewLevel" : 3 
+            },
+            "okr5-4": {
+                "path": "sap.ui.app01.view",
+                "viewName": "OKR5/OKR5-4",
+                "viewId" : "viewOKR5-4",
+                "viewLevel" : 3 
+            },
+            "sp01-1-1": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SP01-1/SP01-1-1",
+                "viewId" : "viewSP01-1-1",
+                "viewLevel" : 3	
+            },
+            "sp02-1-1": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SP02-1/SP02-1-1",
+                "viewId" : "viewSP02-1-1",
+                "viewLevel" : 3	
+            },
+            "sp02-1-1-c": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SP02-1/SP02-1-1-C",
+                "viewId" : "viewSP02-1-1-C",
+                "viewLevel" : 3	
+            },
+            "sig01": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SIG/SIG01",
+                "viewId" : "viewSIG01",
+                "viewLevel" : 3	
+            },
+            "sig01-sima": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SIG/SIG01-SIMA",
+                "viewId" : "viewSIG01-SIMA",
+                "viewLevel" : 3	
+            },
+            "sig01-ae": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SIG/SIG01-AE",
+                "viewId" : "viewSIG01-AE",
+                "viewLevel" : 3	
+            },
+            "sig01-ae-01": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SIG/SIG01-AE-01",
+                "viewId" : "viewSIG01-AE-01",
+                "viewLevel" : 3	
+            },
+            "sig02": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SIG/SIG02",
+                "viewId" : "viewSIG02",
+                "viewLevel" : 3	
+            },
+            "sig02-1": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SIG/SIG02-1",
+                "viewId" : "viewSIG02-1",
+                "viewLevel" : 3	
+            },
+            "sig02-1-1": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SIG/SIG02-1-1",
+                "viewId" : "viewSIG02-1-1",
+                "viewLevel" : 3	
+            },
+            "sig02-2": {
+                "path": "sap.ui.app01.view",
+                "viewName": "SIG/SIG02-2",
+                "viewId" : "viewSIG02-2",
+                "viewLevel" : 3	
+            }
+		}
+	},
+    "resources": {
+      "js": [
+        { "uri": "assets/libs/rgbcolor.js" },
+        { "uri": "assets/libs/stackblur.js" },
+        { "uri": "assets/libs/canvg.js" },
+        { "uri": "assets/libs/d3.min.js" },
+        { "uri": "assets/libs/gauge.js" },
+        { "uri": "assets/libs/raphael-min.js" },
+        { "uri": "assets/libs/justgage.min.js" },
+        { "uri": "assets/libs/pdfmake/build/pdfmake.min.js" },
+        { "uri": "assets/libs/pdfmake/build/vfs_fonts.js" },
+        { "uri": "assets/libs/moment.js" }
+      ]
+    }
+  }
+}

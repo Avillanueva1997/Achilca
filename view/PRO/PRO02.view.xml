@@ -1,0 +1,289 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.PRO.PRO02"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core"
+  xmlns:tnt="sap.tnt"
+  xmlns:unified="sap.ui.unified"
+  xmlns:t="sap.ui.table"
+  xmlns="sap.m">
+    <Page
+      title="Rotación de Grupos"
+      id="PRO02"
+      showNavButton="true"
+      navButtonPress="onNavBack">
+    <content>
+      <IconTabBar
+      id="idIconTabBarNoIcons"
+      class="sapUiResponsiveContentPadding">
+        <items>
+          <IconTabFilter text="Grupo A">
+            <Table 
+              id="TableGrupoA"
+              growing="true"
+              growingThreshold="30"
+              inset="false"
+              items="{path: '/'}"
+              alternateRowColors="true"> 
+              <columns>
+                <Column>
+                  <Text text="Descripción del Puesto"/>
+                </Column>
+                <Column>
+                  <Text text="Apellidos y Nombres"/>
+                </Column>
+                <Column hAlign="End">
+                  <Text text="Área"/>
+                </Column>
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <Text text="{position}" />
+                    <Text text="{name}" />
+                     <Text text="{area}" />
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </IconTabFilter>
+          <IconTabFilter text="Grupo B">
+            <Table 
+              id="TableGrupoB"
+              growing="true"
+              growingThreshold="30"
+              inset="false"
+              items="{path: '/'}"
+              alternateRowColors="true"> 
+              <columns>
+                <Column>
+                  <Text text="Descripción del Puesto"/>
+                </Column>
+                <Column>
+                  <Text text="Apellidos y Nombres"/>
+                </Column>
+                <Column hAlign="End">
+                  <Text text="Área"/>
+                </Column>
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <Text text="{position}" />
+                    <Text text="{name}" />
+                     <Text text="{area}" />
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </IconTabFilter>
+          <IconTabFilter text="Grupo C">
+            <Table 
+              id="TableGrupoC"
+              growing="true"
+              growingThreshold="30"
+              inset="false"
+              items="{path: '/'}"
+              alternateRowColors="true"> 
+              <columns>
+                <Column>
+                  <Text text="Descripción del Puesto"/>
+                </Column>
+                <Column>
+                  <Text text="Apellidos y Nombres"/>
+                </Column>
+                <Column hAlign="End">
+                  <Text text="Área"/>
+                </Column>
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <Text text="{position}" />
+                    <Text text="{name}" />
+                     <Text text="{area}" />
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </IconTabFilter>
+          <IconTabFilter text="Grupo R">
+            <Table 
+              id="TableGrupoR"
+              growing="true"
+              growingThreshold="30"
+              inset="false"
+              items="{path: '/'}"
+              alternateRowColors="true"> 
+              <columns>
+                <Column>
+                  <Text text="Descripción del Puesto"/>
+                </Column>
+                <Column>
+                  <Text text="Apellidos y Nombres"/>
+                </Column>
+                <Column hAlign="End">
+                  <Text text="Área"/>
+                </Column>
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <Text text="{position}" />
+                    <Text text="{name}" />
+                     <Text text="{area}" />
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </IconTabFilter>
+          <IconTabFilter text="Producción">
+            <VBox class="sapUiSmallMargin">
+              <PlanningCalendar
+                  id="PC1"
+                  showRowHeaders="true"
+                  startDate="{path: '/startDate'}"
+                  rows="{path: '/people'}"
+                  appointmentsVisualization="Filled"
+                  appointmentSelect="handleAppointmentSelect"
+                  showEmptyIntervalHeaders="false"
+                  intervalSelect="handleAppointmentAddWithContext">
+                <toolbarContent>
+                  <Title text="Turnos de Trabajo" titleStyle="H4"/>
+                  <Button id="addButton" icon="sap-icon://add" press="handleAppointmentCreate" tooltip="Agregar"/>
+                  <Button id="copyButton" icon="sap-icon://copy" press="handleAppointmentCopy" tooltip="Copiar"/>
+                  <Button icon="sap-icon://synchronize" press="onRefresh" tooltip="Actualizar"/>
+                </toolbarContent>
+                <rows>
+                  <PlanningCalendarRow
+                      icon="{pic}"
+                      title="{name}"
+                      text="{role}"
+                      appointments="{path : 'appointments', templateShareable: true}"
+                      intervalHeaders="{path: 'headers', templateShareable: true}">
+                    <appointments>
+                      <unified:CalendarAppointment
+                          startDate="{start}"
+                          endDate="{end}"
+                          icon="{pic}"
+                          title="{title}"
+                          text="{info}"
+                          type="{type}"
+                          tentative="{tentative}">
+                      </unified:CalendarAppointment>
+                    </appointments>
+                    <intervalHeaders>
+                      <unified:CalendarAppointment
+                          startDate="{start}"
+                          endDate="{end}"
+                          icon="{pic}"
+                          title="{title}"
+                          type="{type}">
+                      </unified:CalendarAppointment>
+                    </intervalHeaders>
+                  </PlanningCalendarRow>
+                </rows>
+              </PlanningCalendar>
+            </VBox>
+          </IconTabFilter>
+          <IconTabFilter text="Mantto Mecatrónicos">
+            <VBox class="sapUiSmallMargin">
+              <PlanningCalendar
+                  id="PC2"
+                  showRowHeaders="false"
+                  startDate="{path: '/startDate'}"
+                  rows="{path: '/peopleSecond'}"
+                  appointmentsVisualization="Filled"
+                  appointmentSelect="handleAppointmentSelect"
+                  showEmptyIntervalHeaders="false">
+                <toolbarContent>
+                  <Title text="Turnos de Trabajo" titleStyle="H4"/>
+                  <Button id="addButtonSecond" icon="sap-icon://add" press="handleAppointmentCreateSecond" tooltip="Agregar"/>
+                  <Button icon="sap-icon://synchronize" press="onRefresh" tooltip="Actualizar"/>
+                </toolbarContent>
+                <rows>
+                  <PlanningCalendarRow
+                      icon="{pic}"
+                      title="{name}"
+                      text="{role}"
+                      appointments="{path : 'appointments', templateShareable: true}"
+                      intervalHeaders="{path: 'headers', templateShareable: true}">
+                    <appointments>
+                      <unified:CalendarAppointment
+                          startDate="{start}"
+                          endDate="{end}"
+                          icon="{pic}"
+                          title="{title}"
+                          text="{info}"
+                          type="{type}"
+                          tentative="{tentative}">
+                      </unified:CalendarAppointment>
+                    </appointments>
+                    <intervalHeaders>
+                      <unified:CalendarAppointment
+                          startDate="{start}"
+                          endDate="{end}"
+                          icon="{pic}"
+                          title="{title}"
+                          type="{type}">
+                      </unified:CalendarAppointment>
+                    </intervalHeaders>
+                  </PlanningCalendarRow>
+                </rows>
+              </PlanningCalendar>
+            </VBox>
+          </IconTabFilter>
+          <IconTabFilter text="Mantto Mecánicos">
+          <VBox class="sapUiSmallMargin">
+              <PlanningCalendar
+                  id="PC3"
+                  showRowHeaders="false"
+                  startDate="{path: '/startDate'}"
+                  rows="{path: '/peopleThird'}"
+                  appointmentsVisualization="Filled"
+                  appointmentSelect="handleAppointmentSelect"
+                  showEmptyIntervalHeaders="false">
+                <toolbarContent>
+                  <Title text="Turnos de Trabajo" titleStyle="H4"/>
+                  <Button id="addButtonThird" icon="sap-icon://add" press="handleAppointmentCreateThird" tooltip="Agregar"/>
+                  <Button id="addBackup" icon="sap-icon://cloud" press="handleAppointmentCreateBackup" tooltip="Backup"/>
+                  <Button icon="sap-icon://synchronize" press="onRefresh" tooltip="Actualizar"/>
+                </toolbarContent>
+                <rows>
+                  <PlanningCalendarRow
+                      icon="{pic}"
+                      title="{name}"
+                      text="{role}"
+                      appointments="{path : 'appointments', templateShareable: true}"
+                      intervalHeaders="{path: 'headers', templateShareable: true}">
+                    <appointments>
+                      <unified:CalendarAppointment
+                          startDate="{start}"
+                          endDate="{end}"
+                          icon="{pic}"
+                          title="{title}"
+                          text="{info}"
+                          type="{type}"
+                          tentative="{tentative}">
+                      </unified:CalendarAppointment>
+                    </appointments>
+                    <intervalHeaders>
+                      <unified:CalendarAppointment
+                          startDate="{start}"
+                          endDate="{end}"
+                          icon="{pic}"
+                          title="{title}"
+                          type="{type}">
+                      </unified:CalendarAppointment>
+                    </intervalHeaders>
+                  </PlanningCalendarRow>
+                </rows>
+              </PlanningCalendar>
+            </VBox>
+          </IconTabFilter>
+        </items>
+      </IconTabBar>
+    </content>
+    </Page>
+</mvc:View>

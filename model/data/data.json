@@ -1,0 +1,58 @@
+{
+	"TileCollection" : [
+		{
+			"icon" : "sap-icon://settings",
+			"type" : "Monitor",
+			"title" : "SPRO",
+			"view": "homeSPRO"
+		},
+		{
+			"icon" : "sap-icon://eam-work-order",
+			"number" : "70",
+			"numberUnit" : "%",
+			"title" : "SIMA",
+			"info" : "Health, Safety & Environment",
+			"infoState" : "Success"
+		},
+		{
+			"icon" : "sap-icon://machine",
+			"number" : "50",
+			"numberUnit" :"%",
+			"title" : "Calidad",
+			"info" : "Quality",
+			"infoState" : "Error"
+		},
+		{
+			"icon" : "sap-icon://example",
+			"number" : "50",
+			"numberUnit" : "%",
+			"title" : "Producción",
+			"info" : "Production",
+			"infoState" : "Success"
+		},
+		{
+			"icon" : "sap-icon://wrench",
+			"number" : "77",
+			"numberUnit" : "%",
+			"title" : "Mantenimiento",
+			"info" : "Maintenance",
+			"infoState" : "Warning"
+		},
+		{
+			"icon" : "sap-icon://waiver",
+			"number" : "30",
+			"numberUnit" : "%",
+			"title" : "Costos",
+			"info" : "Cost",
+			"infoState" : "Success"
+		},
+		{
+			"icon" : "sap-icon://shipping-status",
+			"number" : "30",
+			"numberUnit" : "%",
+			"title" : "Logística",
+			"info" : "Logistic",
+			"infoState" : "Warning"
+		}		
+	]
+}

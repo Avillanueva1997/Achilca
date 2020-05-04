@@ -1,0 +1,54 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.SIMA.SIMA09"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core"
+  xmlns:tnt="sap.tnt"
+  xmlns:unified="sap.ui.unified"
+  xmlns:t="sap.ui.table"
+  xmlns="sap.m"
+  xmlns:viz="sap.viz.ui5.controls" >
+    <Page
+      title="Días sin Accidentes"
+      id="SIMA09"
+      showNavButton="true"
+      navButtonPress="onNavBack">
+      <headerContent>
+        <Button press="onAdd" tooltip="Añadir" icon="sap-icon://add"/>
+        <Button icon="sap-icon://save" tooltip="Guardar" press="onSave" />
+    </headerContent>
+    <content>
+     <Table 
+        id="TableSIMA09"
+        growing="true"
+        growingThreshold="30"
+        inset="false"
+        items="{path: '/'}"
+        alternateRowColors="true"
+        mode="None"> 
+        <columns>
+          <Column width="5em">
+            <Text text="Código"/>
+          </Column>
+          <Column hAlign="End">
+            <Text text="Fecha"/>
+          </Column>
+        </columns>
+        <items>
+          <ColumnListItem>
+            <cells>
+              <Input value="{code}" enabled="false" />
+              <DateTimePicker
+                placeholder="Ingresa fecha..."
+                change="onChangeFecha"
+                dateValue="{fecha}"
+                displayFormat="short"/>
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+
+    </content>
+    </Page>
+</mvc:View>

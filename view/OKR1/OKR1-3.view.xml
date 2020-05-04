@@ -1,0 +1,62 @@
+<mvc:View
+	controllerName="sap.ui.app01.controller.OKR1.OKR1-3"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core"
+  xmlns:tnt="sap.tnt"
+  xmlns:unified="sap.ui.unified"
+  xmlns:t="sap.ui.table"
+  xmlns="sap.m">
+    <Page
+      title="# Incidentes por Tipo"
+      id="SIMA03"
+      showNavButton="true"
+      navButtonPress="onNavBack">
+    <headerContent>
+        <Button icon="sap-icon://save" tooltip="Guardar" press="onSave" />
+    </headerContent>
+    <content>
+        <Table 
+        id="TableSIMA03"
+        growing="true"
+        growingThreshold="30"
+        inset="false"
+        items="{path: '/'}"
+        alternateRowColors="true">
+        <headerToolbar>
+			<OverflowToolbar>
+				<content>
+					<ComboBox items="{path: 'cbxYear>/', templateShareable:false}" selectedKey="{/year}" width="20%" change="onYearChange" id="cbxYear">
+              <core:ListItem key="{cbxYear>description}" text="{cbxYear>description}"/>
+          </ComboBox>
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+        <infoToolbar>
+			<OverflowToolbar>
+				<Label design="Bold" text="Total ( {/total} )"/>
+			</OverflowToolbar>
+		</infoToolbar>
+            <columns>
+                <Column>
+                    <Text text="Tipo"/>
+                </Column>
+                <Column hAlign="End">
+                    <Text text="# Incidentes" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                    <ComboBox showSecondaryValues="true" items="{path: 'cbxTipo>/', templateShareable:false}" selectedKey="{tipo}" width="100%" enabled="false">
+                        <core:ListItem key="{cbxTipo>code}" text="{cbxTipo>description}" additionalText="{cbxTipo>code}"/>
+                    </ComboBox>
+                    <Input value="{numero_incidentes}" type="Number" change="onChangeNumeroIncidentes"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>    
+    </content>
+    </Page>
+</mvc:View>

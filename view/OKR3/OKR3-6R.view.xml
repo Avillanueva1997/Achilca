@@ -1,0 +1,149 @@
+<mvc:View
+    controllerName="sap.ui.app01.controller.OKR3.OKR3-6R"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:unified="sap.ui.unified"
+    xmlns:t="sap.ui.table"
+    xmlns="sap.m">
+    <Page
+      title="Reporte de Producción"
+      id="OKR3-6R"
+      showNavButton="true"
+      navButtonPress="onNavBack">
+        <headerContent>
+            <Button press="sendPDF" tooltip="Enviar" icon="sap-icon://paper-plane"/>
+            <Button press="downloadPDF" tooltip="Descargar" icon="sap-icon://download"/>
+            <Button press="onAdd" tooltip="Añadir" icon="sap-icon://add"/>
+            <Button icon="sap-icon://save" tooltip="Guardar" press="onSave" />
+        </headerContent>
+    <content>
+    	<Panel expandable="true" width="auto" expanded="true">
+        <content>
+          <f:SimpleForm
+                        labelSpanXL="3"
+                        labelSpanL="3"
+                        labelSpanM="12"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="0"
+                        emptySpanL="0"
+                        emptySpanM="0"
+                        emptySpanS="0"
+                        columnsXL="2"
+                        columnsL="2"
+                        columnsM="2"
+                        singleContainerFullSize="false">
+            <f:content>
+              <core:Title text="" id="titleHideN1"/>
+              <Label design="Bold" text="BC"/>
+              <Text text="" id="txtBC"/>
+              <Label design="Bold" text="BP"/>
+              <Text text="" id="txtBP"/>
+              <Label design="Bold" text="BR"/>
+              <Text text="" id="txtBR"/>
+              <Label design="Bold" text="PT"/>
+              <Text text="" id="txtPT"/>
+              <Label design="Bold" text="SCR"/>
+              <Text text="" id="txtSCR"/>
+              <Label design="Bold" text="Q"/>
+              <Text text="" id="txtQ"/>
+              <core:Title text="" id="titleHideN2"/>
+              <Label design="Bold" text="Línea"/>
+              <Text text="" id="txtLinea"/>
+              <Label design="Bold" text="Ø"/>
+              <Text text="" id="txtDiametro"/>
+              <Label design="Bold" text="Fecha"/>
+              <Text text="" id="txtFecha"/>
+              <Label design="Bold" text="Turno"/>
+              <Text text="" id="txtTurno"/>
+              <Label design="Bold" text="Coord"/>
+              <Text text="" id="txtCoord"/>
+              <Label design="Bold" text="Uptime"/>
+              <Text text="" id="txtUptime"/>
+            </f:content>
+          </f:SimpleForm>
+        </content>
+      </Panel>
+        <Table 
+        id="TableReporte"
+        growing="true"
+        growingThreshold="30"
+        inset="false"
+        items="{path: '/'}"
+        alternateRowColors="true"
+        mode="None"> 
+        <columns>
+            <Column width="5em">
+                <Text text="N°"/>
+            </Column>
+            <Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="Inicio" />
+			</Column>
+            <Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="Fin" />
+			</Column>
+            <Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="OP" />
+			</Column>
+            <Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="Máquina" />
+			</Column>
+            <Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="Componente" />
+			</Column>
+            <Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="Causa" />
+			</Column>
+            <Column hAlign="End">
+                <Text text="Comentario" />
+            </Column>
+        </columns>
+        <items>
+          <ColumnListItem>
+            <cells>
+              <Text text="{code}" class="sapUiSmallMarginTop"/>
+              <TimePicker
+              value="{inicio}"
+              valueFormat="HH:mm"
+              displayFormat="HH:mm"
+              change="handleChange"
+              placeholder="Ingrese la hora de inicio"/>
+                      <TimePicker
+              value="{fin}"
+              valueFormat="HH:mm"
+              displayFormat="HH:mm"
+              change="handleChange"
+              placeholder="Ingrese la hora de fin"/>
+              <ComboBox items="{path: 'cbxOP>/', templateShareable:false}" selectedKey="{op}" width="100%">
+                <core:ListItem key="{cbxOP>code}" text="{cbxOP>description}"/>
+              </ComboBox>
+              <ComboBox items="{path: 'cbxMaquina>/', templateShareable:false}" selectedKey="{maquina}" width="100%">
+                <core:ListItem key="{cbxMaquina>code}" text="{cbxMaquina>description}"/>
+              </ComboBox>
+              <Input value="{componente}"/>
+              <ComboBox items="{path: 'cbxCausa>/', templateShareable:false}" selectedKey="{causa}" width="100%">
+                <core:ListItem key="{cbxCausa>code}" text="{cbxCausa>description}"/>
+              </ComboBox>
+              <Input value="{comentario}"/>
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+    </content>
+    </Page>
+</mvc:View>
