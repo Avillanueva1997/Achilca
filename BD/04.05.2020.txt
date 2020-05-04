@@ -1,0 +1,5 @@
+alter table cumplimiento_entregas_apt
+add comments varchar(500) after entrega_real;
+alter table cumplimiento_entregas_apt
+add area int after comments;
+delete from cumplimiento_entregas_apt;
