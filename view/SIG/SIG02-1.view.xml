@@ -22,7 +22,7 @@
           <Table 
             id="TableSIG"
             growing="true"
-            growingThreshold="30"
+            
             inset="false"
             items="{path: '/'}"
             alternateRowColors="true"

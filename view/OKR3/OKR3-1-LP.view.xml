@@ -55,7 +55,7 @@
               <List
                 headerText="Comentarios"
                 growing="true"
-                growingThreshold="30"
+                
                 busyIndicatorDelay="200"
                 enableBusyIndicator="true"
                 noDataText="Sin Comentarios"

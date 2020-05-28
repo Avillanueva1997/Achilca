@@ -23,11 +23,10 @@
       <Table 
         id="TableSPRO04"
         growing="true"
-        growingThreshold="30"
         inset="false"
         items="{path: '/'}"
         alternateRowColors="true"
-        mode="MultiSelect"> 
+        mode="MultiSelect"      growingScrollToLoad="true"> 
         <columns>
           <Column width="5em">
             <Text text="Código"/>

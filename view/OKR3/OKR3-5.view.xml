@@ -166,7 +166,7 @@
             <Table 
               id="TableGrupoA"
               growing="true"
-              growingThreshold="30"
+              
               inset="false"
               items="{path: '/'}"
               alternateRowColors="true"> 
@@ -196,7 +196,7 @@
             <Table 
               id="TableGrupoB"
               growing="true"
-              growingThreshold="30"
+              
               inset="false"
               items="{path: '/'}"
               alternateRowColors="true"> 
@@ -226,7 +226,7 @@
             <Table 
               id="TableGrupoC"
               growing="true"
-              growingThreshold="30"
+              
               inset="false"
               items="{path: '/'}"
               alternateRowColors="true"> 
@@ -256,7 +256,7 @@
             <Table 
               id="TableGrupoR"
               growing="true"
-              growingThreshold="30"
+              
               inset="false"
               items="{path: '/'}"
               alternateRowColors="true"> 

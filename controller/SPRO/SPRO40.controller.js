@@ -1,10 +1,8 @@
 jQuery.sap.require("sap.m.MessageBox");
 sap.ui.define([
  "sap/ui/app01/controller/BaseController",
- 'jquery.sap.global',
- 'sap/ui/model/json/JSONModel',
  "sap/m/MessageToast"
- ], function (BaseController, jQuery, JSONModel, MessageToast) {
+ ], function (BaseController, MessageToast) {
    "use strict";
    return BaseController.extend("sap.ui.app01.controller.SPRO.SPRO40", {
 
@@ -13,13 +11,11 @@ sap.ui.define([
       oRouter.getRoute("spro40").attachPatternMatched(this._onObjectMatched, this);      
     },
     _onObjectMatched: function(oEvent) {
-      var thes = this,
-      date = new Date(),
-      year = date.getFullYear();
+      var thes = this;
       thes.getYear();
       thes.getLinea();
       thes.getMonth();
-      thes.byId("cbxYear").setSelectedKey(year);
+      thes.byId("cbxYear").setSelectedKey('2020');
       thes.byId("cbxLinea").setSelectedKey('L2');
       thes.cargarData();
     },
@@ -185,8 +181,24 @@ sap.ui.define([
         beforeSend: function(){
         },
         success: function(response){
-          response = JSON.parse(response); 
-          var oModel = new sap.ui.model.json.JSONModel(response);  
+          response = JSON.parse(response);
+          if(Array.isArray(response) && response.length > 0){
+            for (let index = 0; index < response.length; index++) {
+              var year = response[index].description;
+              if(Number(year) > 2020){
+                delete response[index];
+              }             
+            }
+
+            var newTable = [];
+        
+            for (var i = 0; i < response.length; i++) {
+              if(response[i] !== undefined){
+                newTable.push(response[i]);
+              }
+            }
+          }
+          var oModel = new sap.ui.model.json.JSONModel(newTable);  
           thes.getView().setModel(oModel,"cbxYear");  
         },
         error: function(xhr, ajaxOptions, thrownError){
@@ -219,7 +231,8 @@ sap.ui.define([
     },
     onNavBack: function(oEvent) {
       var thes = this;
-      thes.getRouter().navTo("homeSPRO");
+      thes.showBusyIndicator(3000, 0);
+thes.getRouter().navTo("homeSPRO");
     }
   });
  });

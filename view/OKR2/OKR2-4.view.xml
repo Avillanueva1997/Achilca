@@ -22,11 +22,11 @@
         <Table 
         id="TableCALIDAD03"
         growing="true"
-        growingThreshold="30"
+        
         inset="false"
         items="{path: '/'}"
         alternateRowColors="true"
-        mode="MultiSelect">
+        mode="MultiSelect"      growingScrollToLoad="true">
         <headerToolbar>
           <OverflowToolbar>
             <content>

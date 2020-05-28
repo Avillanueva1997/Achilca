@@ -43,7 +43,7 @@
 			<IconTabBar id="idIconTabBarNoIcons" items="{/}" select="getData">
 				<items>
 					<IconTabFilter text="{code}" key="{code}">
-						<Table growing="true" growingThreshold="30" items="{path: '/dataLinea', templateShareable:false}" inset="false" id="tableLineaProduccion">
+						<Table growing="true"  items="{path: '/dataLinea', templateShareable:false}" inset="false" id="tableLineaProduccion">
 							<columns>
 								<Column width="10rem">
 									<Text text="Mes" />

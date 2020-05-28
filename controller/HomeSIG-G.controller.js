@@ -30,7 +30,8 @@ sap.ui.define([
         },
         onHomePress: function(oEvent){
             var thes = this;
-            thes.getRouter().navTo('home');
+            thes.showBusyIndicator(3000, 0);
+thes.getRouter().navTo('home');
             thes.removeFeeds('idChart1');
             thes.removeFeeds('idChart2');
         },

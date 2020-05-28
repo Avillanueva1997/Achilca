@@ -21,7 +21,7 @@
         <Table 
         id="TableSPRO29"
         growing="true"
-        growingThreshold="30"
+        
         inset="false"
         items="{path: '/'}"
         alternateRowColors="true">

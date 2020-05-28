@@ -36,7 +36,7 @@
         <!--<Table 
         id="TableCOSTO01"
         growing="true"
-        growingThreshold="30"
+        
         inset="false"
         items="{path: '/'}"
         alternateRowColors="true">

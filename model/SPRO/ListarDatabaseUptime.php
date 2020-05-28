@@ -47,44 +47,47 @@ while($row = mysqli_fetch_array($resultMonth))
 { 	    
     $code=$row['code'];
 
-    $sql = "select * from database_uptime where year = '".$_year."' and month = '".$code."' and linea_produccion = '".$_linea."';";
+    if($_year < 2020 || ($_year == 2020 && $code <= 5)){
+        $sql = "select * from database_uptime where year = '".$_year."' and month = '".$code."' and linea_produccion = '".$_linea."';";
     
-    $result = mysqli_query($con,$sql);
-
-    if (!$result  ) {
-    printf("Error message: %s\n", mysqli_error($con));
-}
-
-    $row_count = mysqli_num_rows( $result );
-
-    if($row_count == 1){
-
-        while( $row = mysqli_fetch_array($result) ) {
-
+        $result = mysqli_query($con,$sql);
+    
+        if (!$result  ) {
+        printf("Error message: %s\n", mysqli_error($con));
+    }
+    
+        $row_count = mysqli_num_rows( $result );
+    
+        if($row_count == 1){
+    
+            while( $row = mysqli_fetch_array($result) ) {
+    
+                $Data[] = array(
+                    'code' => $row['code'],
+                    'linea_produccion' => $_linea,               
+                    'month'=> $code,
+                    'year'=> $_year,
+                    'meta'=> $row['meta'],
+                    'data_real'=> $row['data_real']
+                );
+            }
+    
+        } else {
             $Data[] = array(
-                'code' => $row['code'],
+                'code' => $codeFinal,
                 'linea_produccion' => $_linea,               
                 'month'=> $code,
                 'year'=> $_year,
-                'meta'=> $row['meta'],
-                'data_real'=> $row['data_real']
+                'meta'=> '',
+                'data_real'=> ''
             );
         }
+    
+        mysqli_free_result($result);
+    
+        $codeFinal++;
 
-    } else {
-        $Data[] = array(
-            'code' => $codeFinal,
-            'linea_produccion' => $_linea,               
-            'month'=> $code,
-            'year'=> $_year,
-            'meta'=> '',
-            'data_real'=> ''
-        );
     }
-
-    mysqli_free_result($result);
-
-    $codeFinal++;
 }
 
 mysqli_free_result($resultMonth);

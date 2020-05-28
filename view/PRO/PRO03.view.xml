@@ -47,7 +47,7 @@
 			<IconTabBar id="idIconTabBarNoIcons" items="{/}" select="getScada">
 				<items>
 					<IconTabFilter text="{code}" key="{code}">
-						<Table growing="true" growingThreshold="30" items="{path: '/dataLinea', templateShareable:false}" inset="false" id="tableLineaProduccion">
+						<Table growing="true"  items="{path: '/dataLinea', templateShareable:false}" inset="false" id="tableLineaProduccion">
 							<headerToolbar>
 								<OverflowToolbar>
 									<Title text="Turno: Día (08:00 - 20:00)" level="H2" />

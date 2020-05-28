@@ -8,84 +8,14 @@
 	xmlns="sap.m">
     <Page id="pageLogin" showHeader="false">
         <content>
-         <!--<FlexBox
-                alignItems="Center"
-                justifyContent="Center">
-            <items>
-            <VBox fitContainer="false" justifyContent="Center" alignItems="Center" alignContent="Center">
-                <Image src="assets/images/AC_Logo.png" alt="Aceros Chilca" class="centerImage"/>
-            </VBox>
-            <VBox fitContainer="false" justifyContent="Center" alignItems="Center" alignContent="Center">
-                <items>
-                     <Input width="15rem" placeholder="Usuario" value="{/user}"/>
-                     <Input width="15rem" placeholder="Contraseña" type="Password" value="{/password}"/>
-                     <Button width="17rem" text="Ingresar" type="Emphasized" press="onLogin"/>
-                </items>
-            </VBox>
-            </items>
-        </FlexBox>-->
         <HBox height="100%" alignItems="Center">
-        <!--<FlexBox
-                alignItems="Center"
-                justifyContent="Center">
-            <items>
-                <Image src="assets/images/AC_Logo.png" alt="Aceros Chilca" class="centerImage"/>
-            </items>
-        </FlexBox>
-        <FlexBox
-                alignItems="Center"
-                justifyContent="Center">
-            <items>
-                <Input width="15rem" placeholder="Usuario" value="{/user}"/>
-            </items>
-        </FlexBox>
-        <FlexBox
-                alignItems="Center"
-                justifyContent="Center">
-            <items>
-                <Input width="15rem" placeholder="Contraseña" type="Password" value="{/password}"/>
-            </items>
-        </FlexBox>
-        <FlexBox
-                alignItems="Center"
-                justifyContent="Center">
-            <items>
-                <Button width="17rem" text="Ingresar" type="Emphasized" press="onLogin"/>
-            </items>
-        </FlexBox>-->
-        <VBox fitContainer="false" justifyContent="Center" alignItems="Center" alignContent="Center" width="100%">
-            <!--<Image src="assets/images/AC_Logo.png" alt="Mepsa - Aceros Chilca" class="centerImage"/>-->
-            <Image src="assets/images/mepsa_ac_n2.png" alt="Mepsa - Aceros Chilca" class="centerImage"/>
-            <Input width="15rem" placeholder="Usuario" value="{/user}" submit="onLogin"/>
-            <Input width="15rem" placeholder="Contraseña" type="Password" value="{/password}" submit="onLogin"/>
-            <Button width="17rem" text="Ingresar" type="Emphasized" press="onLogin" class="colorAchilca"/>
-        </VBox>
-        <!--<VBox fitContainer="false" justifyContent="Center" alignItems="Center" alignContent="Center" width="100%">
-                <items>
-                     <Input width="15rem" placeholder="Usuario" value="{/user}"/>
-                     <Input width="15rem" placeholder="Contraseña" type="Password" value="{/password}"/>
-                     <Button width="17rem" text="Ingresar" type="Emphasized" press="onLogin"/>
-                </items>
-        </VBox>-->
-            <!--<VBox fitContainer="false" justifyContent="Center" alignItems="Center" alignContent="Center">
-                <items>
-                     <Input width="15rem" placeholder="Usuario" value="{/user}"/>
-                     <Input width="15rem" placeholder="Contraseña" type="Password" value="{/password}"/>
-                     <Button width="17rem" text="Ingresar" type="Emphasized" press="onLogin"/>
-                </items>
-            </VBox>-->
-        </HBox>
-         
-            <!--<VBox fitContainer="false" justifyContent="Center" alignItems="Center" alignContent="Center">
-                <Image src="assets/images/AC_Logo.png" alt="Aceros Chilca" class="centerImage"/>
+            <VBox fitContainer="false" justifyContent="Center" alignItems="Center" alignContent="Center" width="100%">
+                <Image src="assets/images/mepsa_ac_n2.png" alt="Mepsa - Aceros Chilca" class="centerImage"/>
+                <Input width="15rem" placeholder="Usuario" value="{/user}" submit="onLogin"/>
+                <Input width="15rem" placeholder="Contraseña" type="Password" value="{/password}" submit="onLogin"/>
+                <Button width="17rem" text="Ingresar" type="Emphasized" press="onLogin" class="colorAchilca"/>
             </VBox>
-            <VBox fitContainer="false" justifyContent="Center" alignItems="Center" alignContent="Center">
-                <items>
-                     <Input width="15rem" placeholder="Usuario" value="{/user}"/>
-                     <Input width="15rem" placeholder="Contraseña" type="Password" value="{/password}"/>
-                     <Button width="17rem" text="Ingresar" type="Emphasized" press="onLogin"/>
-                </items>
-            </VBox>-->
+        </HBox>
         </content>
     </Page>
 </mvc:View>

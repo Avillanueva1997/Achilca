@@ -23,11 +23,11 @@
       <Table 
         id="TableSPRO09"
         growing="true"
-        growingThreshold="30"
+        
         inset="false"
         items="{path: '/'}"
         alternateRowColors="true"
-        mode="MultiSelect"> 
+        mode="MultiSelect"      growingScrollToLoad="true"> 
         <columns>
           <Column width="2.5em">
             <Text text="#"/>

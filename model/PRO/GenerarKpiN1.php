@@ -89,60 +89,100 @@ while($row = mysqli_fetch_array($resultMonth))
     $code=$row['code'];
     $description=$row['description'];
 
-    $sql = "select sum(produccion_neta) as Value from cierre_okrs where YEAR(fecha)  = '".$_Year."' and MONTH(fecha) = '".$code."' and linea_produccion = '".$_Linea."';";        
+    if($_Year == '2020' && $code <= 5){
+        $sql = "select data_real as Value, meta from database_produccion where year = '".$_Year."' and month = '".$code."' and linea_produccion = '".$_Linea."';";        
 
-    $result = mysqli_query($con,$sql);
-
-    if (!$result) {
-    printf("Error message: %s\n", mysqli_error($con));
-    }
-
-    $row_count = mysqli_num_rows( $result );
-
-    if($row_count != 0){
-
-        while( $row = mysqli_fetch_array($result) ) {
-
-            $Promedio +=  $row['Value'];
-
-            $DataKpi[] = array(          
-                'CodeMonth'=> $code,
+        $result = mysqli_query($con,$sql);
+    
+        if (!$result) {
+        printf("Error message: %s\n", mysqli_error($con));
+        }
+    
+        $row_count = mysqli_num_rows( $result );
+    
+        if($row_count != 0){
+    
+            while( $row = mysqli_fetch_array($result) ) {
+    
+                $Promedio +=  $row['Value'];
+    
+                $DataKpi[] = array(          
+                    'CodeMonth'=> $code,
+                    'Month'=> $description,
+                    'Value'=> round($row['Value'], 1),
+                    'Meta'=> $row['meta']
+                );
+            }
+    
+        } else {
+            $DataKpi[] = array(       
+                'CodeMonth'=> $code,           
                 'Month'=> $description,
-                'Value'=> round($row['Value'], 1)
+                'Value'=> 0,
+                'Meta'=> 0
             );
         }
-
+    
+        mysqli_free_result($result);
     } else {
-        $DataKpi[] = array(       
-            'CodeMonth'=> $code,           
-            'Month'=> $description,
-            'Value'=> 0
-        );
-    }
+        $sql = "select sum(produccion_neta) as Value from cierre_okrs where YEAR(fecha)  = '".$_Year."' and MONTH(fecha) = '".$code."' and linea_produccion = '".$_Linea."';";        
 
-    mysqli_free_result($result);
+        $result = mysqli_query($con,$sql);
+    
+        if (!$result) {
+        printf("Error message: %s\n", mysqli_error($con));
+        }
+    
+        $row_count = mysqli_num_rows( $result );
+    
+        if($row_count != 0){
+    
+            while( $row = mysqli_fetch_array($result) ) {
+    
+                $Promedio +=  $row['Value'];
+    
+                $DataKpi[] = array(          
+                    'CodeMonth'=> $code,
+                    'Month'=> $description,
+                    'Value'=> round($row['Value'], 1)
+                );
+            }
+    
+        } else {
+            $DataKpi[] = array(       
+                'CodeMonth'=> $code,           
+                'Month'=> $description,
+                'Value'=> 0
+            );
+        }
+    
+        mysqli_free_result($result);
+    }
 }
 
 mysqli_free_result($resultMonth);
 
+
 for ($i=0; $i < sizeof($DataKpi) ; $i++) { 
     if(array_key_exists("CodeMonth",$DataKpi[$i])){
-        $sql = "select sum(tm) as Meta from programa_produccion where YEAR(start_date) = '".$_Year."' and MONTH(start_date) = '".$DataKpi[$i]['CodeMonth']."' and linea_produccion = '".$_Linea."';";
+        if($_Year != '2020' && $DataKpi[$i]['CodeMonth'] > 5){
+            $sql = "select sum(tm) as Meta from programa_produccion where YEAR(start_date) = '".$_Year."' and MONTH(start_date) = '".$DataKpi[$i]['CodeMonth']."' and linea_produccion = '".$_Linea."';";
 
-        $result = mysqli_query($con,$sql);
-
-        if (!$result  ) {
-            printf("Error message: %s\n", mysqli_error($con));
+            $result = mysqli_query($con,$sql);
+    
+            if (!$result  ) {
+                printf("Error message: %s\n", mysqli_error($con));
+            }
+    
+            $Meta = 0;
+    
+            while( $row = mysqli_fetch_array($result) ) {
+                $Meta=$row['Meta'];
+                $Meta= intval($Meta);
+            }
+    
+            $DataKpi[$i]['Meta'] = $Meta;
         }
-
-        $Meta = 0;
-
-        while( $row = mysqli_fetch_array($result) ) {
-            $Meta=$row['Meta'];
-            $Meta= intval($Meta);
-        }
-
-        $DataKpi[$i]['Meta'] = $Meta;
     }
 }
 

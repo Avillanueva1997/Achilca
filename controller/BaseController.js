@@ -7,8 +7,9 @@ sap.ui.define([
   'sap/m/Popover',
   'sap/m/Button',
   "sap/m/Label",
-  'sap/m/library'
-], function (Controller, MessageToast, History, JSONModel, ODataModel, Popover, Button, Label, mobileLibrary ) {
+  'sap/m/library',
+  'sap/ui/core/BusyIndicator'
+], function (Controller, MessageToast, History, JSONModel, ODataModel, Popover, Button, Label, mobileLibrary, BusyIndicator) {
   "use strict";
 
   var ButtonType = mobileLibrary.ButtonType,
@@ -55,6 +56,7 @@ sap.ui.define([
       dataModel = oSource.getParent().getModel().getData(),
       dataIndex = dataModel[model][index],
       view = dataIndex.view;
+      thes.showBusyIndicator(3000, 0);
       thes.getRouter().navTo(view);
     },
     onPressDinamic: function(oEvent){
@@ -71,6 +73,7 @@ sap.ui.define([
       splitView = view.split('-'),
       linea_produccion = splitView[splitView.length - 1],
       newView = splitView[0]+'-'+splitView[1]+'-LP';
+      thes.showBusyIndicator(3000, 0);
       
       thes.getRouter().navTo(newView, {
           linea_produccion: linea_produccion
@@ -90,6 +93,7 @@ sap.ui.define([
       splitView = view.split('-'),
       diametro = splitView[splitView.length - 1],
       newView = splitView[0]+'-'+splitView[1]+'-D';
+      thes.showBusyIndicator(3000, 0);
       
       thes.getRouter().navTo(newView, {
           diametro: diametro
@@ -110,6 +114,7 @@ sap.ui.define([
       linea_produccion = splitView[splitView.length - 2],
       diametro = splitView[splitView.length - 1],
       newView = splitView[0]+'-'+splitView[1]+'-LP-D';
+      thes.showBusyIndicator(3000, 0);
       
       thes.getRouter().navTo(newView, {
           linea_produccion: linea_produccion,
@@ -118,10 +123,12 @@ sap.ui.define([
     },
     onTeam: function(oEvent){
       var thes = this;
+      thes.showBusyIndicator(3000, 0);
       thes.getRouter().navTo('team');
     },
     onKpi: function(oEvent){
       var thes = this;
+      thes.showBusyIndicator(3000, 0);
       thes.getRouter().navTo('kpi');
     },
     validateNumber: function(oEvent){
@@ -461,6 +468,23 @@ sap.ui.define([
     operateDate: function(fecha, dias){
       fecha.setDate(fecha.getDate() + dias);
       return fecha;
-    }
+    },
+    hideBusyIndicator : function() {
+      BusyIndicator.hide();
+		},
+		showBusyIndicator : function (iDuration, iDelay) {
+			BusyIndicator.show(iDelay);
+
+			if (iDuration && iDuration > 0) {
+				if (this._sTimeoutId) {
+					clearTimeout(this._sTimeoutId);
+					this._sTimeoutId = null;
+				}
+
+				this._sTimeoutId = setTimeout(function() {
+					this.hideBusyIndicator();
+				}.bind(this), iDuration);
+			}
+    },
   });
 });

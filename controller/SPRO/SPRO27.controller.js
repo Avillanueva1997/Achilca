@@ -1,12 +1,9 @@
-//var ConexionGlobal = sessionStorage.ConexionGlobal;
-
 jQuery.sap.require("sap.m.MessageBox");
 sap.ui.define([
  "sap/ui/app01/controller/BaseController",
- 'jquery.sap.global',
- 'sap/ui/model/json/JSONModel',
- "sap/m/MessageToast"
- ], function (BaseController, jQuery, JSONModel, MessageToast) {
+ "sap/m/MessageToast",
+ "sap/m/MessageBox"
+ ], function (BaseController, MessageToast, MessageBox) {
    "use strict";
    return BaseController.extend("sap.ui.app01.controller.SPRO.SPRO27", {
 
@@ -70,25 +67,37 @@ sap.ui.define([
       datosTabla = thes.byId("TableSPRO27").getModel().getData(),
       selectData = thes.byId("TableSPRO27").getSelectedContextPaths();
 
-      for (var i = 0; i < selectData.length; i++) {
-        selectData[i] = selectData[i].replace('/','');
+      if(selectData.length > 0){
+        sap.m.MessageBox.warning("¿Estás seguro de eliminar esta información?", {
+          actions: [MessageBox.Action.YES, MessageBox.Action.CLOSE],
+          emphasizedAction: MessageBox.Action.YES ,
+          onClose: function(oAction) {
+            if (oAction === sap.m.MessageBox.Action.YES) {
+              for (var i = 0; i < selectData.length; i++) {
+                selectData[i] = selectData[i].replace('/','');
+              }
+        
+              for (var i = 0; i < selectData.length; i++) {
+                index = selectData[i];
+                delete datosTabla[index];
+              }
+        
+              var newTable = [];
+        
+              for (var i = 0; i < datosTabla.length; i++) {
+                if(datosTabla[i] !== undefined){
+                  newTable.push(datosTabla[i]);
+                }
+              }
+              thes.byId("TableSPRO27").getModel().setData(newTable);
+              thes.byId('TableSPRO27').removeSelections();
+              thes.byId("TableSPRO27").getModel().refresh();
+            }
+          }
+        });
+      } else {
+        MessageToast.show("Seleccione fila");
       }
-
-      for (var i = 0; i < selectData.length; i++) {
-        index = selectData[i];
-        delete datosTabla[index];
-      }
-
-      var newTable = [];
-
-      for (var i = 0; i < datosTabla.length; i++) {
-        if(datosTabla[i] !== undefined){
-          newTable.push(datosTabla[i]);
-        }
-      }
-      thes.byId("TableSPRO27").getModel().setData(newTable);
-      thes.byId('TableSPRO27').removeSelections();
-      thes.byId("TableSPRO27").getModel().refresh();
     },
     onSave: function(oEvent){
       var thes = this;       
@@ -182,7 +191,8 @@ sap.ui.define([
     },
     onNavBack: function(oEvent) {
       var thes = this;
-      thes.getRouter().navTo("homeSPRO");
+      thes.showBusyIndicator(3000, 0);
+thes.getRouter().navTo("homeSPRO");
     }
   });
  });

@@ -32,7 +32,7 @@
             </Panel>
         </layout:VerticalLayout>
 		<layout:VerticalLayout>
-            <Table growing="true" growingThreshold="30" items="{path: '/', templateShareable:false}" id="TableKPI" mode="MultiSelect" growingScrollToLoad="true">
+            <Table growing="true"  items="{path: '/', templateShareable:false}" id="TableKPI" mode="MultiSelect"      growingScrollToLoad="true" growingScrollToLoad="true">
                 <headerToolbar>
                     <OverflowToolbar>
                         <ToolbarSpacer/>

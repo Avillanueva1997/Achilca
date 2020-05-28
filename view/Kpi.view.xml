@@ -23,7 +23,7 @@
             <Table 
               id="TableSIMA"
               growing="true"
-              growingThreshold="30"
+              
               inset="false"
               items="{path: '/'}"
               alternateRowColors="true"> 
@@ -49,7 +49,7 @@
             <Table 
               id="TableCALIDAD"
               growing="true"
-              growingThreshold="30"
+              
               inset="false"
               items="{path: '/'}"
               alternateRowColors="true"> 
@@ -75,7 +75,7 @@
             <Table 
               id="TablePRODUCCION"
               growing="true"
-              growingThreshold="30"
+              
               inset="false"
               items="{path: '/'}"
               alternateRowColors="true"> 
@@ -101,7 +101,7 @@
             <Table 
               id="TableMANTENIMIENTO"
               growing="true"
-              growingThreshold="30"
+              
               inset="false"
               items="{path: '/'}"
               alternateRowColors="true"> 
@@ -127,7 +127,7 @@
             <Table 
               id="TableCOSTOS"
               growing="true"
-              growingThreshold="30"
+              
               inset="false"
               items="{path: '/'}"
               alternateRowColors="true"> 
@@ -153,7 +153,7 @@
             <Table 
               id="TableLOGISTICA"
               growing="true"
-              growingThreshold="30"
+              
               inset="false"
               items="{path: '/'}"
               alternateRowColors="true"> 

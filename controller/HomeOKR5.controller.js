@@ -82,7 +82,8 @@ sap.ui.define([
       },
       onHomePress: function(oEvent){
         var thes = this;
-        thes.getRouter().navTo('home');
+        thes.showBusyIndicator(3000, 0);
+thes.getRouter().navTo('home');
       },
       getSemaforoN1: function(diametro){
         var thes = this,

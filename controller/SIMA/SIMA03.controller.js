@@ -18,7 +18,8 @@ sap.ui.define([
     },
     onNavBack: function(oEvent) {
       var thes = this;
-      thes.getRouter().navTo("homeSIMA");
+      thes.showBusyIndicator(3000, 0);
+thes.getRouter().navTo("homeSIMA");
       thes.removeFeeds('idChart6');
     },
     setChartN6: function(){

@@ -182,7 +182,8 @@ sap.ui.define([
     },
     onNavBack: function(oEvent) {
       var thes = this;
-      thes.getRouter().navTo("homeSPRO");
+      thes.showBusyIndicator(3000, 0);
+thes.getRouter().navTo("homeSPRO");
     }
   });
  });

@@ -14,27 +14,6 @@ $month = date('m');
 
 $DataKpi = array();
 
-/*$Meta = 0;
-
-$sql ="select meta from meta_bola_obs where year = {$_Year} and linea_produccion = '".$_Linea."';";
-
-$result = mysqli_query($con,$sql);
-
-if (!$result) {
-    printf("Error message: %s\n", mysqli_error($con));
-}
-
-$row_count = mysqli_num_rows( $result );
-
-if($row_count == 1){
-    while( $row = mysqli_fetch_array($result) ) {
-
-        $Meta = $row['meta'];
-    }
-}
-
-mysqli_free_result($result);*/
-
 $sql = "select avg(data_real) as Value from database_bolaobs where year = '".$_MinusOneYear."' and linea_produccion = '".$_Linea."';";
 
 $result = mysqli_query($con,$sql);
@@ -115,8 +94,6 @@ while($row = mysqli_fetch_array($resultMonth))
 
                 $Desempenio = (($row['Value'] * 100) / ($row['meta'] * 100)) - 1;
                 $Desempenio = round($Desempenio, 3);
-                //$Desempenio = $Desempenio * 100;
-                //$Desempenio = round($Desempenio,3);
 
                 $Value = $row['Value'] / 100;
                 $Value = round($Value, 3);
@@ -126,7 +103,6 @@ while($row = mysqli_fetch_array($resultMonth))
                 $DataKpi[] = array(          
                     'CodeMonth'=> $code,
                     'Month'=> $description,
-                    //'Value'=> round($Value, 3),
                     'Value'=> $Value,
                     'Meta' => $Meta,
                     'desempenio' => $Desempenio

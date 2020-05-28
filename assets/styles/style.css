@@ -286,4 +286,8 @@ span[id*="viewHomeSIG-G--settingsPanel-CollapsedImg-img"]{
 	div[id*="viewPdf--areaPdf"]{
 		margin: 0px !important;
 	}
+
+	div[id$="viewHome--iconTabHeaderPrincipal-overflow-text"]{
+		display: none;
+	}
 }

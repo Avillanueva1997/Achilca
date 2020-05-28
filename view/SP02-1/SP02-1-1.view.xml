@@ -43,7 +43,7 @@
 			</layout:Grid>
         </layout:VerticalLayout>
         <layout:VerticalLayout width="100%">
-            <Table growing="true" growingThreshold="30" items="{path: '/', templateShareable:false}" id="TableComments" growingScrollToLoad="true">
+            <Table growing="true"  items="{path: '/', templateShareable:false}" id="TableComments" growingScrollToLoad="true">
                 <headerToolbar>
                     <OverflowToolbar>
                         <Title text="Comentarios" level="H2"/>

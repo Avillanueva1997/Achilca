@@ -20,7 +20,7 @@
         <Table 
             id="TableData"
             growing="true"
-            growingThreshold="30"
+            
             inset="false"
             items="{path: '/'}"
             alternateRowColors="true"

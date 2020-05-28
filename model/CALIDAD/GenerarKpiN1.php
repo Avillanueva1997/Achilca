@@ -111,64 +111,121 @@ while($row = mysqli_fetch_array($resultMonth))
     $code=$row['code'];
     $description=$row['description'];
 
-    $sql = "select avg(bola_observada_second) as Value from cierre_okrs where YEAR(fecha)  = '".$_Year."' and MONTH(fecha) = '".$code."' and linea_produccion = '".$_Linea."';";        
+    if($_Year == '2020' && $code <= 5){
 
-    $result = mysqli_query($con,$sql);
+        $sql = "select data_real as Value, meta from database_bolaobs where year = '".$_Year."' and month = '".$code."' and linea_produccion = '".$_Linea."';";        
 
-    if (!$result  ) {
-    printf("Error message: %s\n", mysqli_error($con));
-    }
-
-    $row_count = mysqli_num_rows( $result );
-
-    if($row_count != 0){
-
-        while( $row = mysqli_fetch_array($result) ) {
-
-            $Promedio += $row['Value'];
-
-            if($row['Value'] == 0 || empty($row['Value'])){
-                $DataKpi[] = array(          
-                    'CodeMonth'=> $code,
-                    'Month'=> $description,
-                    'Value'=> round(0, 3),
-                    'Meta' => 0,
-                    'desempenio' => 0
-                );
-            } else {
-
-                $Desempenio = (($row['Value'] * 100) / ($Meta * 100)) - 1;
-                $Desempenio = round($Desempenio, 3);
-                //$Desempenio = $Desempenio * 100;
-                //$Desempenio = round($Desempenio,3);
-
-                $Value = $row['Value'] / 100;
-                $Value = round($Value, 3);
-                $Meta = $Meta / 100;
-                $Meta = round($Meta, 3);
-
-                $DataKpi[] = array(          
-                    'CodeMonth'=> $code,
-                    'Month'=> $description,
-                    //'Value'=> round($Value, 3),
-                    'Value'=> $Value,
-                    'Meta' => $Meta,
-                    'desempenio' => $Desempenio
-                );
-            }
+        $result = mysqli_query($con,$sql);
+    
+        if (!$result  ) {
+        printf("Error message: %s\n", mysqli_error($con));
         }
+    
+        $row_count = mysqli_num_rows( $result );
+    
+        if($row_count != 0){
+    
+            while( $row = mysqli_fetch_array($result) ) {
+    
+                $Promedio += $row['Value'];
+    
+                if($row['Value'] == 0 || empty($row['Value'])){
+                    $DataKpi[] = array(          
+                        'CodeMonth'=> $code,
+                        'Month'=> $description,
+                        'Value'=> round(0, 3),
+                        'Meta' => 0,
+                        'desempenio' => 0
+                    );
+                } else {
+    
+                    $Desempenio = (($row['Value'] * 100) / ($row['meta'] * 100)) - 1;
+                    $Desempenio = round($Desempenio, 3);
+    
+                    $Value = $row['Value'] / 100;
+                    $Value = round($Value, 3);
+                    $Meta = $row['meta'] / 100;
+                    $Meta = round($Meta, 3);
+    
+                    $DataKpi[] = array(          
+                        'CodeMonth'=> $code,
+                        'Month'=> $description,
+                        'Value'=> $Value,
+                        'Meta' => $Meta,
+                        'desempenio' => $Desempenio
+                    );
+                }
+            }
+    
+        } else {
+            $DataKpi[] = array(       
+                'CodeMonth'=> $code,           
+                'Month'=> $description,
+                'Value'=> 0,
+                'Meta' => 0,
+                'desempenio' => 0
+            );
+        }
+    
+        mysqli_free_result($result);
 
     } else {
-        $DataKpi[] = array(       
-            'CodeMonth'=> $code,           
-            'Month'=> $description,
-            'Value'=> 0,
-            'Meta' => 0,
-            'desempenio' => 0
-        );
-    }
+        $sql = "select avg(bola_observada_second) as Value from cierre_okrs where YEAR(fecha)  = '".$_Year."' and MONTH(fecha) = '".$code."' and linea_produccion = '".$_Linea."';";        
 
-    mysqli_free_result($result);
+        $result = mysqli_query($con,$sql);
+    
+        if (!$result  ) {
+        printf("Error message: %s\n", mysqli_error($con));
+        }
+    
+        $row_count = mysqli_num_rows( $result );
+    
+        if($row_count != 0){
+    
+            while( $row = mysqli_fetch_array($result) ) {
+    
+                $Promedio += $row['Value'];
+    
+                if($row['Value'] == 0 || empty($row['Value'])){
+                    $DataKpi[] = array(          
+                        'CodeMonth'=> $code,
+                        'Month'=> $description,
+                        'Value'=> round(0, 3),
+                        'Meta' => 0,
+                        'desempenio' => 0
+                    );
+                } else {
+    
+                    $Desempenio = (($row['Value'] * 100) / ($Meta * 100)) - 1;
+                    $Desempenio = round($Desempenio, 3);
+    
+                    $Value = $row['Value'] / 100;
+                    $Value = round($Value, 3);
+                    $Meta = $Meta / 100;
+                    $Meta = round($Meta, 3);
+    
+                    $DataKpi[] = array(          
+                        'CodeMonth'=> $code,
+                        'Month'=> $description,
+                        'Value'=> $Value,
+                        'Meta' => $Meta,
+                        'desempenio' => $Desempenio
+                    );
+                }
+            }
+    
+        } else {
+            $DataKpi[] = array(       
+                'CodeMonth'=> $code,           
+                'Month'=> $description,
+                'Value'=> 0,
+                'Meta' => 0,
+                'desempenio' => 0
+            );
+        }
+    
+        mysqli_free_result($result);
+    }
 }
 
 mysqli_free_result($resultMonth);

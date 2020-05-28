@@ -2,8 +2,8 @@
 
 	$host = "localhost";
 	$user = "root";
-	//$pass = "Aceros2020$$";
-	$pass = "";
+	$pass = "Aceros2020$$";
+	//$pass = "";
 	$db = "aceros_chilca";
 	
 	$serverName = "ACHL5CG5343TYG";

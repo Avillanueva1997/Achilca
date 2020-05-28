@@ -149,7 +149,6 @@ sap.ui.define([
         oMonth = oMonth + 1,
         oYear = thes.byId('cbxYear').getSelectedKey();
 
-        if(datosTabla.length != 0){
           data._Tabla = "cumplimiento_entregas_apt";
           data._Month = oMonth;
           data._Year = oYear;
@@ -252,9 +251,6 @@ sap.ui.define([
               });
             }
           }
-        } else {
-          MessageToast.show("Ingrese información a la tabla!"); 
-        }
       },
       cargarData: function(){
         var thes = this,

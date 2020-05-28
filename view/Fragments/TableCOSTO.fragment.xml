@@ -18,7 +18,7 @@
 	<Table 
         id="TablePA"
         growing="true"
-        growingThreshold="30"
+        
         inset="false"
         items="{path: 'planAccion>/', templateShareable:false}"
         alternateRowColors="true"

@@ -5,7 +5,7 @@
 	xmlns:f="sap.ui.layout.form"
     xmlns:tnt="sap.tnt"
 	xmlns:core="sap.ui.core">
-    <tnt:ToolHeader>
+    <tnt:ToolHeader design="Transparent" style="Clear">
         <Image src="assets/images/favicon_n2.png" width="2.5rem">
             <layoutData>
                 <OverflowToolbarLayoutData priority="NeverOverflow" />
@@ -15,14 +15,8 @@
         <IconTabHeader id="iconTabHeaderPrincipal"
 			selectedKey="homeConfig"
 			select="setTiles"
-            showOverflowSelectList="true"
 			backgroundDesign="Transparent"
 			mode="Inline">
-			<layoutData>
-				<OverflowToolbarLayoutData
-					priority="NeverOverflow"
-					shrinkable="true" />
-			</layoutData>
 			<items>
                 <IconTabFilter text="Configuración" key="homeConfig">
 				</IconTabFilter>
@@ -34,11 +28,6 @@
 				</IconTabFilter>
 			</items>
 		</IconTabHeader>
-        <ToolbarSpacer>
-			<layoutData>
-				<OverflowToolbarLayoutData priority="NeverOverflow" minWidth="16px" />
-			</layoutData>
-		</ToolbarSpacer>
         <Button icon="sap-icon://group" type="Transparent" tooltip="Equipo" press="onTeam">
             <layoutData>
                 <OverflowToolbarLayoutData priority="NeverOverflow" />

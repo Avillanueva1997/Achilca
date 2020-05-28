@@ -17,7 +17,7 @@
 		<Button icon="sap-icon://save" tooltip="Guardar" press="confirmSave" />
     </headerContent>
     <content>
-		<Table growing="true" growingThreshold="30" items="{path: '/', templateShareable:false}" inset="false">
+		<Table growing="true"  items="{path: '/', templateShareable:false}" inset="false">
 			<headerToolbar>
 				<OverflowToolbar>
 					<Title text="Turno: Noche (20:00 - 08:00)" level="H2" />

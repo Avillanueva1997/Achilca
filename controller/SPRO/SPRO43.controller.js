@@ -1,10 +1,8 @@
 jQuery.sap.require("sap.m.MessageBox");
 sap.ui.define([
  "sap/ui/app01/controller/BaseController",
- 'jquery.sap.global',
- 'sap/ui/model/json/JSONModel',
  "sap/m/MessageToast"
- ], function (BaseController, jQuery, JSONModel, MessageToast) {
+ ], function (BaseController, MessageToast) {
    "use strict";
    return BaseController.extend("sap.ui.app01.controller.SPRO.SPRO43", {
 
@@ -186,7 +184,8 @@ sap.ui.define([
     },
     onNavBack: function(oEvent) {
       var thes = this;
-      thes.getRouter().navTo("homeSPRO");
+      thes.showBusyIndicator(3000, 0);
+thes.getRouter().navTo("homeSPRO");
     }
   });
  });
