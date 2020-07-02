@@ -20,11 +20,11 @@
                 <GenericTile header="{title}" press="onPress" class="sapUiLargeMarginBegin sapUiLargeMarginTop" frameType="OneByOne" state="{=${state} || 'Disabled'}">
                     <tileContent>
                         <TileContent footer="{info}">
-                            <microchart:HarveyBallMicroChart total="100" size="Responsive" alignContent="Left"
-                                totalScale="Mrd" showFractions="false" showTotal = "false">
+                            <microchart:HarveyBallMicroChart total="0" size="Responsive" alignContent="Left"
+                                totalScale="" showFractions="{stateTotal}" showTotal = "false">
                                 <microchart:items>
-                                    <microchart:HarveyBallMicroChartItem fraction="100"
-                                        color="{color}" fractionScale="Mrd" />
+                                    <microchart:HarveyBallMicroChartItem fraction="{valueTotal}"
+                                        color="{color}" fractionScale="" />
                                 </microchart:items>
                             </microchart:HarveyBallMicroChart>
                         </TileContent>

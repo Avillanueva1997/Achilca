@@ -9,7 +9,7 @@
   xmlns:t="sap.ui.table"
   xmlns="sap.m">
     <Page
-      title="Causa"
+      title="Evento"
       id="SPRO35"
       showNavButton="true"
       navButtonPress="onNavBack"

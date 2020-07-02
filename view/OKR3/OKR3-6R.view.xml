@@ -92,12 +92,12 @@
             <Column
 				minScreenWidth="Tablet"
 				demandPopin="true">
-				<Text text="OP" />
+				<Text text="Tipo de Parada" />
 			</Column>
             <Column
 				minScreenWidth="Tablet"
 				demandPopin="true">
-				<Text text="Máquina" />
+				<Text text="Sistema" />
 			</Column>
             <Column
 				minScreenWidth="Tablet"
@@ -107,7 +107,7 @@
             <Column
 				minScreenWidth="Tablet"
 				demandPopin="true">
-				<Text text="Causa" />
+				<Text text="Evento" />
 			</Column>
             <Column hAlign="End">
                 <Text text="Comentario" />

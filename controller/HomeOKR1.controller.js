@@ -29,7 +29,8 @@ sap.ui.define([
         },
         okrN1 = thes.getStatus('num_accidentes'),
         okrN2 = thes.getStatus('indice_frecuencia'),
-        okrN3 = thes.getStatus('indice_severidad');
+        okrN3 = thes.getStatus('indice_severidad'),
+        diasSinAccidentes = thes.evaluarDiasSinAccidente();
 
         $.ajax({
           data: parametros,
@@ -41,12 +42,20 @@ sap.ui.define([
             for (let index = 0; index < response.TileCollection.length; index++) {
               if(response.TileCollection[index].view == "okr1-4"){
                 response.TileCollection[index].color = okrN1;
+                response.TileCollection[index].valueTotal = diasSinAccidentes;
+                response.TileCollection[index].stateTotal = true;
               } else if(response.TileCollection[index].view == "okr1-5"){
-                response.TileCollection[index].color = okrN2;             
+                response.TileCollection[index].color = okrN2;
+                response.TileCollection[index].valueTotal = 100;
+                response.TileCollection[index].stateTotal = false;             
               } else if(response.TileCollection[index].view == "okr1-6"){
                 response.TileCollection[index].color = okrN3;
+                response.TileCollection[index].valueTotal = 100;
+                response.TileCollection[index].stateTotal = false;
               } else {
                 response.TileCollection[index].color = 'Error';
+                response.TileCollection[index].valueTotal = 100;
+                response.TileCollection[index].stateTotal = false;
               }
             }
             var oModel = new sap.ui.model.json.JSONModel(response);  
@@ -85,7 +94,7 @@ sap.ui.define([
       onHomePress: function(oEvent){
         var thes = this;
         thes.showBusyIndicator(3000, 0);
-thes.getRouter().navTo('home');
+        thes.getRouter().navTo('home');
       },
       getStatus: function(campo){
         var thes = this,
@@ -124,6 +133,40 @@ thes.getRouter().navTo('home');
         });
 
         return value;
-      }
+      },
+      evaluarDiasSinAccidente: function(){
+        var thes = this,
+        dateToday = new Date(),
+        number = 0,
+        dateLastAccident = 0,
+        Difference_In_Time = 0;
+
+        $.ajax({
+          url: 'model/SIMA/EvaluarDiasSinAccidentes.php',
+          type: 'get',
+          dataType: 'json',
+          async: false,
+          success: function(response){
+            for (let index = 0; index < response.length; index++) {
+              let date =  response[index]['fecha'];
+              let t = date.split(/[- :]/);
+              response[index].fecha =  new Date(Date.UTC(t[0], t[1]-1, t[2], t[3], t[4], t[5]));            
+            }
+
+            if(response.length != 0){
+              dateLastAccident = response[0].fecha;
+              Difference_In_Time = dateToday.getTime() - dateLastAccident.getTime(); 
+              number = Difference_In_Time / (1000 * 3600 * 24);
+              number = parseInt(number); 
+            }
+          },
+          error: function(xhr,  ajaxOptions, thrownError){
+            alert(xhr.status);
+            alert(thrownError);
+          }
+        });
+
+        return number;
+      },
    });
 });

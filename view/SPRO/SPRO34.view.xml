@@ -9,7 +9,7 @@
   xmlns:t="sap.ui.table"
   xmlns="sap.m">
     <Page
-      title="Máquina"
+      title="Sistema"
       id="SPRO34"
       showNavButton="true"
       navButtonPress="onNavBack"

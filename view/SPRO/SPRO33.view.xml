@@ -9,7 +9,7 @@
   xmlns:t="sap.ui.table"
   xmlns="sap.m">
     <Page
-      title="OP"
+      title="Tipo de Parada"
       id="SPRO33"
       showNavButton="true"
       navButtonPress="onNavBack"
