@@ -55,7 +55,7 @@
 									<ToolbarSeparator/>
 									<Button icon="sap-icon://synchronize" type="Transparent" tooltip="Actualizar" press="onFreshDataScada"/>
 									<Button icon="sap-icon://appointment-2" type="Transparent" tooltip="Cierre Mensual" press="onShowSecondTable" id="btnCierre" visible="true"/>
-									<Button icon="sap-icon://manager-insight" type="Transparent" tooltip="Reporte de Producción" press="onReporteProducción" id="btnReporte" visible="true"/>
+									<Button icon="sap-icon://manager-insight" type="Transparent" tooltip="Registro de Paradas" press="onReporteProducción" id="btnReporte" visible="true"/>
 								</OverflowToolbar>
 							</headerToolbar>
 							<columns>

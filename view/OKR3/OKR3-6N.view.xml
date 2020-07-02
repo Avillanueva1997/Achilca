@@ -23,7 +23,7 @@
 					<Title text="Turno: Noche (20:00 - 08:00)" level="H2" />
 					<ToolbarSeparator/>
 					<Button icon="sap-icon://synchronize" type="Transparent" tooltip="Actualizar" press="onFreshDataScada"/>
-					<Button icon="sap-icon://manager-insight" type="Transparent" tooltip="Reporte de Producción" press="onReporteProducción" id="btnReporte" visible="true"/>
+					<Button icon="sap-icon://manager-insight" type="Transparent" tooltip="Registro de Paradas" press="onReporteProducción" id="btnReporte" visible="true"/>
 				</OverflowToolbar>
 			</headerToolbar>
 				<columns>

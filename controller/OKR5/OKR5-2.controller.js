@@ -77,7 +77,7 @@ sap.ui.define([
         success: function(response){
           response = JSON.parse(response);
           if(response.length != 0){
-            objetivo = response[0].objetivo;
+            objetivo = response[response.length - 1].objetivo;
           }
           var oModel = new sap.ui.model.json.JSONModel();
           oModel.setData(response);
@@ -88,7 +88,7 @@ sap.ui.define([
             ],                           
             measures : [{
               name : 'Real',
-              value : '{real}'
+              value : '{result}'
             }],                         
             data : {
               path : "/"

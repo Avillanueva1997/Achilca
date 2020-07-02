@@ -17,7 +17,8 @@ $Data = array();
 $sqlData = "select t2.description as month, t1.real, t1.objetivo
                 from costo_trf t1
                 inner join month t2 on t1.month = t2.code
-                where t1.year = '".$_Year."' and t1.diametro = '".$_Diametro."' and t1.month <= {$_Month};";
+                where t1.year = '".$_Year."' and t1.diametro = '".$_Diametro."' and t1.month <= {$_Month}
+                order by t2.code asc;";
 
 $resultData = mysqli_query($con,$sqlData);
 

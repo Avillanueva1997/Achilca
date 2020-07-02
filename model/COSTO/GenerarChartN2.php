@@ -8,7 +8,11 @@ mysqli_set_charset($con, "utf8");
 
 $Data = array();
 
-$sqlData = "select t1.year, t1.real, t1.objetivo from costo_mtto t1;";
+$sqlData = "select t1.year, (sum(t1.dolar) / sum(t1.prod)) as result, AVG(objetivo) as objetivo
+from costo_mtto t1
+where objetivo != '' and objetivo IS NOT NULL
+group by t1.year
+order by t1.year asc;";
 
 $resultData = mysqli_query($con,$sqlData);
 
@@ -20,14 +24,14 @@ while($row = mysqli_fetch_array($resultData))
 { 	    
     
     $year=$row['year'];
-    $real=$row['real'];
+    $result=$row['result'];
     $objetivo=$row['objetivo'];
 
     $Data[] = array(
                             
                             'year'=>$year,                    
-                            'real'=>$real,
-                            'objetivo'=>$objetivo
+                            'result'=>round($result),
+                            'objetivo'=>round($objetivo)
     );
 }
 

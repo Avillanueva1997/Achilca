@@ -10,7 +10,7 @@
     xmlns="sap.m"
     xmlns:viz="sap.viz.ui5.controls">
     <Page
-      title="Distribución Bola Obs MTD"
+      title="% Distribución Bola Obs MTD"
       id="CALIDAD03M"
       showNavButton="true"
       navButtonPress="onNavBack">

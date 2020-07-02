@@ -89,7 +89,7 @@ sap.ui.define([
                     },
                 },
                 title: {
-                    text: "Distribución Bola Obs"
+                    text: "% Distribución Bola Obs"
                 },
                 valueAxis: {
                     title: {
